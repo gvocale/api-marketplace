@@ -10,6 +10,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --max-width: 1500px;
+  padding-inline: clamp(1rem, 5vw, 2rem);
 }
 
 .header {

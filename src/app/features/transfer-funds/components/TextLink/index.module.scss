@@ -1,0 +1,17 @@
+.root {
+  text-decoration: none;
+  color: var(--color-acidlemon-500);
+  font-weight: 600;
+  line-height: 1.2;
+  text-underline-offset: 2px;
+  border-radius: var(--radius-sm);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-acidlemon-500);
+    outline-offset: 2px;
+  }
+}

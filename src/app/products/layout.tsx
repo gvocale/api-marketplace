@@ -1,5 +1,5 @@
-import { Footer } from "../components/Footer";
-import { Nav } from "../components/Nav";
+import { Footer } from "../features/transfer-funds/components/Footer";
+import { Nav } from "../features/transfer-funds/components/Nav";
 import styles from "./layout.module.scss";
 
 export default function ProductsLayout({

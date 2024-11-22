@@ -1,5 +1,8 @@
 import Image from "next/image";
 import styles from "./index.module.scss";
+import { Button } from "../Button";
+import Link from "next/link";
+import { TextLink } from "../TextLink";
 
 export function Nav() {
   return (
@@ -20,10 +23,12 @@ export function Nav() {
       <input type="search" />
       <ul className={styles.authLinks}>
         <li>
-          <a href="">Sign up</a>
+          <TextLink href="">Sign up</TextLink>
         </li>
         <li>
-          <a href="">Log in</a>
+          <Button as={Link} href="/login" variant="primary">
+            Log in
+          </Button>
         </li>
       </ul>
     </nav>

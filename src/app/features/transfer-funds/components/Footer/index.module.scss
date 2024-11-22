@@ -42,25 +42,7 @@
   align-items: baseline;
   gap: 2rem;
   list-style: none;
-}
-
-.legalLink {
-  color: var(--color-acidlemon-500);
   font-size: var(--font-size-sm);
-  font-weight: 500;
-  line-height: 1.2;
-  text-decoration: none;
-  text-underline-offset: 0.25rem;
-
-  &:hover {
-    color: var(--color-acidlemon-400);
-    text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: 1px solid var(--color-acidlemon-400);
-    outline-offset: 2px;
-  }
 }
 
 .legalText {
@@ -84,23 +66,5 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.sectionLink {
-  color: var(--color-acidlemon-500);
   font-size: var(--font-size-base);
-  font-weight: 500;
-  line-height: 1.2;
-  text-decoration: none;
-  text-underline-offset: 0.25rem;
-
-  &:hover {
-    color: var(--color-acidlemon-400);
-    text-decoration: underline;
-  }
-
-  &:focus-visible {
-    outline: 1px solid var(--color-acidlemon-400);
-    outline-offset: 2px;
-  }
 }
