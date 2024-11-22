@@ -140,7 +140,7 @@ export function TransferFunds() {
           </p>
         </section>
         <section className={styles.section}>
-          <h2 className={styles}>
+          <h2 className={styles.h2}>
             Steps to Initiate a Wire Payment with Pacs.008
           </h2>
           <p className={styles.paragraph}>
