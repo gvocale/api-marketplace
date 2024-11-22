@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+  list-style-type: none;
+  align-items: stretch;
+}
+
+.item {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+

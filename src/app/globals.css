@@ -27,12 +27,12 @@
   --color-white: #fff;
 
   /* Grayscale palette */
-  --color-gray-50: color(display-p3 0.976 0.980 0.984);
+  --color-gray-50: color(display-p3 0.976 0.98 0.984);
   --color-gray-100: color(display-p3 0.953 0.957 0.965);
   --color-gray-200: color(display-p3 0.898 0.906 0.922);
-  --color-gray-300: color(display-p3 0.820 0.835 0.859);
+  --color-gray-300: color(display-p3 0.82 0.835 0.859);
   --color-gray-400: color(display-p3 0.612 0.639 0.686);
-  --color-gray-500: color(display-p3 0.420 0.447 0.502);
+  --color-gray-500: color(display-p3 0.42 0.447 0.502);
   --color-gray-600: color(display-p3 0.294 0.333 0.388);
   --color-gray-700: color(display-p3 0.216 0.255 0.318);
   --color-gray-800: color(display-p3 0.122 0.161 0.216);
@@ -56,10 +56,12 @@
   --color-blueteal-950: color(display-p3 0.078 0.133 0.141);
 
   /* Dark Night palette - adjusted to be darker */
-  --color-darknight-50: color(display-p3 0.847 0.898 0.941); /* Lighter but muted */
-  --color-darknight-100: color(display-p3 0.694 0.800 0.886);
-  --color-darknight-200: color(display-p3 0.498 0.655 0.800);
-  --color-darknight-300: color(display-p3 0.302 0.510 0.710);
+  --color-darknight-50: color(
+    display-p3 0.847 0.898 0.941
+  ); /* Lighter but muted */
+  --color-darknight-100: color(display-p3 0.694 0.8 0.886);
+  --color-darknight-200: color(display-p3 0.498 0.655 0.8);
+  --color-darknight-300: color(display-p3 0.302 0.51 0.71);
   --color-darknight-400: color(display-p3 0.165 0.365 0.561);
   --color-darknight-500: color(display-p3 0.106 0.259 0.412); /* Darker base */
   --color-darknight-600: color(display-p3 0.075 0.184 0.302);
@@ -68,9 +70,9 @@
   --color-darknight-900: color(display-p3 0.012 0.039 0.071);
 
   /* Acid Lemon palette */
-  --color-acidlemon-50: color(display-p3 0.976 0.988 0.910);
-  --color-acidlemon-100: color(display-p3 0.953 0.976 0.820);
-  --color-acidlemon-200: color(display-p3 0.910 0.953 0.639);
+  --color-acidlemon-50: color(display-p3 0.976 0.988 0.91);
+  --color-acidlemon-100: color(display-p3 0.953 0.976 0.82);
+  --color-acidlemon-200: color(display-p3 0.91 0.953 0.639);
   --color-acidlemon-300: color(display-p3 0.867 0.925 0.459);
   --color-acidlemon-400: color(display-p3 0.824 0.902 0.278);
   --color-acidlemon-500: color(display-p3 0.733 0.875 0.196); /* Base color */
@@ -80,8 +82,8 @@
   --color-acidlemon-900: color(display-p3 0.153 0.173 0.039);
 
   /* Eggplant palette */
-  --color-eggplant-50: color(display-p3 0.957 0.910 0.957);
-  --color-eggplant-100: color(display-p3 0.914 0.820 0.914);
+  --color-eggplant-50: color(display-p3 0.957 0.91 0.957);
+  --color-eggplant-100: color(display-p3 0.914 0.82 0.914);
   --color-eggplant-200: color(display-p3 0.827 0.639 0.827);
   --color-eggplant-300: color(display-p3 0.741 0.459 0.741);
   --color-eggplant-400: color(display-p3 0.655 0.278 0.655);
@@ -94,8 +96,8 @@
   --color-eggplant-950: color(display-p3 0.059 0.012 0.059);
 
   /* Lapis Lazuli palette */
-  --color-lapis-50: color(display-p3 0.910 0.918 0.988);
-  --color-lapis-100: color(display-p3 0.820 0.835 0.976); 
+  --color-lapis-50: color(display-p3 0.91 0.918 0.988);
+  --color-lapis-100: color(display-p3 0.82 0.835 0.976);
   --color-lapis-200: color(display-p3 0.639 0.671 0.953);
   --color-lapis-300: color(display-p3 0.459 0.506 0.925);
   --color-lapis-400: color(display-p3 0.278 0.341 0.902);
@@ -103,20 +105,34 @@
   --color-lapis-600: color(display-p3 0.082 0.098 0.455);
   --color-lapis-700: color(display-p3 0.061 0.073 0.341);
   --color-lapis-800: color(display-p3 0.041 0.049 0.227);
-  --color-lapis-900: color(display-p3 0.020 0.024 0.114);
+  --color-lapis-900: color(display-p3 0.02 0.024 0.114);
   --color-lapis-950: color(display-p3 0.012 0.012 0.067);
+
+  /* Pansy Blue palette */
+  --color-pansy-50: color(display-p3 0.922 0.941 0.98);
+  --color-pansy-100: color(display-p3 0.843 0.882 0.961);
+  --color-pansy-200: color(display-p3 0.686 0.765 0.922);
+  --color-pansy-300: color(display-p3 0.529 0.647 0.882);
+  --color-pansy-400: color(display-p3 0.373 0.494 0.735);
+  --color-pansy-500: color(
+    display-p3 0.373 0.494 0.735
+  ); /* Base color - RGB(95, 126, 187) */
+  --color-pansy-600: color(display-p3 0.298 0.396 0.588);
+  --color-pansy-700: color(display-p3 0.224 0.298 0.441);
+  --color-pansy-800: color(display-p3 0.149 0.196 0.294);
+  --color-pansy-900: color(display-p3 0.075 0.098 0.147);
+  --color-pansy-950: color(display-p3 0.037 0.049 0.073);
 
   --z-index-header: 100;
 
   --ease-out-quart: cubic-bezier(0.25, 0.1, 0.25, 1);
-  --ease-out-back: cubic-bezier(0.34, 1.2, 0.64, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.25, 0.64, 1);
 
   /* Border radius scale */
-  --radius-sm: 0.25rem;     /* 4px */
-  --radius-base: 0.5rem;    /* 8px */
-  --radius-lg: 1rem;        /* 16px */
-  --radius-full: 9999px;    /* For fully rounded elements */
-
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-base: 0.5rem; /* 8px */
+  --radius-lg: 1rem; /* 16px */
+  --radius-full: 9999px; /* For fully rounded elements */
 }
 
 * {

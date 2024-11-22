@@ -1,12 +1,23 @@
+.fieldset {
+  appearance: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
 .buttons {
   display: inline-grid;
   grid-auto-flow: column;
   --buttons-gap: 0.75rem;
+  --buttons-padding: 0.5rem;
   gap: var(--buttons-gap);
-  padding: 0.5rem;
-  border-radius: 3rem;
-  background-color: var(--color-darknight-900);
+  padding: var(--buttons-padding);
+  border-radius: var(--radius-full);
   position: relative;
+  outline: 2px solid
+    color-mix(in display-p3, var(--color-acidlemon-200) 20%, transparent);
 }
 
 .button {
@@ -24,32 +35,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--color-darknight-900);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-white);
 }
 
 .button:hover,
 .button:has(.input:focus-visible) {
-  outline: 2px solid var(--color-blueteal-600-50);
+  outline: 2px solid var(--color-acidlemon-600);
   outline-offset: 2px;
-}
-
-.button:has(.input:checked) {
-  color: var(--color-white);
 }
 
 .ghost {
   background-image: linear-gradient(
     to bottom,
-    var(--color-blueteal-700),
-    var(--color-blueteal-800)
+    var(--color-acidlemon-500),
+    var(--color-acidlemon-600)
   );
   position: absolute;
   width: var(--ghost-width);
-  height: 100%;
-  top: 0;
-  left: var(--ghost-left);
+  top: var(--buttons-padding);
+  bottom: var(--buttons-padding);
+  left: var(--ghost-left, var(--buttons-padding));
   border-radius: 3rem;
-  transition: left 0.5s var(--ease-out-back), width 0.5s var(--ease-out-back);
+  transition: left 0.25s var(--ease-out-back), width 0.25s var(--ease-out-back);
   box-shadow: 0 0 4px var(--color-blueteal-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-darknight-900);
+  font-weight: 600;
+  line-height: 1.2;
+  padding-inline: 2rem;
+  padding-block: 1rem;
 }
 
 .label {
@@ -57,17 +76,11 @@
 }
 
 .legend {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   line-height: 1.2;
   font-weight: 500;
   margin-bottom: 1rem;
   text-align: center;
-}
-
-.fieldset {
-  margin-bottom: 3rem;
-  appearance: none;
-  border: none;
 }
 
 .input {

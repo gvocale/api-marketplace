@@ -1,11 +1,12 @@
 "use client";
 
-import React, { CSSProperties, useEffect, useState } from "react";
-import styles from "./index.module.scss";
 import { FinancialMessagingStandard } from "@/app/features/types";
+import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
+import styles from "./index.module.scss";
 
 export interface ToggleProps {
   defaultValue: FinancialMessagingStandard;
+  name: string;
   options: {
     label: string;
     value: string;
@@ -15,49 +16,57 @@ export interface ToggleProps {
 
 export default function Toggle({
   defaultValue = "swift",
+  name,
   options,
   onChange,
 }: ToggleProps) {
   const [width, setWidth] = useState<number>();
   const [left, setLeft] = useState<number>();
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const selectedButton = document.querySelector(
       `label:has(input[value="${defaultValue}"])`
     );
-    if (selectedButton) {
-      const rect = selectedButton.getBoundingClientRect();
-      setWidth(rect.width);
-      setLeft(rect.left);
+    if (selectedButton && !width) {
+      setRelativePosition(selectedButton);
     }
-  }, [defaultValue]);
+  }, [defaultValue, width]);
 
-  function handleClick(e: React.MouseEvent<HTMLLabelElement>) {
-    const element = e.currentTarget;
+  function setRelativePosition(element: Element) {
     const rect = element.getBoundingClientRect();
-    const parentRect = element.parentElement?.getBoundingClientRect();
-
-    console.log({
-      width: rect.width,
-      left: rect.left - (parentRect?.left || 0),
-      top: rect.top - (parentRect?.top || 0),
-      // Relative to parent element
-      position: {
-        x: rect.x - (parentRect?.x || 0),
-        y: rect.y - (parentRect?.y || 0),
-      },
-    });
+    const parentRect = ref.current?.getBoundingClientRect();
+    const difference = rect.x - (parentRect?.x ?? 0);
+    setWidth(rect.width);
+    setLeft(difference);
   }
+
+  function handleClick(e: MouseEvent<HTMLLabelElement>) {
+    setRelativePosition(e.currentTarget);
+  }
+
+  const selectedOption = options.find(
+    (option) => option.value === defaultValue
+  );
 
   return (
     <fieldset className={styles.fieldset}>
       <legend className={styles.legend}>Financial messaging standards</legend>
       <div
+        ref={ref}
         className={styles.buttons}
         style={
           {
-            "--ghost-width": width ? `${width}px` : "auto",
-            "--ghost-left": left ? `${left}px` : "auto",
+            ...(width
+              ? {
+                  "--ghost-width": `${width}px`,
+                }
+              : {}),
+            ...(left
+              ? {
+                  "--ghost-left": `${left}px`,
+                }
+              : {}),
           } as CSSProperties
         }
       >
@@ -68,20 +77,19 @@ export default function Toggle({
             onClick={handleClick}
             key={option.value}
           >
-            <div className={styles.ghost}></div>
             <input
               type="radio"
-              id="swift"
-              name="standard"
-              value="swift"
-              checked={defaultValue === "swift"}
+              id={option.value}
+              name={name}
+              value={option.value}
+              checked={defaultValue === option.value}
               onChange={(e) => onChange(e.target.value)}
               className={styles.input}
             />
+            <div className={styles.label}>{option.label}</div>
           </label>
         ))}
-
-        <div className={styles.label}>SWIFT MT103</div>
+        <div className={styles.ghost}>{selectedOption?.label}</div>
       </div>
     </fieldset>
   );

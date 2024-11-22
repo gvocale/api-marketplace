@@ -19,8 +19,11 @@
 }
 
 .article {
-  max-width: 70ch;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 6rem;
   margin: 0 auto;
+  width: 100%;
+  display: grid;
 }
 
 .h1 {
@@ -45,6 +48,7 @@
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .toggle {
@@ -56,8 +60,45 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  grid-column: span 12;
 }
 
 .section {
-  margin-bottom: 8rem;
+  grid-column-start: 3;
+  grid-column-end: 11;
+  display: grid;
+}
+
+.cards {
+  grid-column: span 12;
+}
+
+.fullWidth {
+  grid-column: span 12;
+}
+
+.lead {
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-wrap: pretty;
+}
+
+.paragraph {
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-wrap: pretty;
+}
+
+.h3 {
+  font-size: var(--font-size-xl);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.paragraph + .h3 {
+  margin-top: 4rem;
 }
