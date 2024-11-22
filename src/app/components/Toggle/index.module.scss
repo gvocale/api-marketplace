@@ -1,0 +1,75 @@
+.buttons {
+  display: inline-grid;
+  grid-auto-flow: column;
+  --buttons-gap: 0.75rem;
+  gap: var(--buttons-gap);
+  padding: 0.5rem;
+  border-radius: 3rem;
+  background-color: var(--color-darknight-900);
+  position: relative;
+}
+
+.button {
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  border-radius: 3rem;
+  font-size: var(--font-size-base);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover,
+.button:has(.input:focus-visible) {
+  outline: 2px solid var(--color-blueteal-600-50);
+  outline-offset: 2px;
+}
+
+.button:has(.input:checked) {
+  color: var(--color-white);
+}
+
+.ghost {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-blueteal-700),
+    var(--color-blueteal-800)
+  );
+  position: absolute;
+  width: var(--ghost-width);
+  height: 100%;
+  top: 0;
+  left: var(--ghost-left);
+  border-radius: 3rem;
+  transition: left 0.5s var(--ease-out-back), width 0.5s var(--ease-out-back);
+  box-shadow: 0 0 4px var(--color-blueteal-950);
+}
+
+.label {
+  position: relative;
+}
+
+.legend {
+  font-size: var(--font-size-md);
+  line-height: 1.2;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.fieldset {
+  margin-bottom: 3rem;
+  appearance: none;
+  border: none;
+}
+
+.input {
+  appearance: none;
+}

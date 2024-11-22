@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  align-items: baseline;
+  background-color: var(--color-blueteal-600-20);
+  border-radius: 3rem;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  color: var(--color-white);
+  backdrop-filter: blur(8px);
+  justify-content: space-between;
+  outline: 1px solid var(--color-blueteal-800);
+  box-shadow: 0 0 4px var(--color-blueteal-400-20);
+}
+
+.logo {
+  align-self: center;
+  height: 1rem;
+  width: auto;
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+  align-items: baseline;
+  list-style: none;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: var(--font-size-base);
+  letter-spacing: -0.02em;
+}
+
+.authLinks {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  list-style: none;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: var(--font-size-base);
+  letter-spacing: -0.02em;
+}
