@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       {
         source: "/",
         destination: "/products/transfer-funds",
+        basePath: false,
         permanent: false,
       },
     ];
