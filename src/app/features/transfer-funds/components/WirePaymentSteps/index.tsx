@@ -1,4 +1,4 @@
-import { CURL_EXAMPLE_1, JSON_1, JSON_2, JSON_3 } from "@/app/products/transfer-funds/data";
+import { CURL_EXAMPLE_1, JSON_1, JSON_2, JSON_3, JSON_4, JSON_5 } from "@/app/products/transfer-funds/data";
 import styles from "./index.module.scss";
 import { Code } from "../Code";
 import Link from "next/link";

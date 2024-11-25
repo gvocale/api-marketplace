@@ -8,7 +8,7 @@ export function Clients() {
       <div className={styles.heading}>
         <h2 className={styles.h2}>Our Clients</h2>
         <p className={styles.subhead}>
-          Trusted by the world's leading financial institutions.
+          Trusted by the world&apos;s leading financial institutions.
         </p>
       </div>
       <ul className={styles.list}>
