@@ -1,0 +1,27 @@
+.h2 {
+  font-size: var(--font-size-3xl);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.subhead {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  font-weight: 300;
+  text-wrap: balance;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: var(--grid-gap);
+}
+
+.heading {
+  margin-bottom: 3rem;
+}

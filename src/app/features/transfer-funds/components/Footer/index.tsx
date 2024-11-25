@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { TextLink } from "../TextLink";
 import styles from "./index.module.scss";
+import { Divider } from "../Divider";
 
 export function Footer() {
   return (
     <footer className={styles.root}>
-      <hr className={styles.divider} />
+      <Divider className={styles.divider} />
       <div className={styles.content}>
         <div>
           <Image
@@ -88,7 +89,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <hr className={styles.divider} />
+      <Divider className={styles.divider} />
       <div className={styles.legal}>
         <ul className={styles.legalLinks}>
           <li>

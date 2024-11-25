@@ -1,1 +1,4 @@
-export type FinancialMessagingStandard = "swift" | "pacs";
+export enum FinancialMessagingStandard {
+  SWIFT = "swift",
+  PACS = "pacs",
+}

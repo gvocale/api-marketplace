@@ -6,7 +6,7 @@ import { TextLink } from "../TextLink";
 
 export function Nav() {
   return (
-    <nav className={styles.root}>
+    <nav className={styles.nav}>
       <Image
         src="/bny-marketplace-logo.svg"
         alt="Logo"

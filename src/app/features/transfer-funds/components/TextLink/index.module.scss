@@ -1,9 +1,9 @@
 .root {
   text-decoration: none;
   color: var(--color-acidlemon-500);
-  font-weight: 600;
+  font-weight: 550;
   line-height: 1.2;
-  text-underline-offset: 0.25em;
+  text-underline-offset: 0.2em;
   border-radius: var(--radius-sm);
 
   &:hover:not(:focus-visible) {

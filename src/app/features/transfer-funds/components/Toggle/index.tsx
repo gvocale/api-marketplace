@@ -15,7 +15,7 @@ export interface ToggleProps {
 }
 
 export default function Toggle({
-  defaultValue = "swift",
+  defaultValue = FinancialMessagingStandard.SWIFT,
   name,
   options,
   onChange,
@@ -51,7 +51,7 @@ export default function Toggle({
 
   return (
     <fieldset className={styles.fieldset}>
-      <legend className={styles.legend}>Financial messaging standards</legend>
+      {/* <legend className={styles.legend}>Financial messaging standards</legend> */}
       <div
         ref={ref}
         className={styles.buttons}

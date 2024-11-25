@@ -9,8 +9,15 @@
   color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --max-width: 1500px;
-  padding-inline: clamp(1rem, 5vw, 2rem);
+  --max-width: 1680px;
+  --grid-gap: 2rem;
+  --page-section-gap: 8rem;
+  --page-padding-y: 8rem;
+  --page-padding-inline: 1rem;
+
+  @media (min-width: 1280px) {
+    --page-padding-inline: 5dvw;
+  }
 }
 
 .header {

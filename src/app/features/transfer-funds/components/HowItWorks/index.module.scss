@@ -1,0 +1,65 @@
+.root {
+  width: 100dvw;
+  grid-column: span 12;
+  // height: 200dvh;
+  scroll-timeline-name: --how-to-timeline;
+}
+
+.h2 {
+  font-size: var(--font-size-3xl);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 4rem;
+}
+
+.steps {
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  width: 100%;
+  padding-top: 1rem;
+  padding-inline: var(--page-padding-inline);
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+  scrollbar-width: thin;
+  padding-bottom: 2rem;
+}
+
+.step {
+  width: 320px;
+}
+
+.step:not(:first-child) {
+  transform: translateX(100dvw);
+  animation: reveal linear both;
+  animation-timeline: view(block);
+  animation-range: entry-crossing 0% entry-crossing 100%;
+}
+
+@keyframes reveal {
+  from {
+    transform: translateX(100dvw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.divider {
+  width: 80px;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.paragraph {
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+  margin-block: 2rem;
+  text-wrap: pretty;
+}

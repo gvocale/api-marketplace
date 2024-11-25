@@ -123,6 +123,27 @@
   --color-pansy-900: color(display-p3 0.075 0.098 0.147);
   --color-pansy-950: color(display-p3 0.037 0.049 0.073);
 
+  --color-border: color-mix(
+    in display-p3,
+    var(--color-gray-500) 20%,
+    transparent
+  );
+  --color-scrollbar-thumb: color-mix(
+    in display-p3,
+    var(--color-gray-500) 40%,
+    transparent
+  );
+  --color-scrollbar-track: color-mix(
+    in display-p3,
+    var(--color-gray-500) 20%,
+    transparent
+  );
+  --card-background-color: color-mix(
+    in display-p3,
+    var(--color-gray-500) 20%,
+    transparent
+  );
+
   --z-index-header: 100;
 
   --ease-out-quart: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -133,6 +154,14 @@
   --radius-base: 0.5rem; /* 8px */
   --radius-lg: 1rem; /* 16px */
   --radius-full: 9999px; /* For fully rounded elements */
+
+  --color-text-black: var(--color-darknight-900);
+  --color-text-white: var(--color-white);
+  --color-text-white-muted: color-mix(
+    in display-p3,
+    var(--color-white) 50%,
+    transparent
+  );
 }
 
 * {

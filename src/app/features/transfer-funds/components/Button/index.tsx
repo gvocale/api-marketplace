@@ -6,7 +6,7 @@ export interface ButtonProps {
   as?: ElementType | typeof Link;
   children: ReactNode;
   variant: "primary" | "secondary";
-  href?: string;
+  href: ButtonProps["as"] extends typeof Link ? string : string | undefined;
 }
 
 export function Button({ as, href, children, variant }: ButtonProps) {

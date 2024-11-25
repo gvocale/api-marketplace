@@ -1,19 +1,19 @@
-.root {
+.nav {
   display: flex;
   align-items: baseline;
-  background-color: var(--color-blueteal-600-20);
+  border: 1px solid var(--color-border);
+  background-color: var(--card-background-color);
+  
   border-radius: 3rem;
   padding: 1.5rem;
   color: var(--color-white);
   backdrop-filter: blur(8px);
   justify-content: space-between;
-  outline: 1px solid var(--color-blueteal-800);
-  box-shadow: 0 0 4px var(--color-blueteal-400-20);
 }
 
 .logo {
   align-self: center;
-  height: 1rem;
+  height: 1.25rem;
   width: auto;
 }
 

@@ -1,17 +1,8 @@
-.container {
-  max-width: 1280px;
-  display: grid;
-  grid-template-columns: max-content 3fr max-content;
-  gap: 2rem;
-  margin: 0 auto;
-  padding-top: 8rem;
-}
-
-.aside {
-}
-
-.toggleAside {
-  order: 3;
+.page {
+  padding-block: var(--page-padding-y);
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-section-gap);
 }
 
 .lead {
@@ -19,8 +10,10 @@
 }
 
 .article {
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 6rem;
+  grid-column: span 12;
+  grid-template-columns: subgrid;
+  column-gap: var(--grid-gap);
+  row-gap: var(--page-section-gap);
   margin: 0 auto;
   width: 100%;
   display: grid;
@@ -43,10 +36,10 @@
 }
 
 .h2 {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   line-height: 1.2;
   letter-spacing: -0.02em;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   font-weight: 600;
   text-align: center;
 }
@@ -63,14 +56,8 @@
   grid-column: span 12;
 }
 
-.section {
-  grid-column-start: 3;
-  grid-column-end: 11;
-  display: grid;
-}
-
 .cards {
-  grid-column: span 12;
+  margin-bottom: 6rem;
 }
 
 .fullWidth {
@@ -101,4 +88,33 @@
 
 .paragraph + .h3 {
   margin-top: 4rem;
+}
+
+.h1,
+.h2,
+.h3,
+.lead,
+.paragraph {
+  &::selection {
+    background-color: var(--color-acidlemon-500);
+    color: var(--color-text-black);
+  }
+}
+
+.divider {
+  margin-bottom: 4rem;
+}
+
+.contents {
+  display: contents;
+}
+
+.subhead {
+  font-size: var(--font-size-lg);
+  max-width: 70ch;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-wrap: balance;
+  font-weight: 300;
 }
