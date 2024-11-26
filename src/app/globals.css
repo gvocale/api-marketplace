@@ -123,9 +123,14 @@
   --color-pansy-900: color(display-p3 0.075 0.098 0.147);
   --color-pansy-950: color(display-p3 0.037 0.049 0.073);
 
-  --color-border: color-mix(
+  --color-border-20: color-mix(
     in display-p3,
     var(--color-gray-500) 20%,
+    transparent
+  );
+  --color-border-50: color-mix(
+    in display-p3,
+    var(--color-gray-500) 50%,
     transparent
   );
   --color-scrollbar-thumb: color-mix(

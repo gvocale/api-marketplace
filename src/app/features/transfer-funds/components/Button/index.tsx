@@ -6,14 +6,24 @@ export interface ButtonProps {
   as?: ElementType | typeof Link;
   children: ReactNode;
   variant: "primary" | "secondary";
+  size?: "sm" | "lg";
   href: ButtonProps["as"] extends typeof Link ? string : string | undefined;
 }
 
-export function Button({ as, href, children, variant }: ButtonProps) {
+export function Button({
+  as,
+  href,
+  children,
+  variant,
+  size = "lg",
+}: ButtonProps) {
   const Component = as ?? "button";
 
   return (
-    <Component className={`${styles.root} ${styles[variant]}`} href={href}>
+    <Component
+      className={`${styles.root} ${styles[variant]} ${styles[size]}`}
+      href={href}
+    >
       {children}
     </Component>
   );

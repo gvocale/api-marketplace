@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.buttons {
+.track {
   display: inline-grid;
   grid-auto-flow: column;
   --buttons-gap: 0.75rem;
@@ -16,8 +16,7 @@
   padding: var(--buttons-padding);
   border-radius: var(--radius-full);
   position: relative;
-  outline: 2px solid
-    color-mix(in display-p3, var(--color-acidlemon-200) 20%, transparent);
+  outline: 1px solid var(--color-border-50);
 }
 
 .button {
@@ -44,20 +43,20 @@
 .button:hover,
 .button:has(.input:focus-visible) {
   outline: 2px solid var(--color-acidlemon-600);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-.ghost {
+.handle {
   background-image: linear-gradient(
     to bottom,
     var(--color-acidlemon-500),
     var(--color-acidlemon-600)
   );
   position: absolute;
-  width: var(--ghost-width);
+  width: var(--handle-width);
   top: var(--buttons-padding);
   bottom: var(--buttons-padding);
-  left: var(--ghost-left, var(--buttons-padding));
+  left: var(--handle-left, var(--buttons-padding));
   border-radius: 3rem;
   transition: left 0.25s var(--ease-out-back), width 0.25s var(--ease-out-back);
   box-shadow: 0 0 4px var(--color-blueteal-950);

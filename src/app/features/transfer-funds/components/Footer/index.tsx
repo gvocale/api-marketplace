@@ -20,16 +20,16 @@ export function Footer() {
         <div>
           <h3 className={styles.sectionTitle}>Solutions</h3>
           <ul className={styles.sectionLinks}>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">One BNY</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Treasury Services</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Wove Connect</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Custody & Settlement</TextLink>
             </li>
           </ul>
@@ -37,19 +37,19 @@ export function Footer() {
         <div>
           <h3 className={styles.sectionTitle}>Developer</h3>
           <ul className={styles.sectionLinks}>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Documentation Overview</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Treasury Services Documentation</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Wove Connect Documentation</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Sandbox</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">API Keys & Authentication</TextLink>
             </li>
           </ul>
@@ -57,19 +57,19 @@ export function Footer() {
         <div>
           <h3 className={styles.sectionTitle}>Resources</h3>
           <ul className={styles.sectionLinks}>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Help Center</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Case Studies</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Guides</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Treasury Services Quick Start Guide</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Wave Connect Quick Start Guide</TextLink>
             </li>
           </ul>
@@ -77,28 +77,28 @@ export function Footer() {
         <div>
           <h3 className={styles.sectionTitle}>Company</h3>
           <ul className={styles.sectionLinks}>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">About Us</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">News</TextLink>
             </li>
-            <li>
+            <li className={styles.sectionLink}>
               <TextLink href="/">Careers</TextLink>
             </li>
           </ul>
         </div>
       </div>
-      <Divider className={styles.divider} />
+      <Divider />
       <div className={styles.legal}>
         <ul className={styles.legalLinks}>
-          <li>
+          <li className={styles.legalLink}>
             <TextLink href="/">Privacy Policy</TextLink>
           </li>
-          <li>
+          <li className={styles.legalLink}>
             <TextLink href="/">Terms of Service</TextLink>
           </li>
-          <li>
+          <li className={styles.legalLink}>
             <TextLink href="/">Cookie Notice</TextLink>
           </li>
         </ul>

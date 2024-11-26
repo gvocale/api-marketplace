@@ -54,17 +54,17 @@ export default function Toggle({
       {/* <legend className={styles.legend}>Financial messaging standards</legend> */}
       <div
         ref={ref}
-        className={styles.buttons}
+        className={styles.track}
         style={
           {
             ...(width
               ? {
-                  "--ghost-width": `${width}px`,
+                  "--handle-width": `${width}px`,
                 }
               : {}),
             ...(left
               ? {
-                  "--ghost-left": `${left}px`,
+                  "--handle-left": `${left}px`,
                 }
               : {}),
           } as CSSProperties
@@ -89,7 +89,7 @@ export default function Toggle({
             <div className={styles.label}>{option.label}</div>
           </label>
         ))}
-        <div className={styles.ghost}>{selectedOption?.label}</div>
+        <div className={styles.handle}>{selectedOption?.label}</div>
       </div>
     </fieldset>
   );

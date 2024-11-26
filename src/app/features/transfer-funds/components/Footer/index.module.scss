@@ -2,6 +2,36 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding-bottom: 4rem;
+  view-timeline-name: --footer-timeline;
+  animation-timeline: --footer-timeline;
+  animation-range: entry 5% entry 100%;
+  animation-name: fade-in;
+  animation-fill-mode: both;
+  animation-timing-function: var(--ease-out-quart);
+  animation-duration: 1s;
+  --opacity: 1;
+  --translate: 0;
+}
+
+@keyframes fade-in {
+  from {
+    --opacity: 0;
+    --translate: 2rem;
+    --duration: 0s;
+  }
+}
+
+.sectionLink {
+  transition: opacity var(--ease-out-quart), transform var(--ease-out-quart);
+  opacity: var(--opacity, 1);
+  transform: translateY(var(--translate, 0));
+  transition-duration: var(--duration, 0.25s);
+}
+
+@for $i from 1 through 5 {
+  .sectionLink:nth-of-type(#{$i}) {
+    transition-delay: #{0.1 * $i}s;
+  }
 }
 
 .logo {
@@ -11,6 +41,18 @@
 
 .divider {
   margin-bottom: 4rem;
+  animation-timeline: --footer-timeline;
+  animation-range: entry 0% entry 50%;
+  animation-name: grow;
+  animation-fill-mode: both;
+  transform-origin: center;
+  transform: scaleX(1);
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
 }
 
 .content {

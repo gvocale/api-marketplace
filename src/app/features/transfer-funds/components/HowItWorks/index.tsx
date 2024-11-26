@@ -4,6 +4,13 @@ import styles from "./index.module.scss";
 import { ConnectingLine } from "../ConnetingLine";
 import { TextLink } from "../TextLink";
 import { Container } from "../Container";
+import { Beneficiary } from "../../icons/Beneficiary";
+import { BeneficiaryBank } from "../../icons/BeneficiaryBank";
+import { Currencies } from "../../icons/Currencies";
+import { IntermediaryBank } from "../../icons/IntermediaryBank";
+import { MoneyTransaction } from "../../icons/MoneyTransaction";
+import { WebsiteEndpoint } from "../../icons/WebsiteEndpoint";
+import { Customer } from "../../icons/Customer";
 
 export function HowItWorks({
   selected,
@@ -64,10 +71,12 @@ export function HowItWorks({
             </div>
           )}
         </Container>
+        {/* SWIFT */}
         {selected === FinancialMessagingStandard.SWIFT && (
           <ol className={styles.steps}>
             <li className={styles.step}>
               <Step
+                icon={<Customer />}
                 title="Initiation"
                 author="Ordering Customer"
                 description="A customer initiates a wire transfer"
@@ -76,6 +85,7 @@ export function HowItWorks({
             <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<WebsiteEndpoint />}
                 title="Initiation"
                 author="Client Host Application"
                 path="/payments"
@@ -85,6 +95,7 @@ export function HowItWorks({
             <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<MoneyTransaction />}
                 title="Message Creation"
                 author="Ordering Institution"
                 description="The MT 103 message is created, containing all necessary details for the transfer."
@@ -93,6 +104,7 @@ export function HowItWorks({
             <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<IntermediaryBank />}
                 title="Transmission"
                 author="Intermediary Bank A"
                 description="The message is transmitted through the Swift network to the recipient's bank."
@@ -101,6 +113,7 @@ export function HowItWorks({
             <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<Currencies />}
                 title="Transmission"
                 author="Intermediary Bank B"
                 description="Multiple intermediary banks can be involved in case of currency exchange"
@@ -109,6 +122,7 @@ export function HowItWorks({
             <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<BeneficiaryBank />}
                 title="Processing"
                 author="Beneficiary Bank"
                 description="The recipient's bank processes the message and credits the recipient's account."
@@ -117,6 +131,7 @@ export function HowItWorks({
             <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<Beneficiary />}
                 title="Confirmation"
                 author="Beneficiary"
                 description="Confirmation of the transfer is sent back to the sender, completing the transaction"
@@ -124,17 +139,21 @@ export function HowItWorks({
             </li>
           </ol>
         )}
+        PACS
         {selected === FinancialMessagingStandard.PACS && (
           <ol className={styles.steps}>
             <li className={styles.step}>
               <Step
+                icon={<Customer />}
                 title="Initiation"
                 author="Debtor"
                 description="The ordering customer or institution initiates the wire transfer request through their financial institution, providing all necessary payment details, such as the amount, currency, and beneficiary information."
               />
             </li>
+            <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<WebsiteEndpoint />}
                 title="Message Creation"
                 author="Client Host Application"
                 path="/payments"
@@ -144,8 +163,10 @@ export function HowItWorks({
                 information, transaction amount, and any remittance information."
               />
             </li>
+            <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<Currencies />}
                 title="Transmission"
                 author="Debtor Agent"
                 description="The message is securely transmitted to the beneficiary's
@@ -153,16 +174,20 @@ export function HowItWorks({
                 messaging system."
               />
             </li>
+            <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<IntermediaryBank />}
                 title="Transmission"
                 author="Intermediary Agent 1"
                 description="Any intermediary banks
                 involved in the payment chain also receive the message."
               />
             </li>
+            <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<BeneficiaryBank />}
                 title="Processing"
                 author="Creditor Agent"
                 description="Upon receiving the pacs.008 message, the beneficiary's bank
@@ -172,8 +197,10 @@ export function HowItWorks({
                 the beneficiary's account."
               />
             </li>
+            <ConnectingLine />
             <li className={styles.step}>
               <Step
+                icon={<Beneficiary />}
                 title="Confirmation"
                 author="Creditor"
                 description="After processing, a confirmation message is sent back to the

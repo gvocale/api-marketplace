@@ -1,16 +1,15 @@
 "use client";
 
 import { FinancialMessagingStandard } from "@/app/features/types";
-import Link from "next/link";
 import { useState } from "react";
-import { Button } from "../Button";
+import { CallToAction } from "../CallToAction";
 import { Cards } from "../Cards";
 import { Clients } from "../Clients";
+import { Container } from "../Container";
 import { HowItWorks } from "../HowItWorks";
 import { TextLink } from "../TextLink";
 import Toggle from "../Toggle";
 import styles from "./index.module.scss";
-import { Container } from "../Container";
 
 export function TransferFunds() {
   const [selected, setSelected] = useState<FinancialMessagingStandard>(
@@ -106,12 +105,7 @@ export function TransferFunds() {
       </section>
 
       <section>
-        <Container variant="narrow">
-          <h3 className={styles.h2}>Steps to Initiate a Wire Payment</h3>
-          <Button variant="primary" as={Link} href="/">
-            Get Started
-          </Button>
-        </Container>
+        <CallToAction />
       </section>
     </article>
   );
