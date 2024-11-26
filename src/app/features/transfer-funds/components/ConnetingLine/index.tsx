@@ -1,8 +1,8 @@
 import styles from "./index.module.scss";
 
-export function ConnectingLine() {
+export function ConnectingLine({ className }: { className?: string }) {
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${className}`}>
       <div className={`${styles.circle} ${styles.before}`}></div>
       <div className={styles.divider}>
         <div className={styles.triangle}></div>
