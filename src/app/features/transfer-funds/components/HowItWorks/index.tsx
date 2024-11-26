@@ -139,7 +139,9 @@ export function HowItWorks({
             </li>
           </ol>
         )}
-        PACS
+
+        
+        {/* PACS */}
         {selected === FinancialMessagingStandard.PACS && (
           <ol className={styles.steps}>
             <li className={styles.step}>
