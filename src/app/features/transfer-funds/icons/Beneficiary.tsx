@@ -37,7 +37,7 @@ export function Beneficiary() {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0"></stop>
-          <stop offset="1" stopColor="#050420"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -59,7 +59,7 @@ export function Beneficiary() {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0"></stop>
-          <stop offset="1" stopColor="#05041C"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -98,7 +98,7 @@ export function Beneficiary() {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0"></stop>
-          <stop offset="1" stopColor="#030323"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -137,8 +137,8 @@ export function Beneficiary() {
           y2="476.645"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#000001"></stop>
-          <stop offset="1" stopColor="#050521"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -216,8 +216,8 @@ export function Beneficiary() {
           y2="299.789"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#010000"></stop>
-          <stop offset="1" stopColor="#020116"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -242,8 +242,8 @@ export function Beneficiary() {
           y2="278.192"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#000004"></stop>
-          <stop offset="1" stopColor="#040319"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path

@@ -18,8 +18,8 @@ export function WebsiteEndpoint() {
           y2="375.43"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#030416"></stop>
-          <stop offset="1" stopColor="#060629"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path

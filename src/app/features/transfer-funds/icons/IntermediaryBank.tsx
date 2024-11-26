@@ -67,7 +67,7 @@ export function IntermediaryBank() {
           y2="297.113"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#05061A" stopOpacity="0.988"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)" stopOpacity="0.988"></stop>
           <stop offset="1"></stop>
         </linearGradient>
       </defs>

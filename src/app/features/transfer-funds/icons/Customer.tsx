@@ -35,8 +35,8 @@ export function Customer() {
           y2="735.086"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#000001"></stop>
-          <stop offset="1" stopColor="#0E0E2D"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -78,8 +78,8 @@ export function Customer() {
           y2="683.242"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#000004"></stop>
-          <stop offset="1" stopColor="#08092F"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -121,8 +121,8 @@ export function Customer() {
           y2="671.628"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#000004"></stop>
-          <stop offset="1" stopColor="#080829"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -293,8 +293,8 @@ export function Customer() {
           y2="371.138"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#00000A"></stop>
-          <stop offset="1" stopColor="#060320"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path

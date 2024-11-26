@@ -36,8 +36,8 @@ export function Currencies() {
           y2="588.419"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#010000"></stop>
-          <stop offset="1" stopColor="#000115"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -107,8 +107,8 @@ export function Currencies() {
           y2="555.765"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#00010B"></stop>
-          <stop offset="1" stopColor="#070720"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -177,8 +177,8 @@ export function Currencies() {
           y2="575.845"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#010009"></stop>
-          <stop offset="1" stopColor="#040520"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -240,7 +240,7 @@ export function Currencies() {
           gradientUnits="userSpaceOnUse"
         >
           <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
-          <stop offset="1" stopColor="#02021A"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -308,8 +308,8 @@ export function Currencies() {
           y2="427.945"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#000001"></stop>
-          <stop offset="1" stopColor="#060625"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path

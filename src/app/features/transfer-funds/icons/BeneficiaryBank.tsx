@@ -75,8 +75,8 @@ export function BeneficiaryBank() {
           y2="522.988"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#020010"></stop>
-          <stop offset="1" stopColor="#050525"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -97,8 +97,8 @@ export function BeneficiaryBank() {
           y2="514.11"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#000010"></stop>
-          <stop offset="1" stopColor="#050625"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
@@ -115,8 +115,8 @@ export function BeneficiaryBank() {
           y2="457.371"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="#01000F"></stop>
-          <stop offset="1" stopColor="#050626"></stop>
+          <stop offset="0" stopColor="var(--color-stroke-1)"></stop>
+          <stop offset="1" stopColor="var(--color-stroke-1)"></stop>
         </linearGradient>
       </defs>
       <path
