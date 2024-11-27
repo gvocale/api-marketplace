@@ -5,11 +5,15 @@ import Link from "next/link";
 export interface TextLinkProps {
   children: ReactNode;
   href: string;
+  darkMode?: boolean;
 }
 
-export function TextLink({ children, href }: TextLinkProps) {
+export function TextLink({ children, href, darkMode }: TextLinkProps) {
   return (
-    <Link className={styles.root} href={href}>
+    <Link
+      className={`${styles.root} ${darkMode ? styles.darkMode : ""}`}
+      href={href}
+    >
       {children}
     </Link>
   );

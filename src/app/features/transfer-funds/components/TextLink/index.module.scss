@@ -1,17 +1,22 @@
 .root {
   text-decoration: none;
-  color: var(--color-acidlemon-500);
+  color: var(--color-text-link);
   font-weight: 550;
   line-height: 1.2;
   text-underline-offset: 0.2em;
   border-radius: var(--radius-sm);
+  white-space: nowrap;
+
+  &.darkMode {
+    color: var(--color-text-link-dark-mode);
+  }
 
   &:hover:not(:focus-visible) {
     text-decoration: underline;
   }
 
   &:focus-visible {
-    outline: 1px solid var(--color-acidlemon-500);
+    outline: 1px solid currentColor;
     outline-offset: 2px;
   }
 }

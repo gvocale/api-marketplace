@@ -4,19 +4,24 @@
   text-decoration: none;
   font-weight: 600;
   font-size: var(--font-size-base);
+  white-space: nowrap;
 }
 
 .primary {
-  background-color: var(--color-acidlemon-500);
+  background-color: var(--color-yellow-500);
   color: var(--color-lapis-900);
 
   &:hover {
-    background-color: var(--color-acidlemon-600);
+    background-color: var(--color-yellow-600);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-acidlemon-500);
+    outline: 2px solid var(--color-yellow-500);
     outline-offset: 3px;
+  }
+
+  &:active {
+    background-color: var(--color-yellow-700);
   }
 }
 

@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/",
-        destination: "/products/transfer-funds",
+        destination: "/products/transfer-funds/initiate-a-payment",
         basePath: false,
         permanent: false,
       },

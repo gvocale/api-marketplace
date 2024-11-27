@@ -14,9 +14,9 @@ import { Customer } from "../../icons/Customer";
 import { useState, useRef, useEffect } from "react";
 
 export function HowItWorks({
-  selected,
+  messagingStandard,
 }: {
-  selected: FinancialMessagingStandard;
+  messagingStandard: FinancialMessagingStandard;
 }) {
   const [height, setHeight] = useState<number | null>(null);
   const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ export function HowItWorks({
       <div className={styles.sticky}>
         <Container variant="narrow" className={styles.header}>
           <h2 className={styles.h2}>How It Works</h2>
-          {selected === FinancialMessagingStandard.SWIFT && (
+          {messagingStandard === FinancialMessagingStandard.SWIFT && (
             <div>
               <p className={styles.paragraph}>
                 The Swift MT 103 is an international standard for message
@@ -62,7 +62,7 @@ export function HowItWorks({
               </p>
             </div>
           )}
-          {selected === FinancialMessagingStandard.PACS && (
+          {messagingStandard === FinancialMessagingStandard.PACS && (
             <div>
               <p className={styles.paragraph}>
                 The pacs.008.001.0X (pacs.008) message - the{" "}
@@ -99,7 +99,7 @@ export function HowItWorks({
             ref={ref}
             style={{ ["--steps-height"]: `${height}px` } as React.CSSProperties}
           >
-            {selected === FinancialMessagingStandard.SWIFT && (
+            {messagingStandard === FinancialMessagingStandard.SWIFT && (
               <ol className={styles.steps}>
                 <li className={styles.step}>
                   <Step
@@ -109,7 +109,7 @@ export function HowItWorks({
                     description="A customer initiates a wire transfer"
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<WebsiteEndpoint />}
@@ -119,7 +119,7 @@ export function HowItWorks({
                     description="Our /payments API endpoint, receives details such as the sender's and recipient's bank information, amount, and currency."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<MoneyTransaction />}
@@ -128,7 +128,7 @@ export function HowItWorks({
                     description="The MT 103 message is created, containing all necessary details for the transfer."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<IntermediaryBank />}
@@ -137,7 +137,7 @@ export function HowItWorks({
                     description="The message is transmitted through the Swift network to the recipient's bank."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<Currencies />}
@@ -146,7 +146,7 @@ export function HowItWorks({
                     description="Multiple intermediary banks can be involved in case of currency exchange"
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<BeneficiaryBank />}
@@ -155,7 +155,7 @@ export function HowItWorks({
                     description="The recipient's bank processes the message and credits the recipient's account."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<Beneficiary />}
@@ -168,7 +168,7 @@ export function HowItWorks({
             )}
 
             {/* PACS */}
-            {selected === FinancialMessagingStandard.PACS && (
+            {messagingStandard === FinancialMessagingStandard.PACS && (
               <ol className={styles.steps}>
                 <li className={styles.step}>
                   <Step
@@ -178,7 +178,7 @@ export function HowItWorks({
                     description="The ordering customer or institution initiates the wire transfer request through their financial institution, providing all necessary payment details, such as the amount, currency, and beneficiary information."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<WebsiteEndpoint />}
@@ -191,7 +191,7 @@ export function HowItWorks({
                 information, transaction amount, and any remittance information."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<Currencies />}
@@ -202,7 +202,7 @@ export function HowItWorks({
                 messaging system."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<IntermediaryBank />}
@@ -212,7 +212,7 @@ export function HowItWorks({
                 involved in the payment chain also receive the message."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<BeneficiaryBank />}
@@ -225,7 +225,7 @@ export function HowItWorks({
                 the beneficiary's account."
                   />
                 </li>
-                <ConnectingLine className={styles.divider} />
+                <ConnectingLine className={styles.divider} size="large" />
                 <li className={styles.step}>
                   <Step
                     icon={<Beneficiary />}

@@ -1,52 +1,27 @@
 "use client";
 
 import { FinancialMessagingStandard } from "@/app/features/types";
-import { useState } from "react";
+import { useContext } from "react";
+import { UserConfigContext } from "../../context/user-config";
 import { CallToAction } from "../CallToAction";
-import { Cards } from "../Cards";
 import { Clients } from "../Clients";
 import { Container } from "../Container";
+import { Header } from "../Header";
 import { HowItWorks } from "../HowItWorks";
 import { TextLink } from "../TextLink";
 import Toggle from "../Toggle";
 import styles from "./index.module.scss";
 
 export function TransferFunds() {
-  const [selected, setSelected] = useState<FinancialMessagingStandard>(
-    FinancialMessagingStandard.SWIFT
-  );
+  const { config, setConfig } = useContext(UserConfigContext);
+  const { messagingStandard } = config;
 
   return (
     <article className={styles.page}>
-      <Container>
-        <header className={styles.header}>
-          <h1 className={styles.h1}>Transfer Funds</h1>
-          <p className={styles.subhead}>
-            Send a wire payment with the industry standard Swift MT 103 and
-            CBPR+ pacs.008 message format in more then 30 currency.
-          </p>
-
-          <div className={styles.toggle}>
-            <Toggle
-              defaultValue={selected}
-              name="financial-messaging-standard"
-              onChange={(value) =>
-                setSelected(value as FinancialMessagingStandard)
-              }
-              options={[
-                { label: "Swift", value: FinancialMessagingStandard.SWIFT },
-                { label: "Pacs.008", value: FinancialMessagingStandard.PACS },
-              ]}
-            />
-          </div>
-        </header>
-      </Container>
-
+      <Header />
       <section>
-        <Container className={styles.cards}>
-          <Cards />
-        </Container>
         <Container variant="narrow">
+          <h2 className={styles.h2}>Initiate a Payment</h2>
           <p className={styles.paragraph}>
             With the&nbsp;
             <TextLink href="">Funds Transfer API</TextLink>, you gain access to
@@ -57,7 +32,29 @@ export function TransferFunds() {
             clients, in USD and more than 30 other currencies, using various MT
             and ISO 20022 (MX) CBPR+ formats.
           </p>
-          {selected === FinancialMessagingStandard.SWIFT && (
+          <Toggle
+            className={styles.toggle}
+            size="large"
+            defaultValue={messagingStandard}
+            name="financial-messaging-standard"
+            onChange={(value) =>
+              setConfig({
+                ...config,
+                messagingStandard: value as FinancialMessagingStandard,
+              })
+            }
+            options={[
+              {
+                label: "Using Swift MT103",
+                value: FinancialMessagingStandard.SWIFT,
+              },
+              {
+                label: "Using Pacs.008",
+                value: FinancialMessagingStandard.PACS,
+              },
+            ]}
+          />
+          {messagingStandard === FinancialMessagingStandard.SWIFT && (
             <div>
               <p className={styles.paragraph}>
                 This API specification takes industry standard financial payment
@@ -75,7 +72,7 @@ export function TransferFunds() {
               </p>
             </div>
           )}
-          {selected === FinancialMessagingStandard.PACS && (
+          {messagingStandard === FinancialMessagingStandard.PACS && (
             <div>
               <p className={styles.paragraph}>
                 We developed our pacs.008 message schema based on Swift, a
@@ -97,7 +94,7 @@ export function TransferFunds() {
       </section>
 
       <section>
-        <HowItWorks selected={selected} />
+        <HowItWorks messagingStandard={messagingStandard} />
       </section>
 
       <section>

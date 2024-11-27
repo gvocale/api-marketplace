@@ -5,6 +5,7 @@ import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
 import styles from "./index.module.scss";
 
 export interface ToggleProps {
+  className?: string;
   defaultValue: FinancialMessagingStandard;
   name: string;
   options: {
@@ -12,33 +13,38 @@ export interface ToggleProps {
     value: string;
   }[];
   onChange: (value: string) => void;
+  size: "small" | "large";
 }
 
 export default function Toggle({
+  className,
   defaultValue = FinancialMessagingStandard.SWIFT,
   name,
   options,
   onChange,
+  size = "large",
 }: ToggleProps) {
   const [width, setWidth] = useState<number>();
   const [left, setLeft] = useState<number>();
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const selectedButton = document.querySelector(
-      `label:has(input[value="${defaultValue}"])`
-    );
-    if (selectedButton && !width) {
-      setRelativePosition(selectedButton);
-    }
-  }, [defaultValue, width]);
+  // useEffect(() => {
+  //   const selectedButton = ref.current?.querySelector(
+  //     `label[for="${defaultValue}"]`
+  //   );
+  //   if (selectedButton) {
+  //     setRelativePosition(selectedButton);
+  //   }
+  // }, [defaultValue]);
 
   function setRelativePosition(element: Element) {
     const rect = element.getBoundingClientRect();
     const parentRect = ref.current?.getBoundingClientRect();
-    const difference = rect.x - (parentRect?.x ?? 0);
+    let left = 0;
+    if (parentRect) left = rect.x - parentRect.x;
+
     setWidth(rect.width);
-    setLeft(difference);
+    setLeft(left);
   }
 
   function handleClick(e: MouseEvent<HTMLLabelElement>) {
@@ -50,7 +56,9 @@ export default function Toggle({
   );
 
   return (
-    <fieldset className={styles.fieldset}>
+    <fieldset
+      className={`${styles.fieldset} ${styles[size]} ${className ?? ""}`}
+    >
       {/* <legend className={styles.legend}>Financial messaging standards</legend> */}
       <div
         ref={ref}

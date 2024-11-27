@@ -26,18 +26,8 @@
   --color-green: #418aa7;
   --color-white: #fff;
 
-  /* Grayscale palette */
-  --color-gray-50: color(display-p3 0.976 0.98 0.984);
-  --color-gray-100: color(display-p3 0.953 0.957 0.965);
-  --color-gray-200: color(display-p3 0.898 0.906 0.922);
-  --color-gray-300: color(display-p3 0.82 0.835 0.859);
-  --color-gray-400: color(display-p3 0.612 0.639 0.686);
-  --color-gray-500: color(display-p3 0.42 0.447 0.502);
-  --color-gray-600: color(display-p3 0.294 0.333 0.388);
-  --color-gray-700: color(display-p3 0.216 0.255 0.318);
-  --color-gray-800: color(display-p3 0.122 0.161 0.216);
-  --color-gray-900: color(display-p3 0.067 0.094 0.153);
-  --color-gray-950: color(display-p3 0.012 0.027 0.071);
+  --color-grayscale-100: color(display-p3 0.95 0.96 0.98);
+  --color-grayscale-200: color(display-p3 0.87 0.88 0.9);
 
   /* Blue-Teal palette */
   --color-blueteal-50: color(display-p3 0.922 0.961 0.965);
@@ -55,19 +45,10 @@
   --color-blueteal-900: color(display-p3 0.133 0.227 0.239);
   --color-blueteal-950: color(display-p3 0.078 0.133 0.141);
 
-  /* Dark Night palette - adjusted to be darker */
-  --color-darknight-50: color(
-    display-p3 0.847 0.898 0.941
-  ); /* Lighter but muted */
-  --color-darknight-100: color(display-p3 0.694 0.8 0.886);
-  --color-darknight-200: color(display-p3 0.498 0.655 0.8);
-  --color-darknight-300: color(display-p3 0.302 0.51 0.71);
-  --color-darknight-400: color(display-p3 0.165 0.365 0.561);
-  --color-darknight-500: color(display-p3 0.106 0.259 0.412); /* Darker base */
-  --color-darknight-600: color(display-p3 0.075 0.184 0.302);
-  --color-darknight-700: color(display-p3 0.047 0.122 0.208);
-  --color-darknight-800: color(display-p3 0.027 0.082 0.141);
-  --color-darknight-900: color(display-p3 0.012 0.039 0.071);
+  --color-darknight-500: color(display-p3 0.4 0.84 0.85);
+  --color-darknight-800: color(display-p3 0.06 0.25 0.26);
+  --color-darknight-900: color(display-p3 0.01 0.1 0.18);
+  --color-darknight-950: color(display-p3 0.01 0.1 0.15);
 
   /* Acid Lemon palette */
   --color-acidlemon-50: color(display-p3 0.976 0.988 0.91);
@@ -123,6 +104,21 @@
   --color-pansy-900: color(display-p3 0.075 0.098 0.147);
   --color-pansy-950: color(display-p3 0.037 0.049 0.073);
 
+  --color-primary-100: color(display-p3 0.7 0.97 0.91);
+  --color-primary-500: color(display-p3 0 0.52 0.41);
+
+  --color-yellow-400: color-mix(
+    in display-p3,
+    var(--color-yellow-500) 90%,
+    var(--color-white)
+  );
+  --color-yellow-500: color(display-p3 0.965 0.882 0.204); /* #F7E135; */
+  --color-yellow-600: color(display-p3 0.93 0.85 0.2);
+  --color-yellow-700: color(display-p3 0.89 0.82 0.2);
+
+  --color-light-blue-100: color(display-p3 0.87 1 1);
+  --color-light-blue-200: color(display-p3 0.78 0.98 0.98);
+
   --color-border-20: color-mix(
     in display-p3,
     var(--color-gray-500) 20%,
@@ -138,21 +134,18 @@
     var(--color-gray-500) 40%,
     transparent
   );
-  --color-scrollbar-track: color-mix(
-    in display-p3,
-    var(--color-gray-500) 20%,
-    transparent
-  );
-  --card-background-color: color-mix(
-    in display-p3,
-    var(--color-gray-500) 20%,
-    transparent
-  );
+  --color-scrollbar-track: var(--color-grayscale-100);
+  --color-track: var(--color-grayscale-100);
+
+  --card-background-color: var(--color-grayscale-100);
+
+  --button-background-color: var(--color-yellow-500);
 
   --z-index-header: 100;
 
   --ease-out-quart: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-out-back: cubic-bezier(0.34, 1.25, 0.64, 1);
+  --ease-out-spring: cubic-bezier(0.69, 0, 0.26, 1);
 
   /* Border radius scale */
   --radius-sm: 0.25rem; /* 4px */
@@ -166,6 +159,17 @@
     in display-p3,
     var(--color-white) 50%,
     transparent
+  );
+
+  --color-border: var(--color-darknight-800);
+  --color-text-link: var(--color-primary-500);
+  --color-text-link-dark-mode: var(--color-darknight-500);
+  --color-accent-dark-mode: var(--color-darknight-500);
+
+  --gradient-accent-dark-mode: linear-gradient(
+    to bottom,
+    var(--color-accent-dark-mode),
+    color(display-p3 0.22 0.52 0.53)
   );
 }
 

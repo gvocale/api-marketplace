@@ -1,5 +1,5 @@
 .page {
-  padding-block: var(--page-padding-y);
+  padding-bottom: var(--page-padding-y);
   display: flex;
   flex-direction: column;
   gap: var(--page-section-gap);
@@ -19,22 +19,6 @@
   display: grid;
 }
 
-.h1 {
-  font-size: var(--font-size-5xl);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  background-image: linear-gradient(
-    180deg,
-    var(--color-acidlemon-500) 0%,
-    var(--color-acidlemon-600) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .h2 {
   font-size: var(--font-size-3xl);
   line-height: 1.2;
@@ -42,18 +26,6 @@
   margin-bottom: 4rem;
   font-weight: 600;
   text-align: center;
-}
-
-.toggle {
-  margin-bottom: 3rem;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  grid-column: span 12;
 }
 
 .cards {
@@ -109,12 +81,6 @@
   display: contents;
 }
 
-.subhead {
-  font-size: var(--font-size-lg);
-  max-width: 70ch;
-  text-align: center;
-  line-height: 1.6;
+.toggle {
   margin-bottom: 2rem;
-  text-wrap: balance;
-  font-weight: 300;
 }
