@@ -1,7 +1,7 @@
 "use client";
 
 import { FinancialMessagingStandard } from "@/app/features/types";
-import { CSSProperties, MouseEvent, useEffect, useRef, useState } from "react";
+import { CSSProperties, MouseEvent, useRef, useState } from "react";
 import styles from "./index.module.scss";
 
 export interface ToggleProps {

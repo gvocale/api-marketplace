@@ -1,0 +1,53 @@
+.root {
+  border-radius: var(--radius-full);
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: var(--color-yellow-500);
+  color: var(--color-lapis-900);
+
+  &:hover {
+    background-color: var(--color-yellow-600);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-yellow-500);
+    outline-offset: 3px;
+  }
+
+  &:active {
+    background-color: var(--color-yellow-700);
+  }
+}
+
+.ghost {
+  background-color: transparent;
+
+  &:hover {
+    background-color: var(--color-grayscale-100);
+  }
+
+  &:active {
+    background-color: var(--color-grayscale-200);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-black);
+    outline-offset: 3px;
+  }
+}
+
+.lg {
+  padding: 1rem;
+}
+
+.sm {
+  padding: 0.75rem;
+}

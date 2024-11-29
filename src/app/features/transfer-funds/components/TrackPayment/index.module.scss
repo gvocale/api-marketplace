@@ -1,0 +1,16 @@
+.h3 {
+  font-size: var(--font-size-2xl);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: left;
+  text-wrap: balance;
+}
+
+.paragraph {
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+  margin-block: 2rem;
+  text-wrap: pretty;
+}

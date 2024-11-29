@@ -11,6 +11,13 @@ import { HowItWorks } from "../HowItWorks";
 import { TextLink } from "../TextLink";
 import Toggle from "../Toggle";
 import styles from "./index.module.scss";
+import { Endpoint } from "../Endpoint";
+import { FormatRequestBody } from "../FormatRequestBody";
+import { ReceiveApiResponse } from "../ReceiveApiResponse";
+import { TrackPayment } from "../TrackPayment";
+import { VerticalToggle } from "../VerticalToggle";
+import { MESSAGING_STANDARD_OPTIONS } from "../../data/optons";
+import { FormatMessageField } from "../FormatMessageField";
 
 export function TransferFunds() {
   const { config, setConfig } = useContext(UserConfigContext);
@@ -43,16 +50,7 @@ export function TransferFunds() {
                 messagingStandard: value as FinancialMessagingStandard,
               })
             }
-            options={[
-              {
-                label: "Using Swift MT103",
-                value: FinancialMessagingStandard.SWIFT,
-              },
-              {
-                label: "Using Pacs.008",
-                value: FinancialMessagingStandard.PACS,
-              },
-            ]}
+            options={MESSAGING_STANDARD_OPTIONS}
           />
           {messagingStandard === FinancialMessagingStandard.SWIFT && (
             <div>
@@ -101,9 +99,39 @@ export function TransferFunds() {
         <Clients />
       </section>
 
-      <section>
-        <CallToAction />
-      </section>
+      <div>
+        <aside>
+          <VerticalToggle
+            options={MESSAGING_STANDARD_OPTIONS}
+            defaultValue={messagingStandard}
+            name="messaging-standard-aside"
+            onChange={(value) =>
+              setConfig({
+                ...config,
+                messagingStandard: value as FinancialMessagingStandard,
+              })
+            }
+          />
+          <h2>Steps to Initiate a Wire Payment</h2>
+          <ol>
+            <li>Endpoint</li>
+            <li>Format The Request Body</li>
+            <li>Format The Message Field</li>
+            <li>Receive An API Response</li>
+            <li>Track Your Payment</li>
+          </ol>
+        </aside>
+        <section>
+          <CallToAction />
+          <div className={styles.steps}>
+            <Endpoint />
+            <FormatRequestBody />
+            <FormatMessageField />
+            <ReceiveApiResponse />
+            <TrackPayment />
+          </div>
+        </section>
+      </div>
     </article>
   );
 }
