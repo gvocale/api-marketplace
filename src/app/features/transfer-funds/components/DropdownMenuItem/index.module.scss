@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: var(--radius-base);
+  border: 1px solid var(--border-color);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  padding-block: 1rem;
+  padding-inline: 0.75rem;
+  background-color: transparent;
+  cursor: pointer;
+  anchor-name: --popover-toggle;
+
+  &:hover {
+    background-color: var(--color-grayscale-100);
+  }
+}

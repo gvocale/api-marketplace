@@ -1,6 +1,7 @@
 import { Code } from "../Code";
 import { Container } from "../Container";
 import { InlineCode } from "../InlineCode";
+import { Table } from "../Table";
 import { TextLink } from "../TextLink";
 import styles from "./index.module.scss";
 
@@ -38,13 +39,15 @@ export function ReceiveApiResponse() {
 
   return (
     <Container variant="narrow">
-      <h3 className={styles.h3}>Receive An API Response</h3>
+      <h3 className={styles.h3} id="receive-an-api-response">
+        Receive An API Response
+      </h3>
       <p className={styles.paragraph}>
         The Response Body contains two elements:{" "}
         <InlineCode language="tsx">metadata</InlineCode> and{" "}
         <InlineCode language="tsx">request</InlineCode>.
       </p>
-      <table className={styles.table}>
+      <Table>
         <tbody>
           <tr>
             <th>
@@ -106,7 +109,7 @@ export function ReceiveApiResponse() {
             </td>
           </tr>
         </tbody>
-      </table>
+      </Table>
       <Code code={JSON_1} language="json" />
       <p className={styles.paragraph}>
         If you receive an error, the &apos;success&apos; field in the response

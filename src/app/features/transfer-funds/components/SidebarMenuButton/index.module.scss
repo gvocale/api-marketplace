@@ -1,0 +1,21 @@
+.button {
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+  font-size: var(--font-size-sm);
+  line-height: 1.2;
+  font-weight: 550;
+  display: flex;
+
+  &:hover {
+    background-color: var(--button-ghost-background-hover-color);
+  }
+
+  &:active {
+    background-color: var(--button-ghost-background-active-color);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: 2px;
+  }
+}

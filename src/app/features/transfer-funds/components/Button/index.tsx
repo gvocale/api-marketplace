@@ -1,30 +1,39 @@
-import { ReactNode, ElementType } from "react";
 import styles from "./index.module.scss";
 import Link from "next/link";
+import type { ComponentProps } from "react";
 
-export interface ButtonProps {
-  as?: ElementType | typeof Link;
-  children: ReactNode;
-  variant: "primary" | "secondary";
-  size?: "sm" | "lg";
-  href: ButtonProps["as"] extends typeof Link ? string : string | undefined;
-}
+type ButtonBaseProps = {
+  variant: "primary" | "secondary" | "outline";
+};
+
+type ButtonAsLinkProps = ButtonBaseProps & {
+  as: typeof Link;
+  href: string;
+} & Omit<ComponentProps<typeof Link>, "as">;
+
+type ButtonAsButtonProps = ButtonBaseProps & {
+  as?: "button";
+} & ComponentProps<"button">;
+
+export type ButtonProps = ButtonAsLinkProps | ButtonAsButtonProps;
 
 export function Button({
-  as,
-  href,
-  children,
   variant,
-  size = "lg",
+  as: Component = "button",
+  ...props
 }: ButtonProps) {
-  const Component = as ?? "button";
-
+  if (Component === "button") {
+    return (
+      <button
+        className={styles[variant]}
+        {...(props as ComponentProps<"button">)}
+      />
+    );
+  }
   return (
     <Component
-      className={`${styles.root} ${styles[variant]} ${styles[size]}`}
-      href={href}
-    >
-      {children}
-    </Component>
+      className={styles[variant]}
+      {...(props as ComponentProps<typeof Link>)}
+    />
   );
 }

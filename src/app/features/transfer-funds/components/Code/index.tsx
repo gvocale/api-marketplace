@@ -1,18 +1,21 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
+import { CSSProperties, useLayoutEffect, useState } from "react";
 import { highlight } from "./shared";
 import { CopyButton } from "../CopyButton";
 import styles from "./index.module.scss";
 import { Terminal } from "../../icons/Terminal";
 import { Code as CodeIcon } from "../../icons/Code";
+import { BundledLanguage } from "shiki";
 
 export interface CodeProps {
+  className?: string;
   code: string;
-  language: string;
+  language: BundledLanguage;
+  lineStart?: number;
 }
 
-export function Code({ code, language }: CodeProps) {
+export function Code({ code, language, lineStart = 1, className }: CodeProps) {
   const [nodes, setNodes] = useState<JSX.Element>();
 
   useLayoutEffect(() => {
@@ -42,12 +45,17 @@ export function Code({ code, language }: CodeProps) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className ?? ""}`}>
       <div className={styles.toolbar}>
         <span className={styles.language}>{prettifyLanguage(language)}</span>
         <CopyButton code={code} />
       </div>
-      <div className={styles.code}>{nodes}</div>
+      <div
+        className={styles.code}
+        style={{ "--start": lineStart } as CSSProperties}
+      >
+        {nodes}
+      </div>
     </div>
   );
 }

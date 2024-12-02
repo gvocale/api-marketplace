@@ -954,7 +954,7 @@ export function WirePaymentSteps() {
             </ol>
           </li>
           <li>
-            <h4>Receive An API Response</h4>
+            <h4 id="receive-an-api-response">Receive An API Response</h4>
             <p className={styles.paragraph}>
               The Response Body contains two elements: metadata and result.
             </p>

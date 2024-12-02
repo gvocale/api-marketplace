@@ -1,0 +1,35 @@
+.h4 {
+  font-size: var(--font-size-lg);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: left;
+  text-wrap: balance;
+  scroll-margin-top: var(--scroll-margin-top);
+}
+
+.paragraph {
+  font-size: var(--font-size-md);
+  line-height: 1.8;
+  margin-block: 2rem;
+  text-wrap: pretty;
+}
+
+.em {
+  font-style: italic;
+  font-size: var(--font-size-md);
+}
+
+.table {
+  grid-auto-columns: auto;
+  grid-template-columns: unset;
+
+  tr {
+    grid-column: unset;
+  }
+}
+
+.code {
+  margin-bottom:  2rem;
+}

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { AngleDown } from "../../icons/AngleDown";
-import styles from "./index.module.scss";
+import { DropdownMenu } from "../DropdownMenu";
+import { DropdownMenuContent } from "../DropdownMenuContent";
+import { DropdownMenuItem } from "../DropdownMenuItem";
+import { DropdownMenuTrigger } from "../DropdownMenuTrigger";
 
 export interface VerticalToggleProps {
   options: {
@@ -20,45 +22,31 @@ export function VerticalToggle({
   onChange,
   name,
 }: VerticalToggleProps) {
-  const selectedOption = options.find(
-    (option) => option.value === defaultValue
-  );
-
   const [isOpen, setIsOpen] = useState(false);
 
   function handleOptionClick(value: string) {
-    onChange(value);
     setIsOpen(false);
+    onChange(value);
   }
 
   return (
-    <>
-      <button className={styles.button} onClick={() => setIsOpen(!isOpen)}>
-        <span>{selectedOption?.label}</span>
-        <AngleDown className={styles.icon} />
-      </button>
-
-      <div className={`${styles.popover} ${isOpen ? styles.open : ""}`}>
+    <DropdownMenu>
+      <DropdownMenuTrigger onClick={() => setIsOpen(!isOpen)}>
+        {options.find((option) => option.value === defaultValue)?.label}
+      </DropdownMenuTrigger>
+      <DropdownMenuContent isOpen={isOpen}>
         {options.map((option) => (
-          <label
-            htmlFor={option.value}
-            className={styles.button}
-            onClick={() => handleOptionClick(option.value)}
+          <DropdownMenuItem
             key={option.value}
-          >
-            <input
-              type="radio"
-              id={option.value}
-              name={name}
-              value={option.value}
-              checked={defaultValue === option.value}
-              onChange={(e) => onChange(e.target.value)}
-              className={styles.input}
-            />
-            <div className={styles.label}>{option.label}</div>
-          </label>
+            defaultValue={defaultValue}
+            onChange={handleOptionClick}
+            id={option.value}
+            name={name}
+            value={option.value}
+            label={option.label}
+          />
         ))}
-      </div>
-    </>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

@@ -54,17 +54,15 @@
   --color-light-blue-100: color(display-p3 0.87 1 1);
   --color-light-blue-200: color(display-p3 0.78 0.98 0.98);
 
-  --color-scrollbar-thumb: color-mix(
-    in display-p3,
-    var(--color-gray-500) 40%,
-    transparent
-  );
+  --color-scrollbar-thumb: var(--color-grayscale-500);
   --color-scrollbar-track: var(--color-grayscale-100);
   --color-track: var(--color-grayscale-100);
 
   --card-background-color: var(--color-grayscale-100);
 
   --button-background-color: var(--color-yellow-500);
+  --button-ghost-background-hover-color: var(--color-grayscale-100);
+  --button-ghost-background-active-color: var(--color-grayscale-200);
 
   --z-index-header: 100;
 
@@ -94,11 +92,15 @@
   --color-text-link-dark-mode: var(--color-darknight-500);
   --color-accent-dark-mode: var(--color-darknight-500);
 
+  --color-outline: var(--color-primary-500);
+
   --gradient-accent-dark-mode: linear-gradient(
     to bottom,
     var(--color-accent-dark-mode),
     color(display-p3 0.22 0.52 0.53)
   );
+
+  --scroll-margin-top: 10rem;
 }
 
 * {

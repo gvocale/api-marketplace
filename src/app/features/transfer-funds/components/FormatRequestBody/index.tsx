@@ -1,6 +1,7 @@
 import { Code } from "../Code";
 import { Container } from "../Container";
 import { InlineCode } from "../InlineCode";
+import { Table } from "../Table";
 import styles from "./index.module.scss";
 
 export function FormatRequestBody() {
@@ -29,7 +30,9 @@ export function FormatRequestBody() {
 
   return (
     <Container variant="narrow">
-      <h3 className={styles.h3}>Format The Request Body</h3>
+      <h3 className={styles.h3} id="format-the-request-body">
+        Format The Request Body
+      </h3>
       <p className={styles.paragraph}>
         This API request body contains two required elements:{" "}
         <InlineCode language="tsx">metadata</InlineCode> and{" "}
@@ -39,7 +42,7 @@ export function FormatRequestBody() {
         The metadata represents the identifier and security controls for the
         request. Fields marked with an asterisk (*) are mandatory.
       </p>
-      <table className={styles.table}>
+      <Table>
         <tbody>
           <tr>
             <th>
@@ -68,12 +71,12 @@ export function FormatRequestBody() {
             <td>Digital signature to sign the payloa.</td>
           </tr>
         </tbody>
-      </table>
+      </Table>
       <Code code={JSON_1} language="json" />
       <p className={styles.paragraph}>
         The request body represents the payment details.
       </p>
-      <table className={styles.table}>
+      <Table>
         <tbody>
           <tr>
             <th>
@@ -127,7 +130,7 @@ export function FormatRequestBody() {
             </td>
           </tr>
         </tbody>
-      </table>
+      </Table>
       <p className={styles.paragraph}>Example:</p>
       <Code code={JSON_2} language="json" />
     </Container>

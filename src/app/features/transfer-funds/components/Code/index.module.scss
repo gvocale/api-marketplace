@@ -1,6 +1,7 @@
 .container {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-base);
+  overflow: clip;
 }
 
 .toolbar {
@@ -12,15 +13,6 @@
   background-color: var(--color-grayscale-100);
   border-bottom: 1px solid var(--color-border);
   align-items: center;
-}
-
-.code {
-  font-size: var(--font-size-base);
-  line-height: 1.5;
-
-  pre {
-    white-space: pre-wrap;
-  }
 }
 
 .language {
@@ -36,4 +28,42 @@
 .icon {
   width: 1rem;
   height: 1rem;
+}
+
+.code {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+
+  pre {
+    padding-block: 1rem;
+    overflow-x: auto;
+    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+    scrollbar-width: thin;
+  }
+
+  code {
+    counter-reset: step;
+    counter-increment: step calc(var(--start, 1) - 1);
+  }
+
+  code > span {
+    position: relative;
+    padding-right: 1rem;
+  }
+
+  code > span::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 3ch;
+    text-align: right;
+    left: 0;
+    padding-left: 1ch;
+    padding-right: 3ch;
+    display: inline-block;
+    text-align: right;
+    color: var(--color-grayscale-500);
+    position: sticky;
+    left: 0;
+    background-color: var(--color-white);
+  }
 }
