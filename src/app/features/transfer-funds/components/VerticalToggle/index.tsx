@@ -1,44 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { DropdownMenu } from "../DropdownMenu";
 import { DropdownMenuContent } from "../DropdownMenuContent";
 import { DropdownMenuItem } from "../DropdownMenuItem";
 import { DropdownMenuTrigger } from "../DropdownMenuTrigger";
+import { UserConfigContext } from "../../context/user-config";
+import { FinancialMessagingStandard } from "@/app/features/types";
 
 export interface VerticalToggleProps {
+  className?: string;
   options: {
     label: string;
     value: string;
   }[];
-  defaultValue: string;
-  onChange: (value: string) => void;
   name: string;
 }
 
 export function VerticalToggle({
+  className,
   options,
-  defaultValue,
-  onChange,
   name,
 }: VerticalToggleProps) {
+  const { config, setConfig } = useContext(UserConfigContext);
+  const { messagingStandard } = config;
   const [isOpen, setIsOpen] = useState(false);
 
   function handleOptionClick(value: string) {
     setIsOpen(false);
-    onChange(value);
+    setConfig({
+      ...config,
+      messagingStandard: value as FinancialMessagingStandard,
+    });
   }
 
   return (
-    <DropdownMenu>
+    <DropdownMenu className={className}>
       <DropdownMenuTrigger onClick={() => setIsOpen(!isOpen)}>
-        {options.find((option) => option.value === defaultValue)?.label}
+        {options.find((option) => option.value === messagingStandard)?.label}
       </DropdownMenuTrigger>
       <DropdownMenuContent isOpen={isOpen}>
         {options.map((option) => (
           <DropdownMenuItem
             key={option.value}
-            defaultValue={defaultValue}
+            defaultValue={messagingStandard}
             onChange={handleOptionClick}
             id={option.value}
             name={name}

@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
-import styles from "./index.module.scss";
 import { AngleDown } from "../../icons/AngleDown";
-import { Button } from "../Button";
+import styles from "./index.module.scss";
 
 export function DropdownMenuTrigger({
   children,
@@ -11,9 +10,9 @@ export function DropdownMenuTrigger({
   onClick: () => void;
 }) {
   return (
-    <Button className={styles.button} onClick={onClick} variant="outline">
+    <button className={styles.button} onClick={onClick}>
       {children}
       <AngleDown className={styles.icon} />
-    </Button>
+    </button>
   );
 }

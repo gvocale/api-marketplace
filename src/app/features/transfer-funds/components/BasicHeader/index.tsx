@@ -1,16 +1,18 @@
 import { Code } from "../Code";
 import { Container } from "../Container";
+import { Eyebrow } from "../Eyebrow";
 import { InlineCode } from "../InlineCode";
 import { Table } from "../Table";
 import styles from "./index.module.scss";
 
-export function FirstBlockBasicHeader() {
+export function BasicHeader() {
   const CODE = `{{1:F01IRVTUS3NAXXX0000182491}:`;
 
   return (
     <Container variant="narrow">
-      <h4 className={styles.h4} id="first-block-basic-header">
-        First Block - Basic Header
+      <Eyebrow className={styles.eyebrow}>First Block</Eyebrow>
+      <h4 className={styles.h4} id="basic-header">
+        Basic Header
       </h4>
       <Code code={CODE} language="bash" className={styles.code} />
       <Table className={styles.table}>

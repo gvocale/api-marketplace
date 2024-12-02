@@ -8,6 +8,6 @@ export type SidebarMenuSubItem = {
 
 export function SidebarMenuSub({ as, children }: SidebarMenuSubItem) {
   const Tag = as ?? "ol";
-  
+
   return <Tag className={styles.sidebarMenuSub}>{children}</Tag>;
 }

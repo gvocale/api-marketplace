@@ -4,30 +4,22 @@ import { FinancialMessagingStandard } from "@/app/features/types";
 import { useContext } from "react";
 import { UserConfigContext } from "../../context/user-config";
 import { MESSAGING_STANDARD_OPTIONS } from "../../data/optons";
-import { CallToAction } from "../CallToAction";
+import { ApplicationHeader } from "../ApplicationHeader";
+import { Aside } from "../Aside";
+import { BasicHeader } from "../BasicHeader";
 import { Clients } from "../Clients";
 import { Container } from "../Container";
 import { Endpoint } from "../Endpoint";
-import { FirstBlockBasicHeader } from "../FirstBlockBasicHeader";
 import { FormatMessageField } from "../FormatMessageField";
 import { FormatRequestBody } from "../FormatRequestBody";
 import { Header } from "../Header";
 import { HowItWorks } from "../HowItWorks";
 import { ReceiveApiResponse } from "../ReceiveApiResponse";
-import { Sidebar } from "../Sidebar";
-import { SidebarContent } from "../SidebarContent";
-import { SidebarGroup } from "../SidebarGroup";
-import { SidebarGroupLabel } from "../SidebarGroupLabel";
-import { SidebarHeader } from "../SidebarHeader";
-import { SidebarMenu } from "../SidebarMenu";
-import { SidebarMenuButton } from "../SidebarMenuButton";
-import { SidebarMenuItem } from "../SidebarMenuItem";
-import { SidebarMenuSub } from "../SidebarMenuSub";
-import { SidebarMenuSubButton } from "../SidebarMenuSubButton";
+import { TextBlock } from "../TextBlock";
 import { TextLink } from "../TextLink";
 import Toggle from "../Toggle";
 import { TrackPayment } from "../TrackPayment";
-import { VerticalToggle } from "../VerticalToggle";
+import { UserHeader } from "../UserHeader";
 import styles from "./index.module.scss";
 
 export function TransferFunds() {
@@ -110,101 +102,33 @@ export function TransferFunds() {
         <Clients />
       </section>
 
-      <Container>
-        <div className={styles.grid}>
-          <aside className={styles.aside}>
-            <Sidebar>
-              <SidebarHeader>
-                <VerticalToggle
-                  options={MESSAGING_STANDARD_OPTIONS}
-                  defaultValue={messagingStandard}
-                  name="messaging-standard-aside"
-                  onChange={(value) =>
-                    setConfig({
-                      ...config,
-                      messagingStandard: value as FinancialMessagingStandard,
-                    })
-                  }
-                />
-              </SidebarHeader>
-              <SidebarContent>
-                <SidebarGroup>
-                  <SidebarGroupLabel>
-                    Steps to Initiate a Wire Payment
-                  </SidebarGroupLabel>
-                  <SidebarMenu as="ol">
-                    <SidebarMenuItem>
-                      <SidebarMenuButton href="#endpoint">
-                        Endpoint
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton href="#format-the-request-body">
-                        Format The Request Body
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton href="#format-the-message-field">
-                        Format The Message Field
-                      </SidebarMenuButton>
-                      <SidebarMenuSub as="ol">
-                        <SidebarMenuItem>
-                          <SidebarMenuSubButton href="#overview">
-                            Overview
-                          </SidebarMenuSubButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                          <SidebarMenuSubButton href="#first-block-basic-header">
-                            1. Basic Header
-                          </SidebarMenuSubButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                          <SidebarMenuSubButton href="#application-header">
-                            2. Application Header
-                          </SidebarMenuSubButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                          <SidebarMenuSubButton href="#user-header">
-                            3. User Header
-                          </SidebarMenuSubButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                          <SidebarMenuSubButton href="#text-block">
-                            4. Text Block
-                          </SidebarMenuSubButton>
-                        </SidebarMenuItem>
-                      </SidebarMenuSub>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton href="#receive-an-api-response">
-                        Receive An API Response
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                    <SidebarMenuItem>
-                      <SidebarMenuButton href="#track-your-payment">
-                        Track Your Payment
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  </SidebarMenu>
-                </SidebarGroup>
-              </SidebarContent>
-            </Sidebar>
-          </aside>
-          <section className={styles.learn}>
-            <CallToAction />
-            <div className={styles.steps}>
-              <Endpoint />
-              <FormatRequestBody />
-              <FormatMessageField />
-              <div>
-                <FirstBlockBasicHeader />
-              </div>
-              <ReceiveApiResponse />
-              <TrackPayment />
+      <section>
+        <Container>
+          <div className={styles.grid}>
+            <div className={styles.asideContainer}>
+              <Aside className={styles.aside} />
             </div>
-          </section>
-        </div>
-      </Container>
+            <div className={styles.stepsContainer}>
+              <h3 className={styles.h2}>
+                Learn how to initiate a wire payment
+              </h3>
+              <div className={styles.steps}>
+                <Endpoint />
+                <FormatRequestBody />
+                <FormatMessageField />
+                <div className={styles.blocks}>
+                  <BasicHeader />
+                  <ApplicationHeader />
+                  <UserHeader />
+                  <TextBlock />
+                </div>
+                <ReceiveApiResponse />
+                <TrackPayment />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
     </article>
   );
 }

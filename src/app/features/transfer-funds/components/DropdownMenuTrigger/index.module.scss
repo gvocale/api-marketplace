@@ -1,3 +1,17 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  appearance: none;
+  padding: 0.5rem;
+  font-size: var(--font-size-sm);
+  padding-block: 0.75rem;
+}
+
 .icon {
   width: 1rem;
   height: 1rem;

@@ -100,7 +100,7 @@
     color(display-p3 0.22 0.52 0.53)
   );
 
-  --scroll-margin-top: 10rem;
+  --scroll-margin-top: 12rem;
 }
 
 * {

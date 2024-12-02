@@ -1,6 +1,13 @@
 import { ReactNode } from "react";
 import styles from "./index.module.scss";
 
-export function SidebarMenu({ children }: { children: ReactNode }) {
-  return <div className={styles.sidebarMenu}>{children}</div>;
+export function SidebarMenuSubItem({ children }: { children: ReactNode }) {
+  return (
+    <div className={styles.sidebarMenuSubItem}>
+      <span className={styles.lineContainer}>
+        <span className={styles.line}></span>
+      </span>
+      {children}
+    </div>
+  );
 }
