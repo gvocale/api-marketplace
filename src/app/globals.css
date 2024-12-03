@@ -1,9 +1,11 @@
 :root {
   /* Type scale variables (1.25 ratio) */
   /* 10.24px */
-  --font-size-xs: 0.64rem;
+  --font-size-2xs: 0.64rem;
   /* 12.8px */
-  --font-size-sm: 0.8rem;
+  --font-size-xs: 0.8rem;
+  /* 14px */
+  --font-size-sm: 0.875rem;
   /* 16px */
   --font-size-base: 1rem;
   /* 20px */
@@ -35,12 +37,12 @@
   --color-blueteal-500: color(display-p3 0.376 0.549 0.573); /* Base color */
 
   --color-darknight-500: color(display-p3 0.4 0.84 0.85);
-  --color-darknight-800: color(display-p3 0.06 0.25 0.26);
+  --color-darknight-800: #012036;
   --color-darknight-900: color(display-p3 0.01 0.1 0.18);
   --color-darknight-950: color(display-p3 0.01 0.1 0.15);
 
   --color-primary-100: color(display-p3 0.7 0.97 0.91);
-  --color-primary-500: color(display-p3 0 0.52 0.41);
+  --color-primary-500: #008080;
 
   --color-yellow-400: color-mix(
     in display-p3,
@@ -101,6 +103,21 @@
   );
 
   --scroll-margin-top: 12rem;
+
+  --button-large-height: 2.75rem;
+  --button-small-height: 2.75rem;
+
+  --max-width: 1680px;
+  --grid-gap: 2rem;
+  --navbar-top: 2rem;
+  --page-section-gap-base: 8rem;
+  --page-section-gap-small: 4rem;
+  --page-padding-y: 8rem;
+  --page-padding-inline: 1rem;
+
+  @media (min-width: 1280px) {
+    --page-padding-inline: 5dvw;
+  }
 }
 
 * {

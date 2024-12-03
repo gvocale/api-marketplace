@@ -3,27 +3,6 @@
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --max-width: 1680px;
-  --grid-gap: 2rem;
-  --navbar-top: 2rem;
-  --page-section-gap-base: 8rem;
-  --page-section-gap-small: 4rem;
-  --page-padding-y: 8rem;
-  --page-padding-inline: 1rem;
-
-  @media (min-width: 1280px) {
-    --page-padding-inline: 5dvw;
-  }
-}
-
-.header {
-  position: fixed;
-  top: var(--navbar-top);
-  z-index: var(--z-index-header);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .footer {

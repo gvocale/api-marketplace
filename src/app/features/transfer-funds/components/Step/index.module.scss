@@ -1,25 +1,17 @@
 .root {
-  border-radius: var(--radius-base);
-  background-color: var(--card-background-color);
-  padding: 1rem;
-  padding-bottom: 2rem;
-  height: 100%;
-  transition: transform 0.25s var(--ease-out-quart),
-    outline-color 0.25s var(--ease-out-quart);
+  height: 100dvh;
+}
+
+.card {
+  padding-inline: 8rem;
   display: flex;
   flex-direction: column;
-  outline: 2px solid;
-  outline-color: transparent;
-
-  &:hover {
-    transform: scale(1.025);
-  }
-
-  &:hover,
-  &:focus-visible {
-    outline-color: var(--color-text-link);
-    outline-offset: 2px;
-  }
+  gap: 2rem;
+  transform-origin: top center;
+  position: fixed;
+  top: var(--scroll-margin-top);
+  width: 50dvw;
+  left: 0;
 }
 
 .path {
@@ -28,13 +20,14 @@
 }
 
 .icon {
+  justify-self: center;
   width: 16rem;
   height: 16rem;
   aspect-ratio: 1;
-  margin-bottom: 1rem;
   flex-shrink: 0;
   --color-stroke-1: var(--color-black);
   --color-blob: var(--color-primary-100);
+  margin-top: 2rem;
 
   svg {
     width: 100%;
@@ -42,22 +35,30 @@
   }
 }
 
-.author {
-  font-size: var(--font-size-base);
-  font-weight: 500;
+.title {
+  font-size: var(--font-size-lg);
+  font-weight: 550;
   margin-bottom: 1.5rem;
+  white-space: nowrap;
 }
 
 .description {
   font-size: var(--font-size-base);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.8;
+  margin-bottom: 2em;
 }
 
-.title {
-  font-size: var(--font-size-sm);
-  font-weight: 500;
+.tag {
   margin-bottom: 1rem;
-  line-height: 1.2;
-  opacity: 0.5;
+}
+
+.progress {
+  height: 1rem;
+  width: 100%;
+  background: red;
+}
+
+.inlineCode {
+  font-size: var(--font-size-base);
 }

@@ -19,4 +19,8 @@
     outline: 1px solid currentColor;
     outline-offset: 2px;
   }
+
+  &.currentColor {
+    color: currentColor;
+  }
 }

@@ -1,22 +1,25 @@
-.root {
-  border-radius: 2rem;
-  padding: 0.5rem 1rem;
+.button {
+  border-radius: var(--radius-full);
   text-decoration: none;
   font-weight: 600;
   font-size: var(--font-size-base);
   white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .primary {
   background-color: var(--color-yellow-500);
-  color: var(--color-lapis-900);
+  color: var(--color-black);
 
   &:hover {
     background-color: var(--color-yellow-600);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--color-yellow-500);
+    outline: 1px solid var(--color-yellow-500);
     outline-offset: 3px;
   }
 
@@ -26,5 +29,15 @@
 }
 
 .lg {
-  padding: 1rem 1.75rem;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  height: var(--button-large-height);
+  font-size: var(--font-size-base);
+}
+
+.sm {
+  padding-inline: 1.5rem;
+  padding-block: 0.75rem;
+  height: var(--button-small-height);
+  font-size: var(--font-size-sm);
 }

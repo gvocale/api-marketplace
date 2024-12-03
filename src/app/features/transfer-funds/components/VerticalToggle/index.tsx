@@ -7,6 +7,7 @@ import { DropdownMenuItem } from "../DropdownMenuItem";
 import { DropdownMenuTrigger } from "../DropdownMenuTrigger";
 import { UserConfigContext } from "../../context/user-config";
 import { FinancialMessagingStandard } from "@/app/features/types";
+import styles from "./index.module.scss";
 
 export interface VerticalToggleProps {
   className?: string;
@@ -40,17 +41,21 @@ export function VerticalToggle({
         {options.find((option) => option.value === messagingStandard)?.label}
       </DropdownMenuTrigger>
       <DropdownMenuContent isOpen={isOpen}>
-        {options.map((option) => (
-          <DropdownMenuItem
-            key={option.value}
-            defaultValue={messagingStandard}
-            onChange={handleOptionClick}
-            id={option.value}
-            name={name}
-            value={option.value}
-            label={option.label}
-          />
-        ))}
+        <ul>
+          {options.map((option) => (
+            <li key={option.value} className={styles.listItem}>
+              <DropdownMenuItem
+                key={option.value}
+                defaultValue={messagingStandard}
+                onChange={handleOptionClick}
+                id={option.value}
+                name={name}
+                value={option.value}
+                label={option.label}
+              />
+            </li>
+          ))}
+        </ul>
       </DropdownMenuContent>
     </DropdownMenu>
   );

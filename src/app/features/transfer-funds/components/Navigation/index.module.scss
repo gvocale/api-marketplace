@@ -1,14 +1,33 @@
 .nav {
+  --padding-x: 1rem;
+  --padding-y: 1rem;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  background: rgba(65, 138, 167, 0.09);
+  border-radius: var(--radius-full);
+  box-shadow: 0px 16px 24px -14px rgba(0, 0, 0, 0.12);
+  color: var(--color-white);
+  display: flex;
+  left: 50%;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  position: fixed;
+  top: var(--navbar-top);
+  transform: translateX(-50%);
+  transition: background-color 0.125s var(--ease-out-quart);
+  width: calc(100% - (var(--page-padding-inline) * 2));
+  z-index: var(--z-index-header);
+
+  &.isScrolled {
+    background: rgba(1, 32, 54, 0.9);
+  }
+}
+
+.logoMask {
   display: grid;
-  grid-auto-flow: column;
-  align-items: baseline;
-  background-color: rgb(232 232 237 / 70%);
-  --padding-y: 1.5rem;
-  --padding-x: 2rem;
-  border-radius: 3rem;
-  backdrop-filter: blur(8px);
-  justify-content: space-between;
-  box-shadow: inset 0 0 1px rgb(0 0 0 / 11%);
+  height: 100%;
+  align-items: center;
+  overflow: clip;
 }
 
 .logoContainer {
@@ -16,20 +35,33 @@
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   display: grid;
-  align-items: baseline;
+  align-items: center;
   transition: transform 0.5s var(--ease-out-back);
 
-  [data-scrolled="true"] & {
+  .isScrolled & {
     transform: translateY(-100%);
   }
 }
 
+.logoLink {
+  display: inline-flex;
+  border-radius: var(--radius-full);
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  height: var(--button-small-height);
+  align-items: center;
+
+  &:focus-visible {
+    outline: 1px solid var(--color-white);
+    outline-offset: 2px;
+  }
+}
+
 .logo {
-  align-self: center;
   height: 1.25rem;
   width: auto;
   position: relative;
-  top: 3px;
+  top: -1px;
 }
 
 .links {
@@ -50,7 +82,7 @@
   list-style: none;
   font-weight: 500;
   line-height: 1.2;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   letter-spacing: -0.02em;
   padding: var(--padding-y) var(--padding-x);
 }
@@ -71,6 +103,8 @@
   overflow: clip;
   align-items: baseline;
   justify-content: start;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .primaryNav {
@@ -83,12 +117,12 @@
   padding-block: var(--padding-y);
   transition: transform 0.5s var(--ease-out-back);
 
-  [data-scrolled="true"] & {
+  .isScrolled & {
     transform: translateY(-100%);
   }
 }
 
-.secondaryNav {
+.progress {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   height: 100%;
@@ -97,17 +131,11 @@
   align-self: flex-start;
   transform: translateY(100%);
   transition: transform 0.5s var(--ease-out-back);
+  align-items: center;
 
-  [data-scrolled="true"] & {
+  .isScrolled & {
     transform: translateY(0%);
   }
-}
-
-.logoMask {
-  display: grid;
-  height: 100%;
-  align-items: baseline;
-  overflow: clip;
 }
 
 .pageName {
@@ -115,22 +143,14 @@
   grid-row: 1 / 2;
   padding-block: var(--padding-y);
   padding-inline: var(--padding-x);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   line-height: 1.2;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-  background-image: linear-gradient(
-    180deg,
-    var(--color-acidlemon-500) 0%,
-    var(--color-acidlemon-600) 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: #0000;
+  font-weight: 550;
   transform: translateY(100%);
   transition: transform 0.5s var(--ease-out-back);
+  padding-inline: 2rem;
 
-  [data-scrolled="true"] & {
+  .isScrolled & {
     transform: translateY(0%);
   }
 }
@@ -150,7 +170,7 @@
   transition: transform 0.5s var(--ease-out-back);
   align-items: center;
 
-  [data-scrolled="true"] & {
+  .isScrolled & {
     transform: translateY(0%);
   }
 }
@@ -161,4 +181,27 @@
 
 .divider {
   width: 2rem;
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  background-color: transparent;
+  border: none;
+  height: var(--button-small-height);
+  width: var(--button-small-height);
+  border-radius: var(--radius-full);
+  align-self: center;
+
+  &:focus-visible {
+    outline: 1px solid var(--color-white);
+    outline-offset: 2px;
+  }
+}
+
+.searchIcon {
+  width: 1rem;
+  height: 1rem;
 }

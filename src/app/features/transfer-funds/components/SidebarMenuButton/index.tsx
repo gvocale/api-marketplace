@@ -1,6 +1,7 @@
+import Link, { LinkProps } from "next/link";
+import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 import styles from "./index.module.scss";
-import Link, { LinkProps } from "next/link";
 
 export function SidebarMenuButton({
   children,
@@ -11,9 +12,16 @@ export function SidebarMenuButton({
   href?: LinkProps["href"];
   icon?: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
   if (href) {
+    const isActive = pathname.includes(href.toString());
+
     return (
-      <Link className={styles.button} href={href}>
+      <Link
+        className={`${styles.button} ${isActive ? styles.isActive : ""}`}
+        href={href}
+      >
         {icon && <span className={styles.icon}>{icon}</span>}
         {children}
       </Link>

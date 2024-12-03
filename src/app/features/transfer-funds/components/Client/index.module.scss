@@ -22,12 +22,16 @@
 }
 
 .quote {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   line-height: 1.6;
   font-weight: 400;
   letter-spacing: -0.02em;
   text-wrap: pretty;
   margin-bottom: 1rem;
+
+  @media (min-width: 1800px) {
+    font-size: var(--font-size-base);
+  }
 }
 
 .logo {
@@ -35,24 +39,42 @@
   height: 6rem;
   border: 1px solid;
   border-color: var(--color-border-20);
-  margin-bottom: 2rem;
-}
+  margin-bottom: 1.5rem;
 
-.name {
-  font-weight: 500;
-  font-size: var(--font-size-base);
-  line-height: 1.2;
-}
-
-.role {
-  font-weight: 500;
-  font-size: var(--font-size-sm);
-  line-height: 1.2;
-  color: var(--color-text-white-muted);
+  @media (min-width: 1800px) {
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .attribution {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
+
+  @media (min-width: 1800px) {
+    gap: 0.5rem;
+  }
+}
+
+.name {
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: var(--font-size-sm);
+
+  @media (min-width: 1800px) {
+    font-size: var(--font-size-base);
+  }
+}
+
+.role {
+  font-weight: 500;
+  font-size: var(--font-size-xs);
+  line-height: 1.2;
+  color: var(--color-text-muted);
+
+  @media (min-width: 1800px) {
+    font-size: var(--font-size-sm);
+  }
 }

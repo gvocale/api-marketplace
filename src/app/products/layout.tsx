@@ -1,5 +1,7 @@
 import { Footer } from "../features/transfer-funds/components/Footer";
-import { Nav } from "../features/transfer-funds/components/Nav";
+import { Navigation } from "../features/transfer-funds/components/Navigation";
+import { InViewProvider } from "../features/transfer-funds/context/in-view";
+import { IsScrolledProvider } from "../features/transfer-funds/context/is-scrolled";
 import { UserConfigProvider } from "../features/transfer-funds/context/user-config";
 import styles from "./layout.module.scss";
 
@@ -10,13 +12,15 @@ export default function ProductsLayout({
 }>) {
   return (
     <UserConfigProvider>
-      <div className={styles.page}>
-        <header className={styles.header}>
-          <Nav />
-        </header>
-        <main className={styles.main}>{children}</main>
-        <Footer />
-      </div>
+      <IsScrolledProvider>
+        <InViewProvider>  
+        <div className={styles.page}>
+          <Navigation />
+          <main className={styles.main}>{children}</main>
+          <Footer />
+        </div>
+        </InViewProvider>
+      </IsScrolledProvider>
     </UserConfigProvider>
   );
 }

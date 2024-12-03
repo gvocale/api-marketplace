@@ -1,16 +1,19 @@
 .button {
   align-items: center;
   border-radius: var(--radius-sm);
-  color: var(--color-text-link);
+  color: currentColor;
   display: flex;
   font-size: var(--font-size-sm);
   font-weight: 550;
   line-height: 1.2;
   padding-block: 0.75rem;
-  padding-inline: 1rem;
   text-decoration: none;
   text-underline-offset: 0.2em;
   white-space: nowrap;
+
+  &.isActive {
+    color: var(--color-text-link);
+  }
 
   &:hover {
     background-color: var(--button-ghost-background-hover-color);

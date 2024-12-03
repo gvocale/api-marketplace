@@ -6,6 +6,7 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {

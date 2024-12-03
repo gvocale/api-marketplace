@@ -2,6 +2,7 @@ import { Code } from "../Code";
 import { Container } from "../Container";
 import { Eyebrow } from "../Eyebrow";
 import { InlineCode } from "../InlineCode";
+import { Notice } from "../Notice";
 import { Table } from "../Table";
 import styles from "./index.module.scss";
 
@@ -35,9 +36,7 @@ export function BasicHeader() {
           </tr>
         </tbody>
       </Table>
-      <p className={styles.paragraph}>
-        <em className={styles.em}>Contains the message type.</em>
-      </p>
+      <Notice>Contains the message type.</Notice>
       <p className={styles.paragraph}>
         The Basic Header Block includes the Receiver (Instructed Agent) BIC. All
         Funds Transfer payment initiation instructions require a Receiver BIC.e

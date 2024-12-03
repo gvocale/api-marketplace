@@ -1,3 +1,4 @@
+import { Anchors } from "@/app/features/types";
 import { Client } from "../Client";
 import { Container } from "../Container";
 import styles from "./index.module.scss";
@@ -6,7 +7,9 @@ export function Clients() {
   return (
     <Container>
       <div className={styles.heading}>
-        <h2 className={styles.h2}>Our Clients</h2>
+        <h2 className={styles.h2} id={Anchors.OUR_CLIENTS}>
+          Our Clients
+        </h2>
         <p className={styles.subhead}>
           Trusted by the world&apos;s leading financial institutions.
         </p>

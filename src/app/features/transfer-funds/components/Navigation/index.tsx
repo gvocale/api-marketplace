@@ -1,20 +1,18 @@
 "use client";
 
-import { FinancialMessagingStandard } from "@/app/features/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
-import { UserConfigContext } from "../../context/user-config";
+import { IsScrolledContext } from "../../context/is-scrolled";
+import { MagnifyingGlass } from "../../icons/MagnifyingGlass";
 import { Button } from "../Button";
-import NavLink from "../NavLink";
+import { NavigationMenuItem } from "../NavigationMenuLink";
+import { Progress } from "../Progress";
 import { TextLink } from "../TextLink";
-import Toggle from "../Toggle";
 import styles from "./index.module.scss";
 
-export function Nav() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const { config, setConfig } = useContext(UserConfigContext);
-  const { messagingStandard } = config;
+export function Navigation() {
+  const { isScrolled } = useContext(IsScrolledContext);
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
@@ -32,65 +30,58 @@ export function Nav() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > window.innerHeight);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <nav
-      className={styles.nav}
-      data-scrolled={isScrolled}
+      className={`${styles.nav} ${isScrolled ? styles.isScrolled : ""}`}
       ref={ref}
       style={{ "--nav-height": `${height}px` } as React.CSSProperties}
     >
       <div className={styles.logoMask}>
         <div className={styles.logoContainer}>
-          <Image
-            src="/bny-marketplace-logo.svg"
-            alt="Logo"
-            width={230}
-            height={21}
-            unoptimized
-            className={styles.logo}
-          />
+          <Link href="/" className={styles.logoLink}>
+            <Image
+              src="/bny-marketplace-logo.svg"
+              alt="Logo"
+              width={230}
+              height={21}
+              unoptimized
+              className={styles.logo}
+            />
+          </Link>
         </div>
         <div className={styles.pageName}>Transfer Funds</div>
       </div>
       <div className={styles.mask}>
         <div className={styles.primaryNav}>
           <ul className={styles.links}>
-            <li>Solutions</li>
-            <li>Developer</li>
-            <li>Resources</li>
+            <li>
+              <NavigationMenuItem
+                label="Solutions"
+                href="/solutions"
+                isOpen={false}
+              />
+            </li>
+            <li>
+              <NavigationMenuItem
+                label="Developer"
+                href="/developer"
+                isOpen={false}
+              />
+            </li>
+            <li>
+              <NavigationMenuItem
+                label="Resources"
+                href="/resources"
+                isOpen={false}
+              />
+            </li>
           </ul>
         </div>
-        <div className={styles.secondaryNav}>
-          <ul className={styles.productLinks}>
-            <li className={styles.contents}>
-              <NavLink href="/products/transfer-funds/initiate-a-payment">
-                Initiate a payment
-              </NavLink>
-            </li>
-            <li className={styles.contents}>
-              <NavLink href="/products/transfer-funds/track-a-payment">
-                Track a payment
-              </NavLink>
-            </li>
-            <li className={styles.contents}>
-              <NavLink href="/products/transfer-funds/reconcile-a-payment">
-                Reconcile a payment
-              </NavLink>
-            </li>
-          </ul>
+        <div className={styles.progress}>
+          <Progress size="sm" />
         </div>
       </div>
-      <div className={styles.toggleMask}>
+      {/* <div className={styles.toggleMask}>
         <div className={styles.toggleContainer}>
           <Toggle
             size="small"
@@ -108,13 +99,20 @@ export function Nav() {
             ]}
           />
         </div>
-      </div>
+      </div> */}
+
+      <button className={styles.searchButton}>
+        <MagnifyingGlass className={styles.searchIcon} />
+      </button>
+
       <ul className={styles.authLinks}>
         <li>
-          <TextLink href="">Sign up</TextLink>
+          <TextLink href="" currentColor={true}>
+            Sign up
+          </TextLink>
         </li>
         <li>
-          <Button as={Link} href="/login" variant="primary">
+          <Button as={Link} href="/login" variant="primary" size="sm">
             Log in
           </Button>
         </li>

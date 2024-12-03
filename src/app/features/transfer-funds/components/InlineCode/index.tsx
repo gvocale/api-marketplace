@@ -9,10 +9,12 @@ import styles from "./index.module.scss";
 
 export function InlineCode({
   children,
+  className,
   language,
 }: {
   children: string;
   language: string;
+  className?: string;
 }) {
   const [nodes, setNodes] = useState<JSX.Element>();
 
@@ -43,7 +45,7 @@ export function InlineCode({
 
   return (
     <>
-      <span className={styles.inlineCode}>{nodes}</span>
+      <span className={`${styles.inlineCode} ${className ?? ""}`}>{nodes}</span>
     </>
   );
 }

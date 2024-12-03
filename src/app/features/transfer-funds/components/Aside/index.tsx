@@ -31,8 +31,23 @@ export function Aside({ className }: { className?: string }) {
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
+            <SidebarMenuButton href={`#${Anchors.INITIATE_A_PAYMENT}`}>
+              Initiate a Payment
+            </SidebarMenuButton>
+            <SidebarMenuButton href={`#${Anchors.HOW_IT_WORKS}`}>
+              How It Works
+            </SidebarMenuButton>
+            <SidebarMenuButton href={`#${Anchors.OUR_CLIENTS}`}>
+              Our Clients
+            </SidebarMenuButton>
+          </SidebarGroup>
+          <SidebarGroup>
             <SidebarGroupLabel>
-              Steps to Initiate a Wire Payment
+              <SidebarMenuButton
+                href={`#${Anchors.STEPS_TO_INITIATE_A_WIRE_PAYMENT}`}
+              >
+                Steps to Initiate a Wire Payment
+              </SidebarMenuButton>
             </SidebarGroupLabel>
             <SidebarMenu as="ol">
               <SidebarMenuItem>

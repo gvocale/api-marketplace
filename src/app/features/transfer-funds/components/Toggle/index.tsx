@@ -28,15 +28,6 @@ export default function Toggle({
   const [left, setLeft] = useState<number>();
   const ref = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   const selectedButton = ref.current?.querySelector(
-  //     `label[for="${defaultValue}"]`
-  //   );
-  //   if (selectedButton) {
-  //     setRelativePosition(selectedButton);
-  //   }
-  // }, [defaultValue]);
-
   function setRelativePosition(element: Element) {
     const rect = element.getBoundingClientRect();
     const parentRect = ref.current?.getBoundingClientRect();
@@ -59,7 +50,6 @@ export default function Toggle({
     <fieldset
       className={`${styles.fieldset} ${styles[size]} ${className ?? ""}`}
     >
-      {/* <legend className={styles.legend}>Financial messaging standards</legend> */}
       <div
         ref={ref}
         className={styles.track}

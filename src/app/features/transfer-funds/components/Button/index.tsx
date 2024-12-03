@@ -4,6 +4,7 @@ import type { ComponentProps } from "react";
 
 type ButtonBaseProps = {
   variant: "primary" | "secondary" | "outline";
+  size: "sm" | "lg";
 };
 
 type ButtonAsLinkProps = ButtonBaseProps & {
@@ -19,20 +20,21 @@ export type ButtonProps = ButtonAsLinkProps | ButtonAsButtonProps;
 
 export function Button({
   variant,
+  size,
   as: Component = "button",
   ...props
 }: ButtonProps) {
   if (Component === "button") {
     return (
       <button
-        className={styles[variant]}
+        className={`${styles[variant]} ${styles.button} ${styles[size]}`}
         {...(props as ComponentProps<"button">)}
       />
     );
   }
   return (
     <Component
-      className={styles[variant]}
+      className={`${styles[variant]} ${styles.button} ${styles[size]}`}
       {...(props as ComponentProps<typeof Link>)}
     />
   );

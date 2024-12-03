@@ -5,21 +5,23 @@ import Link from "next/link";
 export function ProgressItem({
   children,
   href,
+  size,
 }: {
   children: React.ReactNode;
   href: string;
+  size: "sm" | "lg";
 }) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
-  console.log(pathname, href, isActive);
-
   return (
     <Link
       href={href}
-      className={`${styles.link} ${isActive ? styles.isActive : ""}`}
+      className={`${styles.link} ${styles[size]} ${
+        isActive ? styles.isActive : ""
+      }`}
     >
-      <span className={styles.text}>{children}</span>
+      <span className={styles.label}>{children}</span>
       <div className={styles.progress}>
         <span className={styles.lineBefore}></span>
         <span className={styles.bullet}></span>

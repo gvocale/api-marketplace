@@ -1,3 +1,4 @@
+import { Check } from "../../icons/Check";
 import styles from "./index.module.scss";
 
 export type DropdownMenuItemProps = {
@@ -19,19 +20,25 @@ export function DropdownMenuItem({
   label,
   onChange,
 }: DropdownMenuItemProps) {
+  const isActive = defaultValue === value;
+
   return (
-    <label htmlFor={value} className={styles.button}>
+    <label
+      htmlFor={value}
+      className={`${styles.button} ${isActive ? styles.active : ""}`}
+    >
       <input
         type="radio"
         id={id}
         name={name}
         value={value}
-        checked={defaultValue === value}
+        checked={isActive}
         onChange={(e) => onChange(e.target.value)}
         className={styles.input}
       />
       <div className={styles.label}>{label}</div>
       {children}
+      <Check className={styles.icon} />
     </label>
   );
 }

@@ -1,47 +1,25 @@
-import { FinancialMessagingStandard } from "@/app/features/types";
-import { Step } from "../Step";
-import styles from "./index.module.scss";
-import { ConnectingLine } from "../ConnetingLine";
+"use client";
+
+import { Anchors, FinancialMessagingStandard } from "@/app/features/types";
+import { useContext } from "react";
+import { UserConfigContext } from "../../context/user-config";
 import { TextLink } from "../TextLink";
-import { Container } from "../Container";
-import { Beneficiary } from "../../icons/Beneficiary";
-import { BeneficiaryBank } from "../../icons/BeneficiaryBank";
-import { Currencies } from "../../icons/Currencies";
-import { IntermediaryBank } from "../../icons/IntermediaryBank";
-import { MoneyTransaction } from "../../icons/MoneyTransaction";
-import { WebsiteEndpoint } from "../../icons/WebsiteEndpoint";
-import { Customer } from "../../icons/Customer";
-import { useState, useRef, useEffect } from "react";
+import { Timeline } from "../Timeline";
+import { TimelineCards } from "../TimelineCards";
+import styles from "./index.module.scss";
 
-export function HowItWorks({
-  messagingStandard,
-}: {
-  messagingStandard: FinancialMessagingStandard;
-}) {
-  const [height, setHeight] = useState<number | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const div = ref.current;
-
-    if (!div) return;
-
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        setHeight(entry.contentRect.height);
-      }
-    });
-
-    resizeObserver.observe(div);
-
-    return () => resizeObserver.disconnect();
-  }, []);
+export function HowItWorks() {
+  const { config } = useContext(UserConfigContext);
+  const { messagingStandard } = config;
 
   return (
     <div className={styles.root}>
-      <div className={styles.sticky}>
-        <Container variant="narrow" className={styles.header}>
-          <h2 className={styles.h2}>How It Works</h2>
+      <div className={styles.left}>
+        <div className={styles.header}>
+          <h2 className={styles.h2} id={Anchors.HOW_IT_WORKS}>
+            How It Works
+          </h2>
+
           {messagingStandard === FinancialMessagingStandard.SWIFT && (
             <div>
               <p className={styles.paragraph}>
@@ -62,6 +40,7 @@ export function HowItWorks({
               </p>
             </div>
           )}
+
           {messagingStandard === FinancialMessagingStandard.PACS && (
             <div>
               <p className={styles.paragraph}>
@@ -90,158 +69,11 @@ export function HowItWorks({
               </p>
             </div>
           )}
-        </Container>
-
-        {/* SWIFT */}
-        <div className={styles.stepsYScroll}>
-          <div
-            className={styles.stepsContainer}
-            ref={ref}
-            style={{ ["--steps-height"]: `${height}px` } as React.CSSProperties}
-          >
-            {messagingStandard === FinancialMessagingStandard.SWIFT && (
-              <ol className={styles.steps}>
-                <li className={styles.step}>
-                  <Step
-                    icon={<Customer />}
-                    title="Initiation"
-                    author="Ordering Customer"
-                    description="A customer initiates a wire transfer"
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<WebsiteEndpoint />}
-                    title="Initiation"
-                    author="Client Host Application"
-                    path="/payments"
-                    description="Our /payments API endpoint, receives details such as the sender's and recipient's bank information, amount, and currency."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<MoneyTransaction />}
-                    title="Message Creation"
-                    author="Ordering Institution"
-                    description="The MT 103 message is created, containing all necessary details for the transfer."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<IntermediaryBank />}
-                    title="Transmission"
-                    author="Intermediary Bank A"
-                    description="The message is transmitted through the Swift network to the recipient's bank."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<Currencies />}
-                    title="Transmission"
-                    author="Intermediary Bank B"
-                    description="Multiple intermediary banks can be involved in case of currency exchange"
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<BeneficiaryBank />}
-                    title="Processing"
-                    author="Beneficiary Bank"
-                    description="The recipient's bank processes the message and credits the recipient's account."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<Beneficiary />}
-                    title="Confirmation"
-                    author="Beneficiary"
-                    description="Confirmation of the transfer is sent back to the sender, completing the transaction"
-                  />
-                </li>
-              </ol>
-            )}
-
-            {/* PACS */}
-            {messagingStandard === FinancialMessagingStandard.PACS && (
-              <ol className={styles.steps}>
-                <li className={styles.step}>
-                  <Step
-                    icon={<Customer />}
-                    title="Initiation"
-                    author="Debtor"
-                    description="The ordering customer or institution initiates the wire transfer request through their financial institution, providing all necessary payment details, such as the amount, currency, and beneficiary information."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<WebsiteEndpoint />}
-                    title="Message Creation"
-                    author="Client Host Application"
-                    path="/payments"
-                    description="The pacs.008 message is generated by the initiating bank. This
-                message is structured according to the ISO 20022 standard,
-                including all relevant details such as debtor and creditor
-                information, transaction amount, and any remittance information."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<Currencies />}
-                    title="Transmission"
-                    author="Debtor Agent"
-                    description="The message is securely transmitted to the beneficiary's
-                bank through the Swift network or another secure financial
-                messaging system."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<IntermediaryBank />}
-                    title="Transmission"
-                    author="Intermediary Agent 1"
-                    description="Any intermediary banks
-                involved in the payment chain also receive the message."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<BeneficiaryBank />}
-                    title="Processing"
-                    author="Creditor Agent"
-                    description="Upon receiving the pacs.008 message, the beneficiary's bank
-                processes the payment according to the instructions provided.
-                This includes verifying the details, ensuring compliance with
-                local and international regulations, and applying the funds to
-                the beneficiary's account."
-                  />
-                </li>
-                <ConnectingLine className={styles.divider} size="large" />
-                <li className={styles.step}>
-                  <Step
-                    icon={<Beneficiary />}
-                    title="Confirmation"
-                    author="Creditor"
-                    description="After processing, a confirmation message is sent back to the
-                initiating bank, confirming that the payment has been
-                successfully completed. The confirmation may include details of
-                the payment status, any deductions (such as fees), and the final
-                credited amount."
-                  />
-                </li>
-              </ol>
-            )}
-          </div>
         </div>
+        <TimelineCards />
+      </div>
+      <div className={styles.right}>
+        <Timeline />
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { Container } from "../Container";
 import { Eyebrow } from "../Eyebrow";
 import { Table } from "../Table";
 import styles from "./index.module.scss";
+import { Notice } from "../Notice";
 
 export function ApplicationHeader() {
   const CODE = `{ 2: O1030224141031IRVTUS3NAXXX00005580671410310224N }`;
@@ -45,12 +46,10 @@ export function ApplicationHeader() {
           </tr>
         </tbody>
       </Table>
-      <p className={styles.paragraph}>
-        <em className={styles.em}>
-          Contains the sender’s and receiver’s bank information, including bank
-          identifiers and branch information.
-        </em>
-      </p>
+      <Notice>
+        Contains the sender’s and receiver’s bank information, including bank
+        identifiers and branch information.
+      </Notice>
       <p className={styles.paragraph}>
         This is the Application Header Block for Sender (Instructing Agent) BIC.
         MT Messages: Block 2, using the LTA (12 character) format

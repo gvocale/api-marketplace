@@ -4,9 +4,9 @@ import styles from "./index.module.scss";
 export function SidebarMenuSubItem({ children }: { children: ReactNode }) {
   return (
     <div className={styles.sidebarMenuSubItem}>
-      <span className={styles.lineContainer}>
-        <span className={styles.line}></span>
-      </span>
+      <div className={styles.lineContainer}>
+        <div className={styles.line}></div>
+      </div>
       {children}
     </div>
   );

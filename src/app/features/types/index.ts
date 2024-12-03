@@ -21,4 +21,8 @@ export enum Anchors {
   FORMAT_THE_REQUEST_BODY = "format-the-request-body",
   FORMAT_THE_MESSAGE_FIELD = "format-the-message-field",
   ENDPOINT = "endpoint",
+  HOW_IT_WORKS = "how-it-works",
+  INITIATE_A_PAYMENT = "initiate-a-payment",
+  OUR_CLIENTS = "our-clients",
+  STEPS_TO_INITIATE_A_WIRE_PAYMENT = "steps-to-initiate-a-wire-payment",
 }
