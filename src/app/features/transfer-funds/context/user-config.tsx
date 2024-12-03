@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import {
   createContext,
   ReactNode,
@@ -8,7 +9,6 @@ import {
   useState,
 } from "react";
 import { FinancialMessagingStandard } from "../../types";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export interface UserConfig {
   messagingStandard: FinancialMessagingStandard;
@@ -65,6 +65,7 @@ export function UserConfigProvider({ children }: { children: ReactNode }) {
           messagingStandardFromParams as FinancialMessagingStandard,
       }));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
