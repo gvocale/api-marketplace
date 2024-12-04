@@ -17,7 +17,6 @@ export default function ProductsLayout({
 }>) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
-  const redBoxRef = useRef<HTMLDivElement>(null);
 
   return (
     <Suspense>

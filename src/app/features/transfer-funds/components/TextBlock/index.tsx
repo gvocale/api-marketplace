@@ -3,9 +3,8 @@ import { Code } from "../Code";
 import { Container } from "../Container";
 import { Eyebrow } from "../Eyebrow";
 import { InlineCode } from "../InlineCode";
-import { Table } from "../Table";
-import styles from "./index.module.scss";
 import { Paragraph } from "../Paragraph";
+import styles from "./index.module.scss";
 
 export function TextBlock() {
   const CODE = `{ 4:
