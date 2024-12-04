@@ -1,6 +1,7 @@
 import { Code } from "../Code";
 import { Container } from "../Container";
 import { InlineCode } from "../InlineCode";
+import { Paragraph } from "../Paragraph";
 import { Table } from "../Table";
 import styles from "./index.module.scss";
 
@@ -33,39 +34,38 @@ export function FormatRequestBody() {
       <h3 className={styles.h3} id="format-the-request-body">
         Format The Request Body
       </h3>
-      <p className={styles.paragraph}>
+      <Paragraph>
         This API request body contains two required elements:{" "}
-        <InlineCode language="tsx">metadata</InlineCode> and{" "}
-        <InlineCode language="tsx">request</InlineCode>.
-      </p>
-      <p className={styles.paragraph}>
+        <InlineCode>metadata</InlineCode> and <InlineCode>request</InlineCode>.
+      </Paragraph>
+      <Paragraph>
         The metadata represents the identifier and security controls for the
         request. Fields marked with an asterisk (*) are mandatory.
-      </p>
+      </Paragraph>
       <Table>
         <tbody>
           <tr>
             <th>
-              <InlineCode language="tsx">requestId</InlineCode>
+              <InlineCode>requestId</InlineCode>
             </th>
             <td>Unique identifer for the request</td>
           </tr>
           <tr>
             <th>
-              <InlineCode language="tsx">idempotencyKey</InlineCode>
+              <InlineCode>idempotencyKey</InlineCode>
             </th>
             <td>For avoidance of duplicate payment submittal</td>
           </tr>
           <tr>
             <th>
-              <InlineCode language="tsx">signatureAlgorithm</InlineCode>
+              <InlineCode>signatureAlgorithm</InlineCode>
               <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>Digital signature algorithm</td>
           </tr>
           <tr>
             <th>
-              <InlineCode language="tsx">signature</InlineCode>
+              <InlineCode>signature</InlineCode>
               <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>Digital signature to sign the payloa.</td>
@@ -73,14 +73,12 @@ export function FormatRequestBody() {
         </tbody>
       </Table>
       <Code code={JSON_1} language="json" />
-      <p className={styles.paragraph}>
-        The request body represents the payment details.
-      </p>
+      <Paragraph>The request body represents the payment details.</Paragraph>
       <Table>
         <tbody>
           <tr>
             <th>
-              <InlineCode language="tsx">paymentProduct</InlineCode>
+              <InlineCode>paymentProduct</InlineCode>
               <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>
@@ -89,7 +87,7 @@ export function FormatRequestBody() {
           </tr>
           <tr>
             <th>
-              <InlineCode language="tsx">paymentMessage</InlineCode>
+              <InlineCode>paymentMessage</InlineCode>
               <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>
@@ -98,7 +96,7 @@ export function FormatRequestBody() {
           </tr>
           <tr>
             <th>
-              <InlineCode language="tsx">messageFormat</InlineCode>
+              <InlineCode>messageFormat</InlineCode>
               <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>
@@ -107,7 +105,7 @@ export function FormatRequestBody() {
           </tr>
           <tr>
             <th>
-              <InlineCode language="tsx">clientReferenceID</InlineCode>
+              <InlineCode>clientReferenceID</InlineCode>
             </th>
             <td>
               Client-assigned reference ID to links payment to your system
@@ -115,13 +113,13 @@ export function FormatRequestBody() {
           </tr>
           <tr>
             <th>
-              <InlineCode language="tsx">clientDescription</InlineCode>
+              <InlineCode>clientDescription</InlineCode>
             </th>
             <td>Memo field for your reference</td>
           </tr>
           <tr>
             <th>
-              <InlineCode language="tsx">message</InlineCode>
+              <InlineCode>message</InlineCode>
               <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>
@@ -131,7 +129,7 @@ export function FormatRequestBody() {
           </tr>
         </tbody>
       </Table>
-      <p className={styles.paragraph}>Example:</p>
+      <Paragraph>Example:</Paragraph>
       <Code code={JSON_2} language="json" />
     </Container>
   );

@@ -5,6 +5,7 @@ import { Eyebrow } from "../Eyebrow";
 import { InlineCode } from "../InlineCode";
 import { Table } from "../Table";
 import styles from "./index.module.scss";
+import { Paragraph } from "../Paragraph";
 
 export function TextBlock() {
   const CODE = `{ 4:
@@ -31,10 +32,10 @@ export function TextBlock() {
         Text Block
       </h4>
       <Code code={CODE} language="bash" className={styles.code} />
-      <p className={styles.paragraph}>
+      <Paragraph>
         See the table below for more details on these fields.
-      </p>
-      <Table className={styles.table}>
+      </Paragraph>
+      <table className={styles.table}>
         <thead>
           <tr>
             <th>Mandatory / Optional</th>
@@ -464,8 +465,8 @@ export function TextBlock() {
                 where Field 56 is used.&nbsp;
               </p>
               <p>
-                {`//FW021000018`} is USD clearing ABA used in the examples but any
-                national clearing code can be used&nbsp;
+                {`//FW021000018`} is USD clearing ABA used in the examples but
+                any national clearing code can be used&nbsp;
               </p>
               <p>
                 <br />
@@ -792,24 +793,23 @@ export function TextBlock() {
             </td>
           </tr>
         </tbody>
-      </Table>
+      </table>
 
-      <p className={styles.paragraph}>
+      <Paragraph>
         The Basic Header Block includes the Receiver (Instructed Agent) BIC. All
         Funds Transfer payment initiation instructions require a Receiver BIC.e
         Use the LTA format (12 characters, i.e., IRVTUS3NAXXX). The API does not
         make use of the session and sequence numbers, but they are needed to
         maintain the formatting rules.
-      </p>
-      <p className={styles.paragraph}>
+      </Paragraph>
+      <Paragraph>
         If you are a Financial Institution, you should use your desired Receiver
         BIC (BNY Branch, such as IRVTUS3N or IRVTBEBB), based on how you want
         the payment to be routed for processing. Use IRVTUS3N (IRVTUS3NAXXX) as
         a default Receiver BIC if you do not know the BIC of the BNY Branch
         associated with your debit account. The debit account (Tag{" "}
-        <InlineCode language="bash">53B</InlineCode>) is mandatory for API
-        transactions.
-      </p>
+        <InlineCode>53B</InlineCode>) is mandatory for API transactions.
+      </Paragraph>
     </Container>
   );
 }

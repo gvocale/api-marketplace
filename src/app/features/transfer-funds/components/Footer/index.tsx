@@ -23,16 +23,24 @@ export function Footer() {
               <h3 className={styles.sectionTitle}>Solutions</h3>
               <ul className={styles.sectionLinks}>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">One BNY</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    One BNY
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Treasury Services</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Treasury Services
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Wove Connect</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Wove Connect
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Custody & Settlement</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Custody & Settlement
+                  </TextLink>
                 </li>
               </ul>
             </div>
@@ -40,19 +48,29 @@ export function Footer() {
               <h3 className={styles.sectionTitle}>Developer</h3>
               <ul className={styles.sectionLinks}>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Documentation Overview</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Documentation Overview
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Treasury Services Documentation</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Treasury Services Documentation
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Wove Connect Documentation</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Wove Connect Documentation
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Sandbox</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Sandbox
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">API Keys & Authentication</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    API Keys & Authentication
+                  </TextLink>
                 </li>
               </ul>
             </div>
@@ -60,21 +78,29 @@ export function Footer() {
               <h3 className={styles.sectionTitle}>Resources</h3>
               <ul className={styles.sectionLinks}>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Help Center</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Help Center
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Case Studies</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Case Studies
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Guides</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Guides
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">
+                  <TextLink currentColor={true} href="/">
                     Treasury Services Quick Start Guide
                   </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Wave Connect Quick Start Guide</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Wave Connect Quick Start Guide
+                  </TextLink>
                 </li>
               </ul>
             </div>
@@ -82,13 +108,19 @@ export function Footer() {
               <h3 className={styles.sectionTitle}>Company</h3>
               <ul className={styles.sectionLinks}>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">About Us</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    About Us
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">News</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    News
+                  </TextLink>
                 </li>
                 <li className={styles.sectionLink}>
-                  <TextLink darkMode={true} href="/">Careers</TextLink>
+                  <TextLink currentColor={true} href="/">
+                    Careers
+                  </TextLink>
                 </li>
               </ul>
             </div>
@@ -96,14 +128,20 @@ export function Footer() {
           <Divider className={styles.divider} />
           <div className={styles.legal}>
             <ul className={styles.legalLinks}>
-              <li className={styles.legalLink}>
-                <TextLink darkMode={true} href="/">Privacy Policy</TextLink>
+              <li>
+                <TextLink currentColor={true} href="/">
+                  Privacy Policy
+                </TextLink>
               </li>
-              <li className={styles.legalLink}>
-                <TextLink darkMode={true} href="/">Terms of Service</TextLink>
+              <li>
+                <TextLink currentColor={true} href="/">
+                  Terms of Service
+                </TextLink>
               </li>
-              <li className={styles.legalLink}>
-                <TextLink darkMode={true} href="/">Cookie Notice</TextLink>
+              <li>
+                <TextLink currentColor={true} href="/">
+                  Cookie Notice
+                </TextLink>
               </li>
             </ul>
             <p className={styles.legalText}>

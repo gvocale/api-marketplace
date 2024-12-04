@@ -3,9 +3,9 @@
   --padding-y: 1rem;
   align-items: center;
   backdrop-filter: blur(20px);
-  background: rgba(65, 138, 167, 0.09);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-full);
-  box-shadow: 0px 16px 24px -14px rgba(0, 0, 0, 0.12);
+  // box-shadow: 0px 16px 24px -14px rgba(0, 0, 0, 0.12);
   color: var(--color-white);
   display: flex;
   left: 50%;
@@ -14,12 +14,18 @@
   position: fixed;
   top: var(--navbar-top);
   transform: translateX(-50%);
-  transition: background-color 0.125s var(--ease-out-quart);
+  transition: background-color 0.125s var(--ease-out-quart),
+    box-shadow 0.125s var(--ease-out-quart);
   width: calc(100% - (var(--page-padding-inline) * 2));
   z-index: var(--z-index-header);
 
   &.isScrolled {
-    background: rgba(1, 32, 54, 0.9);
+    color: var(--color-text-black);
+    box-shadow: none;
+    border-radius: var(--Numbers-border-radius-border-radius-round, 80px);
+    background: rgba(248, 248, 248, 0.75);
+    box-shadow: 0px 16px 24px -14px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(25px);
   }
 }
 

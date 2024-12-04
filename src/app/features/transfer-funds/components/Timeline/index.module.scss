@@ -1,17 +1,32 @@
+.root {
+  display: grid;
+}
+
+.lineContainer {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.timelineContainer {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
 .timeline {
   list-style: none;
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: var(--scroll-margin-top);
-  padding-bottom: 8rem;
-  align-items: center;
-  gap: 4px;
+  --timeline-gap: 4rem;
+  gap: var(--timeline-gap);
 }
 
-.divider {
+.line {
+  height: calc(100% - 8px);
+  background-color: var(--color-blue-900);
+  opacity: 0.3;
   width: 2px;
-  height: 2rem;
-  background-color: var(--color-white);
-  opacity: 0.2;
 }

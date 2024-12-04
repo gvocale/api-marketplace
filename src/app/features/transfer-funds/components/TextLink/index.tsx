@@ -7,21 +7,19 @@ export interface TextLinkProps {
   currentColor?: boolean;
   className?: string;
   href: string;
-  darkMode?: boolean;
 }
 
 export function TextLink({
   children,
   href,
-  darkMode,
   currentColor,
   className,
 }: TextLinkProps) {
   return (
     <Link
-      className={`${styles.root} ${darkMode ? styles.darkMode : ""} ${
-        currentColor ? styles.currentColor : ""
-      } ${className ?? ""}`}
+      className={`${styles.root} ${currentColor ? styles.currentColor : ""} ${
+        className ?? ""
+      }`}
       href={href}
     >
       {children}

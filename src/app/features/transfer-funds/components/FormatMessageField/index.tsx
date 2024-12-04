@@ -1,6 +1,7 @@
 import { Code } from "../Code";
 import { Container } from "../Container";
 import { InlineCode } from "../InlineCode";
+import { Paragraph } from "../Paragraph";
 import styles from "./index.module.scss";
 
 export function FormatMessageField() {
@@ -35,20 +36,19 @@ export function FormatMessageField() {
       <h4 className={styles.h4} id="overview">
         Overview
       </h4>
-      <p className={styles.paragraph}>
-        Next, format the <InlineCode language="tsx">message</InlineCode> field
-        per Swift MT 103 formatting guidelines. The MT 103 message is made up of
-        four blocks. Note that the format of the MT 103 must meet the Swift
-        specification but that some of the information in the message is not
-        used by the API.
-      </p>
-      <p className={styles.paragraph}>
+      <Paragraph>
+        Next, format the <InlineCode>message</InlineCode> field per Swift MT 103
+        formatting guidelines. The MT 103 message is made up of four blocks.
+        Note that the format of the MT 103 must meet the Swift specification but
+        that some of the information in the message is not used by the API.
+      </Paragraph>
+      <Paragraph>
         In the example below, CIBC Bank is instructing BNY to send USD 12,000 on
         behalf of its client, John Debtor to Jane Creditor, who is a client of
         BNY&apos;s Belgium branch, with a Value Date of July 24th 2024.
         CIBC&apos;s debit account at BNY is in Tag 53B, which BNY will use to
         fund the transaction.
-      </p>
+      </Paragraph>
       <Code code={JSON_1} language="bash" />
     </Container>
   );

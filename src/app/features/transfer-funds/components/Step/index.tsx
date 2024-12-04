@@ -47,9 +47,7 @@ export function Step({
             <Tag className={styles.tag}>{tag}</Tag>
             <p className={styles.description}>{description}</p>
             {path && (
-              <InlineCode language="bash" className={styles.inlineCode}>
-                {path}
-              </InlineCode>
+              <InlineCode className={styles.inlineCode}>{path}</InlineCode>
             )}
           </div>
           <div className={styles.icon}>{icon}</div>

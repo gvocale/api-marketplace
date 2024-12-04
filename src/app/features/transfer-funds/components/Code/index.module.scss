@@ -31,8 +31,12 @@
 }
 
 .code {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   line-height: 1.5;
+
+  @media (min-width: 1800px) {
+    font-size: var(--font-size-base);
+  }
 
   pre {
     padding-block: 1rem;

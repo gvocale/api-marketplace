@@ -9,22 +9,6 @@
   scroll-margin-top: var(--scroll-margin-top);
 }
 
-.paragraph {
-  font-size: var(--font-size-md);
-  line-height: 1.8;
-  margin-block: 2rem;
-  text-wrap: pretty;
-}
-
-.table {
-  grid-auto-columns: auto;
-  grid-template-columns: unset;
-
-  tr {
-    grid-column: unset;
-  }
-}
-
 .code {
   margin-bottom: 2rem;
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,6 +7,13 @@ const inter = Inter({
   display: "swap",
   variable: "--font-inter",
   style: ["normal", "italic"],
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space-mono",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +37,11 @@ export default function RootLayout({
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
-      <body className={`${inter.variable}`}>{children}</body>
+      <body
+        className={`${inter.variable} ${spaceMono.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,19 +1,51 @@
 .root {
-  display: grid;
-  grid-template-columns: 1fr min-content 1fr;
+  --circle-size: 1rem;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  transition: transform 0.5s var(--ease-out-back);
+
+  .root:not(:first-of-type)[data-position="below"] & {
+    transform: translateY(20rem);
+  }
+}
+
+.after {
+  margin-top: calc(var(--circle-size) / -2);
+
+  .root:last-of-type & {
+    display: none;
+  }
+}
+
+.before {
+  margin-bottom: calc(var(--circle-size) / -2);
+  z-index: 1;
+
+  .root:first-of-type & {
+    display: none;
+  }
+}
+
+.circle {
+  display: block;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: var(--radius-full);
+  background-color: var(--color-blue-700);
+  flex-shrink: 0;
+  border: 2px solid var(--color-blue-100);
 }
 
 .icon {
-  width: 3rem;
-  border-radius: var(--radius-full);
-  border: 2px solid #f7e135;
-  background-color: white;
-
-  .root:nth-child(even) & {
-    order: 1;
-  }
+  width: 12rem;
+  height: 12rem;
+  --color-blob: var(--color-primary-200);
+  --color-stroke-1: var(--color-white);
 
   svg {
     width: 100%;
@@ -21,18 +53,52 @@
   }
 }
 
-.spacer {
-  .root:nth-child(even) & {
-    order: 2;
+.title {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  white-space: nowrap;
+
+  @media (min-width: 1800px) {
+    font-size: var(--font-size-lg);
   }
 }
 
-.label {
+.contentInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   font-size: var(--font-size-sm);
-  font-weight: 500;
-  line-height: 1.2;
+  gap: 1em;
+}
 
-  .root:nth-child(even) & {
-    order: 0;
-  }
+.tag {
+  font-size: var(--font-size-xs);
+}
+
+.paragraph {
+  line-height: 1.8;
+  max-width: 50ch;
+  text-wrap: pretty;
+}
+
+.card {
+  background-image: var(--gradient-1);
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding-top: 1rem;
+  padding-inline: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: #003e53;
+}
+
+.mask {
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1em;
 }

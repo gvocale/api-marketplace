@@ -3,7 +3,7 @@ import { Container } from "../Container";
 import { Eyebrow } from "../Eyebrow";
 import { InlineCode } from "../InlineCode";
 import { Notice } from "../Notice";
-import { Table } from "../Table";
+import { Paragraph } from "../Paragraph";
 import styles from "./index.module.scss";
 
 export function BasicHeader() {
@@ -16,43 +16,56 @@ export function BasicHeader() {
         Basic Header
       </h4>
       <Code code={CODE} language="bash" className={styles.code} />
-      <Table className={styles.table}>
-        <thead>
-          <tr>
-            <th>AppID</th>
-            <th>ServiceID</th>
-            <th>LTAddress</th>
-            <th>Session Number</th>
-            <th>Sequence Number</th>
-          </tr>
-        </thead>
+      <table className={styles.table}>
         <tbody>
           <tr>
-            <td>F</td>
-            <td>01</td>
-            <td>IRVTUS3NAXXX</td>
-            <td>0000</td>
-            <td>182491</td>
+            <th>
+              <InlineCode>F</InlineCode>
+            </th>
+            <td>AppID</td>
+          </tr>
+          <tr>
+            <th>
+              <InlineCode>01</InlineCode>
+            </th>
+            <td>ServiceID</td>
+          </tr>
+          <tr>
+            <th>
+              <InlineCode>IRVTUS3NAXXX</InlineCode>
+            </th>
+            <td>LTAddress</td>
+          </tr>
+          <tr>
+            <th>
+              <InlineCode>0000</InlineCode>
+            </th>
+            <td>Session Number</td>
+          </tr>
+          <tr>
+            <th>
+              <InlineCode>182491</InlineCode>
+            </th>
+            <td>Sequence Number</td>
           </tr>
         </tbody>
-      </Table>
+      </table>
       <Notice>Contains the message type.</Notice>
-      <p className={styles.paragraph}>
+      <Paragraph>
         The Basic Header Block includes the Receiver (Instructed Agent) BIC. All
         Funds Transfer payment initiation instructions require a Receiver BIC.e
         Use the LTA format (12 characters, i.e., IRVTUS3NAXXX). The API does not
         make use of the session and sequence numbers, but they are needed to
         maintain the formatting rules.
-      </p>
-      <p className={styles.paragraph}>
+      </Paragraph>
+      <Paragraph>
         If you are a Financial Institution, you should use your desired Receiver
         BIC (BNY Branch, such as IRVTUS3N or IRVTBEBB), based on how you want
         the payment to be routed for processing. Use IRVTUS3N (IRVTUS3NAXXX) as
         a default Receiver BIC if you do not know the BIC of the BNY Branch
         associated with your debit account. The debit account (Tag{" "}
-        <InlineCode language="bash">53B</InlineCode>) is mandatory for API
-        transactions.
-      </p>
+        <InlineCode>53B</InlineCode>) is mandatory for API transactions.
+      </Paragraph>
     </Container>
   );
 }

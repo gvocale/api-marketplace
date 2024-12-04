@@ -1,0 +1,10 @@
+.paragraph {
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+  margin-block: 2em;
+  text-wrap: pretty;
+
+  @media (min-width: 1800px) {
+    font-size: var(--font-size-md);
+  }
+}

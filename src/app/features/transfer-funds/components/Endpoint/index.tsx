@@ -1,5 +1,6 @@
 import { Code } from "../Code";
 import { Container } from "../Container";
+import { Paragraph } from "../Paragraph";
 import { TextLink } from "../TextLink";
 import styles from "./index.module.scss";
 
@@ -17,13 +18,13 @@ export function Endpoint() {
       <h3 className={styles.h3} id="endpoint">
         Endpoint
       </h3>
-      <p className={styles.paragraph}>
+      <Paragraph>
         First, use this endpoint and set your headers to submit a{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/swiftMt103-page:~:text=to%20submit%20a-,Funds%20Transfer,-in%20the%20Swift">
           Funds Transfer
         </TextLink>{" "}
         in the Swift MT 103 format.
-      </p>
+      </Paragraph>
       <Code code={curlCommand} language="bash" />
     </Container>
   );

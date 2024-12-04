@@ -1,4 +1,5 @@
 import { Container } from "../Container";
+import { Paragraph } from "../Paragraph";
 import { TextLink } from "../TextLink";
 import styles from "./index.module.scss";
 
@@ -8,7 +9,7 @@ export function TrackPayment() {
       <h3 className={styles.h3} id="track-your-payment">
         Track Your Payment
       </h3>
-      <p className={styles.paragraph}>
+      <Paragraph>
         Next up,{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/tracking-page">
           track your payment
@@ -18,7 +19,7 @@ export function TrackPayment() {
           set up your funds transfer notifications
         </TextLink>
         .
-      </p>
+      </Paragraph>
     </Container>
   );
 }

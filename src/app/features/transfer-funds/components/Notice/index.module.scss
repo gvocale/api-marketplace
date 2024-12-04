@@ -5,8 +5,12 @@
   line-height: 1.8;
   text-wrap: pretty;
   font-style: italic;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   font-weight: 500;
   background-color: var(--color-grayscale-100);
   border-left: 4px solid var(--color-darknight-500);
+
+  @media (min-width: 1800px) {
+    font-size: var(--font-size-md);
+  }
 }

@@ -1,9 +1,17 @@
 .inlineCode {
-  font-weight: inherit;
+  font-family: var(--font-space-mono);
   color: var(--color-black);
   background-color: var(--color-grayscale-100);
   border-radius: var(--radius-base);
   border: 1px solid var(--color-border);
   padding-inline: 0.375em;
   padding-block: 0.25em;
+  padding: 0.12em 0.25em;
+  background: #f7f7f7;
+  border: 1px solid #ededed;
+  border-radius: 0.375rem;
+  display: inline-block;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-primary-400);
 }

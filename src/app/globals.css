@@ -25,33 +25,43 @@
   /* 95.37px */
   --font-size-6xl: 5.96rem;
 
-  --color-green: #418aa7;
   --color-white: #fff;
 
   --color-grayscale-100: color(display-p3 0.95 0.96 0.98);
   --color-grayscale-200: color(display-p3 0.87 0.88 0.9);
   --color-grayscale-500: color(display-p3 0.69 0.7 0.73);
   --color-grayscale-700: color(display-p3 0.49 0.5 0.52);
-  /* Blue-Teal palette */
-
-  --color-blueteal-500: color(display-p3 0.376 0.549 0.573); /* Base color */
 
   --color-darknight-500: color(display-p3 0.4 0.84 0.85);
   --color-darknight-800: #012036;
   --color-darknight-900: color(display-p3 0.01 0.1 0.18);
   --color-darknight-950: color(display-p3 0.01 0.1 0.15);
 
-  --color-primary-100: color(display-p3 0.7 0.97 0.91);
+  --color-primary-200: hsl(171deg 59.29% 84%);
+  --color-primary-400: #1da792;
   --color-primary-500: #008080;
+  --color-primary-800: #034255;
+  --color-primary-900: #003e53;
 
-  --color-yellow-400: color-mix(
-    in display-p3,
-    var(--color-yellow-500) 90%,
-    var(--color-white)
+  --color-blue-100: #e6f3f6;
+  --color-blue-500: #419bad;
+  --color-blue-700: #0d324c;
+  --color-blue-900: #001f35;
+
+  --color-accent: var(--color-primary-500);
+
+  --gradient-1: linear-gradient(
+    130deg,
+    var(--color-blue-700) 1.24%,
+    var(--color-blue-900) 99.91%
   );
-  --color-yellow-500: color(display-p3 0.965 0.882 0.204); /* #F7E135; */
-  --color-yellow-600: color(display-p3 0.93 0.85 0.2);
-  --color-yellow-700: color(display-p3 0.89 0.82 0.2);
+
+  --color-yellow-100: #fdf8e1;
+  --color-yellow-200: #fdf4b8;
+
+  --color-yellow-500: #f7e135;
+  --color-yellow-600: #e4d02e;
+  --color-yellow-700: #d1bf27;
 
   --color-light-blue-100: color(display-p3 0.87 1 1);
   --color-light-blue-200: color(display-p3 0.78 0.98 0.98);
@@ -86,12 +96,11 @@
   --color-text-white: var(--color-white);
   --color-text-white-muted: color-mix(
     in display-p3,
-    var(--color-white) 50%,
+    var(--color-white) 75%,
     transparent
   );
   --color-text-muted: var(--color-grayscale-700);
   --color-text-link: var(--color-primary-500);
-  --color-text-link-dark-mode: var(--color-darknight-500);
   --color-accent-dark-mode: var(--color-darknight-500);
 
   --color-outline: var(--color-primary-500);
