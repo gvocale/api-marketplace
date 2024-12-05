@@ -1,4 +1,4 @@
-import { Anchors } from "@/app/features/types";
+import { Id } from "@/app/features/types";
 import { Code } from "../Code";
 import { Eyebrow } from "../Eyebrow";
 import { Heading } from "../Heading";
@@ -30,7 +30,7 @@ export function TextBlock() {
   return (
     <div>
       <Eyebrow className={styles.eyebrow}>Fourth Block</Eyebrow>
-      <h4 className={styles.h4} id={Anchors.TEXT_BLOCK}>
+      <h4 className={styles.h4} id={Id.TEXT_BLOCK}>
         Text Block
       </h4>
       <Code code={CODE} language="bash" className={styles.code} />
@@ -189,8 +189,8 @@ export function TextBlock() {
                 transaction to the Account With institution (beneficiary bank).
               </Paragraph>
               <Paragraph>
-                <InlineCode>{`//FW021000018`}</InlineCode> is USD clearing ABA
-                used in the examples but any national clearing code can be used.
+                <InlineCode>{`//FW021000018`}</InlineCode>{" "}
+                {`is USD clearing ABA used in the examples but any national clearing code can be used`}
               </Paragraph>
               <Paragraph>
                 <InlineCode>:56A:BKCHCNBJ</InlineCode>
@@ -270,8 +270,8 @@ export function TextBlock() {
                 where Field 56 is used.
               </Paragraph>
               <Paragraph>
-                <InlineCode>//FW021000018</InlineCode> is USD clearing ABA used
-                in the examples but any national clearing code can be used
+                <InlineCode>{"//FW021000018"}</InlineCode> is USD clearing ABA
+                used in the examples but any national clearing code can be used
               </Paragraph>
               <Paragraph>
                 <InlineCode>:57A:BANKUSFX</InlineCode>

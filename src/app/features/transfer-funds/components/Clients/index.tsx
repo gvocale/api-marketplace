@@ -1,4 +1,4 @@
-import { Anchors } from "@/app/features/types";
+import { Id } from "@/app/features/types";
 import { Client } from "../Client";
 import { Container } from "../Container";
 import styles from "./index.module.scss";
@@ -8,7 +8,7 @@ export function Clients() {
   return (
     <Container>
       <div className={styles.header}>
-        <Heading as="h2" id={Anchors.OUR_CLIENTS} className={styles.heading} size="2xl">
+        <Heading as="h2" id={Id.OUR_CLIENTS} className={styles.heading} size="2xl">
           Our Clients
         </Heading>
         <p className={styles.subhead}>

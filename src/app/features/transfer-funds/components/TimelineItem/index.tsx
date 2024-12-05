@@ -1,9 +1,9 @@
+import { Id } from "@/app/features/types";
+import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { InViewItem } from "../../context/in-view";
+import { Paragraph } from "../Paragraph";
 import { Tag } from "../Tag";
 import styles from "./index.module.scss";
-import { motion, useInView } from "motion/react";
-import { Paragraph } from "../Paragraph";
 
 export function TimelineItem({
   icon,
@@ -12,7 +12,7 @@ export function TimelineItem({
   description,
 }: {
   icon: React.ReactNode;
-  itemId: InViewItem;
+  itemId: Id;
   tag: string;
   title: string;
   description: React.ReactNode;
@@ -66,7 +66,7 @@ export function TimelineItem({
               animate={{ height: isInView ? "auto" : 0 }}
               className={styles.mask}
             >
-              <Tag className={styles.tag}>{tag}</Tag>
+              <Tag>{tag}</Tag>
               <Paragraph>{description}</Paragraph>
             </motion.div>
           </div>

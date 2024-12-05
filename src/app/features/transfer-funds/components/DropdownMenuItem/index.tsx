@@ -2,43 +2,26 @@ import { Check } from "../../icons/Check";
 import styles from "./index.module.scss";
 
 export type DropdownMenuItemProps = {
-  children?: React.ReactNode;
-  defaultValue: string;
-  id: string;
-  name: string;
-  value: string;
-  label: string;
-  onChange: (value: string) => void;
+  children: React.ReactNode;
+  isActive: boolean;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  tabIndex?: number;
 };
 
 export function DropdownMenuItem({
+  isActive,
   children,
-  defaultValue,
-  id,
-  name,
-  value,
-  label,
-  onChange,
+  onClick,
+  tabIndex,
 }: DropdownMenuItemProps) {
-  const isActive = defaultValue === value;
-
   return (
-    <label
-      htmlFor={value}
+    <button
       className={`${styles.button} ${isActive ? styles.active : ""}`}
+      onClick={onClick}
+      tabIndex={tabIndex}
     >
-      <input
-        type="radio"
-        id={id}
-        name={name}
-        value={value}
-        checked={isActive}
-        onChange={(e) => onChange(e.target.value)}
-        className={styles.input}
-      />
-      <div className={styles.label}>{label}</div>
       {children}
       <Check className={styles.icon} />
-    </label>
+    </button>
   );
 }

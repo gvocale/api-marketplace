@@ -4,14 +4,28 @@
   gap: 1rem;
   font-weight: 550;
   font-size: var(--font-size-sm);
-  padding-block: 1rem;
-  padding-inline: 0.75rem;
+  padding: 1rem;
   background-color: transparent;
   cursor: pointer;
-  anchor-name: --popover-toggle;
+  width: 100%;
+  appearance: none;
+  border: none;
 
-  &:hover {
+  &.active {
+    cursor: unset;
+  }
+
+  &:hover:not(.active) {
     background-color: var(--color-grayscale-100);
+  }
+
+  &:active:not(.active) {
+    background-color: var(--color-grayscale-200);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: -2px;
   }
 }
 
@@ -20,6 +34,7 @@
   height: 1rem;
   margin-left: auto;
   opacity: 0;
+  color: var(--color-primary-500);
 
   .active & {
     opacity: 1;

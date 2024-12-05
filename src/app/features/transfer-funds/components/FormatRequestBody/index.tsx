@@ -7,16 +7,15 @@ import { Tag } from "../Tag";
 import styles from "./index.module.scss";
 
 export function FormatRequestBody() {
-  const JSON_1 = `
-    {
-      "metadata": {
-        "requestId": "dbbae877-2895-4f7b-b720-66d0efeeca34",
-        "idempotencyKey": "20230707123456",
-        "signatureAlgorithm": "SHA256withRSA",
-        "signature": "1sFcfzXWo25XFRMCShFfTcvfYO8b2DML1UBVmNam=="
-      }
-    }
-    `;
+  const JSON_1 = `{
+  "metadata": {
+    "requestId": "dbbae877-2895-4f7b-b720-66d0efeeca34",
+    "idempotencyKey": "20230707123456",
+    "signatureAlgorithm": "SHA256withRSA",
+    "signature": "1sFcfzXWo25XFRMCShFfTcvfYO8b2DML1UBVmNam=="
+  }
+}`;
+
   const JSON_2 = `{
   "request": {
     "paymentProduct": "WIRE",

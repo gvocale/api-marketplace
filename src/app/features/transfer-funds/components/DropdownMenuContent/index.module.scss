@@ -1,24 +1,25 @@
 .popover {
+  background-color: var(--color-white);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border-radius: var(--radius-base);
-  border: 1px solid var(--color-border);
-  background-color: var(--color-white);
+  left: anchor(left);
+  opacity: 0;
+  pointer-events: none;
   position-anchor: --popover-toggle;
   position: absolute;
-  left: anchor(left);
-  top: anchor(bottom);
-  white-space: nowrap;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  transition: opacity 0.25s var(--ease-out-quart),
-    transform 0.25s var(--ease-out-back);
-  pointer-events: none;
-  transform: translateY(-0.25rem) scale(0.9);
+  top: calc(anchor(bottom) + 4px);
   transform-origin: top center;
+  transform: translateY(-0.25rem) scale(0.9);
+  transition: opacity 0.2s var(--ease-out-quart),
+    transform 0.2s var(--ease-out-back);
+  white-space: nowrap;
+  width: 100%;
+  z-index: 1;
 
   &.open {
     opacity: 1;

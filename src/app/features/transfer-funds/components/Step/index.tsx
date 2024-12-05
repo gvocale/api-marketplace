@@ -1,9 +1,10 @@
+import { Id } from "@/app/features/types";
 import { motion, useInView } from "motion/react";
 import { ReactNode, useContext, useEffect, useRef } from "react";
-import styles from "./index.module.scss";
-import { Tag } from "../Tag";
+import { InViewContext } from "../../context/in-view";
 import { InlineCode } from "../InlineCode";
-import { InViewContext, InViewItem } from "../../context/in-view";
+import { Tag } from "../Tag";
+import styles from "./index.module.scss";
 
 export interface StepProps {
   icon: ReactNode;
@@ -11,7 +12,7 @@ export interface StepProps {
   title: string;
   description: string;
   path?: string;
-  itemId: InViewItem;
+  itemId: Id;
 }
 
 export function Step({

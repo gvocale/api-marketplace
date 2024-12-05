@@ -31,7 +31,7 @@
     height: var(--button-small-height);
     padding-inline: 1rem;
 
-    @media (min-width: 1800px) {
+    @media (min-width: 2400px) {
       font-size: var(--font-size-base);
     }
   }
@@ -42,7 +42,7 @@
     padding-inline: 1.5rem;
     padding-block: 0.75rem;
 
-    @media (min-width: 1800px) {
+    @media (min-width: 2400px) {
       font-size: var(--font-size-base);
     }
   }

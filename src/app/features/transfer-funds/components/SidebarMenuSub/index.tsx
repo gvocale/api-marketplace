@@ -4,10 +4,17 @@ import styles from "./index.module.scss";
 export type SidebarMenuSubItem = {
   children: ReactNode;
   as?: "ol" | "ul";
+  isOpen?: boolean;
 };
 
-export function SidebarMenuSub({ as, children }: SidebarMenuSubItem) {
-  const Tag = as ?? "ol";
+export function SidebarMenuSub({ as, children, isOpen }: SidebarMenuSubItem) {
+  const Element = as ?? "ol";
 
-  return <Tag className={styles.sidebarMenuSub}>{children}</Tag>;
+  return (
+    <div
+      className={`${styles.sidebarMenuSub} ${isOpen ? styles.isOpen : ""}`}
+    >
+      <Element className={styles.list}>{children}</Element>
+    </div>
+  );
 }

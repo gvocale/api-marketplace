@@ -9,7 +9,7 @@
   line-height: 1.2;
   position: relative;
   text-decoration: none;
-  transition: border-bottom 0.25s var(--ease-out-quart);
+  transition: border-bottom 0.2s var(--ease-out-quart);
   white-space: nowrap;
 
   &.sm {
@@ -18,7 +18,7 @@
     position: relative;
     top: 2px;
 
-    @media (min-width: 1800px) {
+    @media (min-width: 2400px) {
       font-size: var(--font-size-base);
     }
   }
@@ -27,7 +27,7 @@
     gap: 1rem;
     font-size: var(--font-size-base);
 
-    @media (min-width: 1800px) {
+    @media (min-width: 2400px) {
       font-size: var(--font-size-md);
     }
   }

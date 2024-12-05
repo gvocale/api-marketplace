@@ -1,42 +1,86 @@
 .button {
   align-items: flex-start;
-  border-radius: var(--radius-sm);
   color: currentColor;
   display: flex;
   font-size: var(--font-size-sm);
   font-weight: 550;
   line-height: 1.2;
-  padding-block: 0.75rem;
-  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  padding-left: 0.25rem;
+  padding-right: 1rem;
   text-decoration: none;
   text-wrap: pretty;
+  gap: 0.75rem;
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-left: 2px solid transparent;
+  appearance: none;
+  background: none;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  width: 100%;
+  min-height: var(--button-large-height);
+
+  &:hover {
+    background-color: var(--color-grayscale-100);
+  }
 
   &.isActive {
-    color: var(--color-text-link);
+    cursor: unset;
+    color: var(--color-text-accent);
   }
 
-  &:hover:not(:focus-visible) {
-    background-color: var(--button-ghost-background-hover-color);
-  }
-
-  &:focus-visible {
-    outline: 1px solid currentColor;
-    outline-offset: 2px;
-  }
-
-  &:active {
-    background-color: var(--button-ghost-background-active-color);
+  &.isChild:not(.isActive) {
+    border-left-color: var(--color-grayscale-100);
   }
 
   &:focus-visible {
     outline: 2px solid var(--color-outline);
-    outline-offset: 2px;
+    outline-offset: -2px;
   }
 }
 
 .icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  padding: 0.25rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .button.isActive & {
+    color: var(--color-white);
+    background-color: var(--color-accent);
+  }
+}
+
+.caretContainer {
+  margin-left: auto;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.caret {
   width: 1rem;
   height: 1rem;
-  margin-right: 0.75rem;
-  flex-shrink: 0;
+  margin-left: auto;
+  transition: transform 0.2s var(--ease-out-back);
+  transform: rotate(0deg);
+
+  .isOpen & {
+    transform: rotate(180deg);
+  }
+}
+
+.label {
 }

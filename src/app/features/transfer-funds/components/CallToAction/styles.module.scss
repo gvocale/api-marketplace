@@ -1,0 +1,52 @@
+.callToAction {
+  display: block;
+  overflow: clip;
+  border-radius: var(--radius-xl);
+  aspect-ratio: 21.6/9;
+  width: 100%;
+  background-color: var(--color-darknight-800);
+  position: relative;
+  max-height: 28rem;
+}
+
+.globe {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--color-white);
+  text-align: center;
+  padding: 4rem;
+  height: 100%;
+}
+
+.heading {
+  margin-bottom: 0.5em;
+}
+
+.paragraph {
+  font-size: var(--font-size-md);
+  line-height: 1.4;
+  margin-bottom: 1.5em;
+  text-wrap: pretty;
+
+  @media (min-width: 2400px) {
+    font-size: var(--font-size-lg);
+  }
+
+  &::selection {
+    background-color: var(--color-primary-200);
+  }
+}

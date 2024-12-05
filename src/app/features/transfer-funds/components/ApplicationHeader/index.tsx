@@ -1,4 +1,4 @@
-import { Anchors } from "@/app/features/types";
+import { Id } from "@/app/features/types";
 import { Code } from "../Code";
 import { Eyebrow } from "../Eyebrow";
 import { InlineCode } from "../InlineCode";
@@ -13,7 +13,7 @@ export function ApplicationHeader() {
   return (
     <div>
       <Eyebrow className={styles.eyebrow}>Second Block</Eyebrow>
-      <h4 className={styles.h4} id={Anchors.APPLICATION_HEADER}>
+      <h4 className={styles.h4} id={Id.APPLICATION_HEADER}>
         Application Header
       </h4>
       <Code code={CODE} language="bash" className={styles.code} />

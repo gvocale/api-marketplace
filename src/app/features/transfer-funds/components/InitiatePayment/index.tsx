@@ -1,6 +1,6 @@
 "use client";
 
-import { Anchors, FinancialMessagingStandard } from "@/app/features/types";
+import { Id, FinancialMessagingStandard } from "@/app/features/types";
 import { useContext } from "react";
 import { UserConfigContext } from "../../context/user-config";
 import { MESSAGING_STANDARD_OPTIONS } from "../../data/optons";
@@ -19,7 +19,7 @@ export function InitiatePayment() {
     <Container variant="narrow">
       <Heading
         as="h2"
-        id={Anchors.INITIATE_A_PAYMENT}
+        id={Id.INITIATE_A_PAYMENT}
         size="2xl"
         className={styles.heading}
       >

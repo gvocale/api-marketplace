@@ -1,30 +1,30 @@
 "use client";
-import { ReactNode } from "react";
-import styles from "./index.module.scss";
+import { Id } from "@/app/features/types";
 import Link, { LinkProps } from "next/link";
-import { usePathname } from "next/navigation";
+import { ReactNode, useContext } from "react";
+import { InViewContext } from "../../context/in-view";
+import styles from "./index.module.scss";
 
 export function SidebarMenuSubButton({
   children,
   href,
+  id,
 }: {
   children: ReactNode;
-  href?: LinkProps["href"];
+  href: LinkProps["href"];
+  id: Id;
 }) {
-  const pathname = usePathname();
-  
-  if (href) {
-    const isActive = pathname.includes(href.toString());
+  const { inView } = useContext(InViewContext);
+  const isActive = id === inView;
 
-    return (
+  return (
+    <li className={styles.item}>
       <Link
         className={`${styles.button} ${isActive ? styles.isActive : ""}`}
         href={href}
       >
-        {children}
+        <span className={styles.label}>{children}</span>
       </Link>
-    );
-  }
-
-  return <div className={styles.button}>{children}</div>;
+    </li>
+  );
 }

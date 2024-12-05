@@ -1,18 +1,41 @@
 .button {
-  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background-color: transparent;
   appearance: none;
-  padding: 0.5rem;
+  background-color: transparent;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  display: flex;
   font-size: var(--font-size-sm);
-  padding-block: 0.75rem;
+  font-weight: 550;
+  gap: 0.5rem;
+  height: var(--button-large-height);
+  outline: none;
+  padding: 1rem;
+  width: 100%;
+  anchor-name: --popover-toggle;
+
+  &:hover {
+    background-color: var(--color-grayscale-100);
+  }
+
+  &:active {
+    background-color: var(--color-grayscale-200);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: -2px;
+  }
 }
 
 .icon {
   width: 1rem;
   height: 1rem;
+  margin-left: auto;
+  transition: transform 0.2s var(--ease-out-back);
+
+  .isOpen & {
+    transform: rotate(180deg);
+  }
 }

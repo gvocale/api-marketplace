@@ -1,8 +1,9 @@
+import { Id } from "@/app/features/types";
 import { Code } from "../Code";
 import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Paragraph } from "../Paragraph";
-
+import styles from "./index.module.scss";
 export function FormatMessageField() {
   const JSON_1 = `{
   { 1: F01IRVTUS3NAXXX4321123456 }
@@ -29,10 +30,15 @@ export function FormatMessageField() {
 
   return (
     <div>
-      <Heading as="h3" id="format-the-message-field" size="xl">
+      <Heading
+        as="h3"
+        size="xl"
+        className={styles.heading}
+        id={Id.FORMAT_THE_MESSAGE_FIELD}
+      >
         Format The Message Field
       </Heading>
-      <Heading as="h4" id="overview" size="lg">
+      <Heading as="h4" id={Id.OVERVIEW} size="lg">
         Overview
       </Heading>
       <Paragraph>

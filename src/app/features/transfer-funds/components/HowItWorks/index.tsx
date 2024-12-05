@@ -1,6 +1,6 @@
 "use client";
 
-import { Anchors, FinancialMessagingStandard } from "@/app/features/types";
+import { Id, FinancialMessagingStandard } from "@/app/features/types";
 import { useContext } from "react";
 import { UserConfigContext } from "../../context/user-config";
 import { TextLink } from "../TextLink";
@@ -24,7 +24,7 @@ export function HowItWorks() {
             <div>
               <Heading
                 as="h2"
-                id={Anchors.HOW_IT_WORKS}
+                id={Id.HOW_IT_WORKS}
                 size="2xl"
                 className={styles.heading}
               >

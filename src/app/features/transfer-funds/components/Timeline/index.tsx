@@ -1,8 +1,7 @@
 "use client";
 
-import { FinancialMessagingStandard } from "@/app/features/types";
+import { FinancialMessagingStandard, Id } from "@/app/features/types";
 import { useContext } from "react";
-import { InViewItem } from "../../context/in-view";
 import { UserConfigContext } from "../../context/user-config";
 import { Beneficiary } from "../../icons/Beneficiary";
 import { BeneficiaryBank } from "../../icons/BeneficiaryBank";
@@ -25,7 +24,7 @@ export function Timeline() {
         return (
           <ul className={styles.timeline}>
             <TimelineItem
-              itemId={InViewItem.Customer}
+              itemId={Id.SWIFT_1_CUSTOMER}
               icon={<Customer />}
               tag="Initiation"
               title="Ordering Customer"
@@ -34,7 +33,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<WebsiteEndpoint />}
-              itemId={InViewItem.ClientHostApplication}
+              itemId={Id.SWIFT_2_CLIENT_HOST_APPLICATION}
               tag="Initiation"
               title="Client Host Application"
               description={
@@ -48,7 +47,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<MoneyTransaction />}
-              itemId={InViewItem.OrderingInstitution}
+              itemId={Id.SWIFT_3_ORDERING_CUSTOMER}
               tag="Message Creation"
               title="Ordering Institution"
               description="The MT 103 message is created, containing all necessary details for the transfer."
@@ -56,14 +55,14 @@ export function Timeline() {
 
             <TimelineItem
               icon={<IntermediaryBank />}
-              itemId={InViewItem.IntermediaryBankA}
+              itemId={Id.SWIFT_4_INTERMEDIARY_BANK_A}
               tag="Transmission"
               title="Intermediary Bank A"
               description="The message is transmitted through the Swift network to the recipient's bank."
             />
 
             <TimelineItem
-              itemId={InViewItem.IntermediaryBankB}
+              itemId={Id.SWIFT_5_INTERMEDIARY_BANK_B}
               icon={<Currencies />}
               tag="Transmission"
               title="Intermediary Bank B"
@@ -72,7 +71,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<BeneficiaryBank />}
-              itemId={InViewItem.BeneficiaryBank}
+              itemId={Id.SWIFT_6_BENEFICIARY_BANK}
               tag="Processing"
               title="Beneficiary Bank"
               description="The recipient's bank processes the message and credits the recipient's account."
@@ -80,7 +79,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<Beneficiary />}
-              itemId={InViewItem.Beneficiary}
+              itemId={Id.SWIFT_7_BENEFICIARY}
               tag="Confirmation"
               title="Beneficiary"
               description="Confirmation of the transfer is sent back to the sender, completing the transaction."
@@ -92,7 +91,7 @@ export function Timeline() {
           <ul className={styles.timeline}>
             <TimelineItem
               icon={<Customer />}
-              itemId={InViewItem.Customer}
+              itemId={Id.PACS_1_CUSTOMER}
               tag="Initiation"
               title="Debtor"
               description="The ordering customer or institution initiates the wire transfer request through their financial institution, providing all necessary payment details, such as the amount, currency, and beneficiary information."
@@ -100,7 +99,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<WebsiteEndpoint />}
-              itemId={InViewItem.ClientHostApplication}
+              itemId={Id.PACS_2_CLIENT_HOST_APPLICATION}
               tag="Initiation"
               title="Client Host Application"
               description={
@@ -114,7 +113,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<MoneyTransaction />}
-              itemId={InViewItem.DebtorAgent}
+              itemId={Id.PACS_3_DEBTOR_AGENT}
               tag="Message Creation"
               title="Debtor Agent"
               description="The message is created by the debtor's bank, containing all necessary details for the transfer."
@@ -122,7 +121,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<IntermediaryBank />}
-              itemId={InViewItem.IntermediaryAgent}
+              itemId={Id.PACS_4_INTERMEDIARY_AGENT}
               tag="Transmission"
               title="Intermediary Agent 1"
               description="Any intermediary banks involved in the payment chain also receive the message."
@@ -130,7 +129,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<IntermediaryBank />}
-              itemId={InViewItem.CreditorAgent}
+              itemId={Id.PACS_5_CREDITOR_AGENT}
               tag="Transmission"
               title="Creditor Agent"
               description="Upon receiving the pacs.008 message, the beneficiary's bank processes the payment according to the instructions provided."
@@ -138,7 +137,7 @@ export function Timeline() {
 
             <TimelineItem
               icon={<BeneficiaryBank />}
-              itemId={InViewItem.Creditor}
+              itemId={Id.PACS_6_CREDITOR}
               tag="Confirmation"
               title="Creditor"
               description="After processing, a confirmation message is sent back to the initiating bank, confirming that the payment has been successfully completed."
