@@ -82,7 +82,6 @@
 }
 
 .authLinks {
-  display: flex;
   gap: 1rem;
   align-items: baseline;
   list-style: none;
@@ -91,6 +90,11 @@
   font-size: var(--font-size-sm);
   letter-spacing: -0.02em;
   padding: var(--padding-y) var(--padding-x);
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
 }
 
 .productLinks {
@@ -104,13 +108,17 @@
 }
 
 .mask {
-  display: grid;
   height: 100%;
   overflow: clip;
   align-items: baseline;
   justify-content: start;
   margin-left: auto;
   margin-right: auto;
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: grid;
+  }
 }
 
 .primaryNav {

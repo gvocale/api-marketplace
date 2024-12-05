@@ -10,7 +10,7 @@ export function Footer() {
       <Container>
         <div className={styles.footerInner}>
           <div className={styles.content}>
-            <div>
+            <div className={styles.logoContainer}>
               <Image
                 src="/bny-marketplace-logo.svg"
                 alt="Logo"

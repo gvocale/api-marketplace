@@ -50,7 +50,7 @@ export function BasicHeader() {
           </tr>
         </tbody>
       </Table>
-      <Notice>Contains the message type.</Notice>
+      <Notice className={styles.notice}>Contains the message type.</Notice>
       <Paragraph>
         The Basic Header Block includes the Receiver (Instructed Agent) BIC. All
         Funds Transfer payment initiation instructions require a Receiver BIC.e

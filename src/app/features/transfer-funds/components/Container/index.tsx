@@ -3,26 +3,12 @@ import styles from "./index.module.scss";
 export interface ContainerProps {
   children: React.ReactNode;
   className?: string;
-  variant?: "default" | "narrow";
-  id?: string;
 }
 
-export function Container({
-  children,
-  variant = "default",
-  className,
-  id,
-}: ContainerProps) {
+export function Container({ children, className }: ContainerProps) {
   return (
-    <div
-      className={`${styles.root} ${styles[variant]} ${className ?? ""}`}
-      id={id}
-    >
-      {variant === "narrow" ? (
-        <div className={styles.inner}>{children}</div>
-      ) : (
-        children
-      )}
+    <div className={`${styles.cotnainer} ${className ?? ""}`}>
+      <div className={styles.inner}>{children}</div>
     </div>
   );
 }

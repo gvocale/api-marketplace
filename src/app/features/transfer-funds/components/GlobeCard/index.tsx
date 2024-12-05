@@ -1,27 +1,43 @@
+import Link from "next/link";
+import { ArrowDown } from "../../icons/ArrowDown";
 import { ArrowRight } from "../../icons/ArrowRight";
-import { IconButton } from "../IconButton";
 import styles from "./index.module.scss";
 
 type GlobeCardProps = {
   title: string;
   description: string;
+  href: string;
   icon: React.ReactNode;
+  isActive?: boolean;
 };
 
-export function GlobeCard({ title, description, icon }: GlobeCardProps) {
+export function GlobeCard({
+  title,
+  description,
+  href,
+  icon,
+  isActive,
+}: GlobeCardProps) {
   return (
-    <div className={styles.globeCard}>
+    <Link
+      className={`${styles.globeCard} ${isActive ? styles.isActive : ""}`}
+      href={href}
+    >
       <div className={styles.iconContainer}>
         <div className={styles.icon}>{icon}</div>
         <h3 className={styles.title}>{title}</h3>
       </div>
       <p className={styles.description}>{description}</p>
-      <IconButton
-        variant="ghost"
-        size="sm"
-        icon={<ArrowRight />}
-        className={styles.iconButton}
-      />
-    </div>
+      <div className={styles.buttonIconMask}>
+        <div className={styles.buttonIconContainer}>
+          <div className={styles.buttonIcon}>
+            {isActive ? <ArrowDown /> : <ArrowRight />}
+          </div>
+          <div className={styles.buttonIcon}>
+            {isActive ? <ArrowDown /> : <ArrowRight />}
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 }

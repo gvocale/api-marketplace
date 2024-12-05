@@ -89,8 +89,12 @@
   --radius-sm: 0.25rem; /* 4px */
   --radius-base: 0.5rem; /* 8px */
   --radius-lg: 1rem; /* 16px */
-  --radius-xl: 4rem; /* 64px */
+  --radius-xl: 3rem; /* 48px */
   --radius-full: 9999px; /* For fully rounded elements */
+
+  @media (min-width: 1280px) {
+    --radius-xl: 4rem; /* 64px */
+  }
 
   --color-black: var(--color-darknight-900);
 
@@ -132,13 +136,18 @@
   }
 
   --navbar-top: 2rem;
-  --page-section-gap-base: 8rem;
-  --page-section-gap-small: 4rem;
-  --page-padding-y: 8rem;
-  --page-padding-inline: 1rem;
+  --page-section-gap-base: 4rem;
+  --page-section-gap-small: 2rem;
+  --page-padding-y: 4rem;
+  --page-padding-inline: 2rem;
+  --icon-size-base: 0.75rem;
 
   @media (min-width: 1280px) {
+    --page-section-gap-base: 8rem;
+    --page-section-gap-small: 4rem;
+    --page-padding-y: 8rem;
     --page-padding-inline: 5dvw;
+    --icon-size-base: 1rem;
   }
 }
 

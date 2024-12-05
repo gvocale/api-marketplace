@@ -8,7 +8,11 @@
 }
 
 .lg {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
+
+  @media (min-width: 2400px) {
+    font-size: var(--font-size-base);
+  }
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-lg);
@@ -16,7 +20,11 @@
 }
 
 .xl {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-md);
+  }
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-xl);
@@ -24,7 +32,11 @@
 }
 
 .xxl {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-lg);
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-2xl);
+  }
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-3xl);

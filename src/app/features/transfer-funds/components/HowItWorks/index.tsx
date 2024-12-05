@@ -18,8 +18,8 @@ export function HowItWorks() {
 
   return (
     <div className={styles.root}>
-      <Container className={styles.container}>
-        <Grid>
+      <Container>
+        <Grid className={styles.background}>
           <Narrow className={styles.narrow}>
             <div>
               <Heading

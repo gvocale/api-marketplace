@@ -1,5 +1,13 @@
 .eyebrow {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   color: var(--color-text-muted);
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-xs);
+  }
+
+  @media (min-width: 2400px) {
+    font-size: var(--font-size-sm);
+  }
 }

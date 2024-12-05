@@ -1,12 +1,16 @@
-.callToAction {
+.background {
   display: block;
   overflow: clip;
   border-radius: var(--radius-xl);
-  aspect-ratio: 21.6/9;
+
   width: 100%;
   background-color: var(--color-darknight-800);
   position: relative;
   max-height: 28rem;
+
+  @media (min-width: 1024px) {
+    aspect-ratio: 21.6/9;
+  }
 }
 
 .globe {
@@ -37,10 +41,14 @@
 }
 
 .paragraph {
-  font-size: var(--font-size-md);
-  line-height: 1.4;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
   margin-bottom: 1.5em;
   text-wrap: pretty;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-md);
+  }
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-lg);

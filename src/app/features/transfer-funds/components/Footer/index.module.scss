@@ -1,7 +1,10 @@
 .footer {
-  position: sticky;
-  bottom: 0;
   color: var(--color-text-white-muted);
+
+  @media (min-width: 1024px) {
+    position: sticky;
+    bottom: 0;
+  }
 }
 
 .footerInner {
@@ -38,9 +41,21 @@
   }
 }
 
+.logoContainer {
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    width: unset;
+  }
+}
+
 .logo {
   width: auto;
-  height: 1.5rem;
+  height: 1rem;
+
+  @media (min-width: 1024px) {
+    height: 1.5rem;
+  }
 }
 
 .divider {
@@ -62,15 +77,24 @@
 
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: baseline;
-  gap: 4rem;
+  flex-wrap: wrap;
+  column-gap: var(--grid-gap);
+  row-gap: var(--page-section-gap-base);
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 }
 
 .legal {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--grid-gap);
   font-size: var(--font-size-xs);
 
   @media (min-width: 2400px) {
@@ -87,7 +111,6 @@
 }
 
 .legalText {
-  color: var(--color-grayscale-200);
   font-weight: 500;
   line-height: 1.2;
 }

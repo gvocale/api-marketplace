@@ -1,27 +1,8 @@
-.root {
+.container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding-inline: var(--page-padding-inline);
-}
-
-.narrow {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--grid-gap);
 }
 
 .inner {
-  grid-column: span 12;
-
-  @media (min-width: 768px) {
-    grid-column: 2/12;
-  }
-
-  @media (min-width: 1280px) {
-    grid-column: 3/11;
-  }
-
-  @media (min-width: 1500px) {
-    grid-column: 4/10;
-  }
+  padding-inline: var(--page-padding-inline);
 }

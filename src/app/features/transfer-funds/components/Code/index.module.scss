@@ -8,15 +8,19 @@
   display: flex;
   justify-content: space-between;
   padding-left: 1rem;
-  padding-block: 0.25rem;
-  padding-right: 0.5rem;
+  padding-block: 0.125em;
+  padding-right: 0.5em;
   background-color: var(--color-grayscale-100);
   border-bottom: 1px solid var(--color-border);
   align-items: center;
+  font-size: var(--font-size-xs);
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-sm);
+  }
 }
 
 .language {
-  font-size: var(--font-size-sm);
   font-weight: 500;
   line-height: 1.2;
   color: var(--color-text-muted);
@@ -26,20 +30,24 @@
 }
 
 .icon {
-  width: 1rem;
-  height: 1rem;
+  width: var(--icon-size-base);
+  height: var(--icon-size-base);
 }
 
 .code {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   line-height: 1.5;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-sm);
+  }
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-base);
   }
 
   pre {
-    padding-block: 1rem;
+    padding-block: 1em;
     overflow-x: auto;
     scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
     scrollbar-width: thin;

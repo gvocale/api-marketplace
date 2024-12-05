@@ -1,10 +1,25 @@
 .paragraph {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   line-height: 1.8;
-  margin-block: 1em;
   text-wrap: pretty;
+  margin-bottom: 1em;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-base);
+  }
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-md);
   }
+}
+
+.paragraph + .paragraph {
+  margin-top: 1em;
+}
+
+h1 + .paragraph,
+h2 + .paragraph,
+h4 + .paragraph, 
+h3 + .paragraph {
+  margin-top: 1em;
 }

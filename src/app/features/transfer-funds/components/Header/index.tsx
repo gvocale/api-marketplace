@@ -10,6 +10,7 @@ import { AngleRight } from "../../icons/AngleRight";
 import { ArrowRightFromArc } from "../../icons/ArrowRightFromArc";
 import { ArrowRightToArc } from "../../icons/ArrowRightToArc";
 import { MagnifyingGlassDollar } from "../../icons/MagnifyingGlassDollar";
+import { Id } from "@/app/features/types";
 
 export function Header() {
   const ref = useRef(null);
@@ -33,6 +34,8 @@ export function Header() {
               title="Initiate"
               description="Send payments via high-value payment networks"
               icon={<ArrowRightToArc />}
+              isActive={true}
+              href={`#${Id.INITIATE_A_PAYMENT}`}
             />
             <div className={styles.divider}>
               <div className={styles.dividerLine} />
@@ -42,6 +45,7 @@ export function Header() {
               title="Track"
               description="Monitor payments at every stage of the process"
               icon={<ArrowRightFromArc />}
+              href="/products/transfer-funds/track-a-payment"
             />
             <div className={styles.divider}>
               <div className={styles.dividerLine} />
@@ -51,6 +55,7 @@ export function Header() {
               title="Reconcile"
               description="Manage money thingy thungy thingy"
               icon={<MagnifyingGlassDollar />}
+              href="/products/transfer-funds/reconcile-a-payment"
             />
           </div>
         </div>
