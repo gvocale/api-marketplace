@@ -17,6 +17,9 @@ import { TextBlock } from "../TextBlock";
 import { TrackPayment } from "../TrackPayment";
 import { UserHeader } from "../UserHeader";
 import styles from "./index.module.scss";
+import { Heading } from "../Heading";
+import { Grid } from "../Grid";
+import { Narrow } from "../Narrow";
 
 export function TransferFunds() {
   return (
@@ -36,32 +39,33 @@ export function TransferFunds() {
 
       <section>
         <Container>
-          <div className={styles.grid}>
+          <Grid>
             <div className={styles.asideContainer}>
               <Aside className={styles.aside} />
             </div>
-            <div className={styles.stepsContainer}>
-              <h3
-                className={styles.h2}
-                id={Anchors.STEPS_TO_INITIATE_A_WIRE_PAYMENT}
-              >
-                Steps to initiate a Wire Payment
-              </h3>
-              <div className={styles.steps}>
-                <Endpoint />
-                <FormatRequestBody />
-                <FormatMessageField />
-                <div className={styles.blocks}>
+            <Narrow className={styles.narrow}>
+              <div>
+                <Heading
+                  as="h3"
+                  id={Anchors.STEPS_TO_INITIATE_A_WIRE_PAYMENT}
+                  size="2xl"
+                >
+                  Steps to initiate a Wire Payment
+                </Heading>
+                <div className={styles.contents}>
+                  <Endpoint />
+                  <FormatRequestBody />
+                  <FormatMessageField />
                   <BasicHeader />
                   <ApplicationHeader />
                   <UserHeader />
                   <TextBlock />
                 </div>
-                <ReceiveApiResponse />
-                <TrackPayment />
               </div>
-            </div>
-          </div>
+              <ReceiveApiResponse />
+              <TrackPayment />
+            </Narrow>
+          </Grid>
         </Container>
       </section>
     </article>

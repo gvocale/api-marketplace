@@ -12,34 +12,13 @@
   background: #f0fbff;
 }
 
-.h2 {
-  font-size: var(--font-size-2xl);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 1em;
-  font-weight: 600;
-  text-align: center;
-  scroll-margin-top: var(--scroll-margin-top);
-
-  @media (min-width: 1800px) {
-    font-size: var(--font-size-3xl);
-  }
-}
-
-.paragraph {
-  font-size: var(--font-size-base);
-  line-height: 1.8;
-  margin-block: 1em;
-  text-wrap: pretty;
-
-  @media (min-width: 1800px) {
-    font-size: var(--font-size-md);
-  }
-}
-
 .narrow {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--page-section-gap-base);
+}
+
+.heading {
+  text-align: center;
 }

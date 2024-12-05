@@ -1,8 +1,9 @@
 import { Code } from "../Code";
-import { Container } from "../Container";
+import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Paragraph } from "../Paragraph";
 import { Table } from "../Table";
+import { Tag } from "../Tag";
 import styles from "./index.module.scss";
 
 export function FormatRequestBody() {
@@ -16,33 +17,31 @@ export function FormatRequestBody() {
       }
     }
     `;
-  const JSON_2 = `
-    {
-      "request": {
-        "paymentProduct": "WIRE",
-        "paymentMessage": "CREDIT_TRANSFER",
-        "clientReferenceId": "49728698-67a2-4bb5-826e-7a44f01527e5",
-        "clientDescription": "Payment for Services",
-        "messageFormat": "SWIFT.MT103",
-        "message": "{1:F01IRVTUS3NAXXX0000182491}{2:O1030224141031IRVTUS3NAXXX00005580671410310224N}{3:{121:28191b19-c5ef-44fe-a35c-172cfa997a3e}}{4: :20:UF9CKT53FROE8KTA :23B:CRED :32A:230922USD12, :33B:USD12, :50K:/78787878 NBOKKWKW :53B:/1111112222 :54A:IRVTUS3NXXX :57A:IRVTUS3NXXX :59:/90909090 BNYM - LONDON BRANCH BNY MELLON CENTRE 160 QUEEN VICTORIA STREET LONDON, EC4V 4LA :70:BAX REFERENCE:BAX000009366 :71A:OUR -}"
-      }
-    }
-    `;
+  const JSON_2 = `{
+  "request": {
+    "paymentProduct": "WIRE",
+    "paymentMessage": "CREDIT_TRANSFER",
+    "clientReferenceId": "49728698-67a2-4bb5-826e-7a44f01527e5",
+    "clientDescription": "Payment for Services",
+    "messageFormat": "SWIFT.MT103",
+    "message": "{1:F01IRVTUS3NAXXX0000182491}{2:O1030224141031IRVTUS3NAXXX00005580671410310224N}{3:{121:28191b19-c5ef-44fe-a35c-172cfa997a3e}}{4: :20:UF9CKT53FROE8KTA :23B:CRED :32A:230922USD12, :33B:USD12, :50K:/78787878 NBOKKWKW :53B:/1111112222 :54A:IRVTUS3NXXX :57A:IRVTUS3NXXX :59:/90909090 BNYM - LONDON BRANCH BNY MELLON CENTRE 160 QUEEN VICTORIA STREET LONDON, EC4V 4LA :70:BAX REFERENCE:BAX000009366 :71A:OUR -}"
+  }
+}`;
 
   return (
-    <Container variant="narrow">
-      <h3 className={styles.h3} id="format-the-request-body">
+    <div>
+      <Heading as="h3" id="format-the-request-body" size="xl">
         Format The Request Body
-      </h3>
+      </Heading>
       <Paragraph>
         This API request body contains two required elements:{" "}
         <InlineCode>metadata</InlineCode> and <InlineCode>request</InlineCode>.
       </Paragraph>
       <Paragraph>
         The metadata represents the identifier and security controls for the
-        request. Fields marked with an asterisk (*) are mandatory.
+        request. Fields marked with an asterisk (*) are tag.
       </Paragraph>
-      <Table>
+      <Table className={styles.table}>
         <tbody>
           <tr>
             <th>
@@ -59,48 +58,58 @@ export function FormatRequestBody() {
           <tr>
             <th>
               <InlineCode>signatureAlgorithm</InlineCode>
-              <span className={styles.mandatory}>Mandatory</span>
             </th>
-            <td>Digital signature algorithm</td>
+            <td>
+              <Tag className={styles.tag}>Mandatory</Tag>
+              <Paragraph>Digital signature algorithm</Paragraph>
+            </td>
           </tr>
           <tr>
             <th>
               <InlineCode>signature</InlineCode>
-              <span className={styles.mandatory}>Mandatory</span>
             </th>
-            <td>Digital signature to sign the payloa.</td>
+            <td>
+              <Tag className={styles.tag}>Mandatory</Tag>
+              <Paragraph>Digital signature to sign the payload.</Paragraph>
+            </td>
           </tr>
         </tbody>
       </Table>
-      <Code code={JSON_1} language="json" />
+      <Code code={JSON_1} language="json" className={styles.code} />
       <Paragraph>The request body represents the payment details.</Paragraph>
-      <Table>
+      <Table className={styles.table}>
         <tbody>
           <tr>
             <th>
               <InlineCode>paymentProduct</InlineCode>
-              <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>
-              Payment product used to initiate the payment. In this case, WIRE
+              <Tag className={styles.tag}>Mandatory</Tag>
+              <Paragraph>
+                Payment product used to initiate the payment. In this case, WIRE
+              </Paragraph>
             </td>
           </tr>
           <tr>
             <th>
               <InlineCode>paymentMessage</InlineCode>
-              <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>
-              Type of payment being initiated. In this case, CREDIT_TRANSFER
+              <Tag className={styles.tag}>Mandatory</Tag>
+              <Paragraph>
+                Type of payment being initiated. In this case, CREDIT_TRANSFER
+              </Paragraph>
             </td>
           </tr>
           <tr>
             <th>
               <InlineCode>messageFormat</InlineCode>
-              <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>
-              Format of the message being sent. In this case, Swift MT 103
+              <Tag className={styles.tag}>Mandatory</Tag>
+              <Paragraph>
+                Format of the message being sent. In this case, Swift MT 103
+              </Paragraph>
             </td>
           </tr>
           <tr>
@@ -108,29 +117,35 @@ export function FormatRequestBody() {
               <InlineCode>clientReferenceID</InlineCode>
             </th>
             <td>
-              Client-assigned reference ID to links payment to your system
+              <Paragraph>
+                Client-assigned reference ID to links payment to your system
+              </Paragraph>
             </td>
           </tr>
           <tr>
             <th>
               <InlineCode>clientDescription</InlineCode>
             </th>
-            <td>Memo field for your reference</td>
+            <td>
+              <Paragraph>Memo field for your reference</Paragraph>
+            </td>
           </tr>
           <tr>
             <th>
               <InlineCode>message</InlineCode>
-              <span className={styles.mandatory}>Mandatory</span>
             </th>
             <td>
-              The Swift MT 103 formatted payment instruction, converted into a
-              JSON string.
+              <Tag className={styles.tag}>Mandatory</Tag>
+              <Paragraph>
+                The Swift MT 103 formatted payment instruction, converted into a
+                JSON string.
+              </Paragraph>
             </td>
           </tr>
         </tbody>
       </Table>
       <Paragraph>Example:</Paragraph>
       <Code code={JSON_2} language="json" />
-    </Container>
+    </div>
   );
 }

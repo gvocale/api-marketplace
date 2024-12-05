@@ -75,12 +75,6 @@
   font-size: var(--font-size-xs);
 }
 
-.paragraph {
-  line-height: 1.8;
-  max-width: 50ch;
-  text-wrap: pretty;
-}
-
 .card {
   background-image: var(--gradient-1);
   color: var(--color-white);

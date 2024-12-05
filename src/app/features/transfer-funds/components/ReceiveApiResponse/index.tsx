@@ -1,5 +1,5 @@
 import { Code } from "../Code";
-import { Container } from "../Container";
+import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Paragraph } from "../Paragraph";
 import { Table } from "../Table";
@@ -35,15 +35,15 @@ export function ReceiveApiResponse() {
 }`;
 
   return (
-    <Container variant="narrow">
-      <h3 className={styles.h3} id="receive-an-api-response">
+    <div>
+      <Heading as="h3" id="receive-an-api-response" size="xl">
         Receive An API Response
-      </h3>
+      </Heading>
       <Paragraph>
         The Response Body contains two elements:{" "}
         <InlineCode>metadata</InlineCode> and <InlineCode>request</InlineCode>.
       </Paragraph>
-      <Table>
+      <Table className={styles.table}>
         <tbody>
           <tr>
             <th>
@@ -106,7 +106,7 @@ export function ReceiveApiResponse() {
           </tr>
         </tbody>
       </Table>
-      <Code code={JSON_1} language="json" />
+      <Code code={JSON_1} language="json" className={styles.code} />
       <Paragraph>
         If you receive an error, the &apos;success&apos; field in the response
         will be returned as false. An example of a{" "}
@@ -115,7 +115,7 @@ export function ReceiveApiResponse() {
         </TextLink>{" "}
         is found below.
       </Paragraph>
-      <Code code={JSON_2} language="json" />
+      <Code code={JSON_2} language="json" className={styles.code} />
       <Paragraph>
         You may also receive an{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/swiftMt103-page:~:text=You%20may%20also%20receive%20an%20API%20Gateway%20error%20which%20are%20caused%20by%20authorization%20problems%20with%20the%20request%20at%20the%20BNY%20API%20Gateway.">
@@ -124,6 +124,6 @@ export function ReceiveApiResponse() {
         which are caused by authorization problems with the request at the BNY
         API Gateway.
       </Paragraph>
-    </Container>
+    </div>
   );
 }

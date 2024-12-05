@@ -1,10 +1,11 @@
-.h3 {
-  font-size: var(--font-size-2xl);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  text-align: left;
-  text-wrap: balance;
-  scroll-margin-top: var(--scroll-margin-top);
+.table {
+  grid-template-columns: auto 1fr;
+
+  tr {
+    grid-column: span 2;
+  }
+}
+
+.code {
+  margin-block: 2em;
 }

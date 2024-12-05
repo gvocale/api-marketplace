@@ -9,19 +9,21 @@
   scroll-margin-top: var(--scroll-margin-top);
 }
 
-.table {
-  grid-auto-columns: auto;
-  grid-template-columns: unset;
-
-  tr {
-    grid-column: unset;
-  }
-}
-
 .code {
-  margin-bottom: 2rem;
+  margin-block: 2em;
 }
 
+.notice {
+  margin-block: 2em;
+}
 .eyebrow {
   margin-bottom: 0.5rem;
+}
+
+.table {
+  grid-template-columns: auto 1fr;
+
+  tr {
+    grid-column: span 2;
+  }
 }

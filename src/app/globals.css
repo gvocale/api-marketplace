@@ -27,7 +27,7 @@
 
   --color-white: #fff;
 
-  --color-grayscale-100: color(display-p3 0.95 0.96 0.98);
+  --color-grayscale-100: #f7f7f7;
   --color-grayscale-200: color(display-p3 0.87 0.88 0.9);
   --color-grayscale-500: color(display-p3 0.69 0.7 0.73);
   --color-grayscale-700: color(display-p3 0.49 0.5 0.52);
@@ -40,6 +40,7 @@
   --color-primary-200: hsl(171deg 59.29% 84%);
   --color-primary-400: #1da792;
   --color-primary-500: #008080;
+  --color-primary-600: #006666;
   --color-primary-800: #034255;
   --color-primary-900: #003e53;
 

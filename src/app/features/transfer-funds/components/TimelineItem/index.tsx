@@ -3,6 +3,7 @@ import { InViewItem } from "../../context/in-view";
 import { Tag } from "../Tag";
 import styles from "./index.module.scss";
 import { motion, useInView } from "motion/react";
+import { Paragraph } from "../Paragraph";
 
 export function TimelineItem({
   icon,
@@ -66,9 +67,7 @@ export function TimelineItem({
               className={styles.mask}
             >
               <Tag className={styles.tag}>{tag}</Tag>
-              <div>
-                <p className={styles.paragraph}>{description}</p>
-              </div>
+              <Paragraph>{description}</Paragraph>
             </motion.div>
           </div>
         </motion.div>

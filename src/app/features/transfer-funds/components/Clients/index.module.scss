@@ -1,13 +1,3 @@
-.h2 {
-  font-size: var(--font-size-3xl);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  text-align: center;
-  scroll-margin-top: var(--scroll-margin-top);
-}
-
 .subhead {
   font-size: var(--font-size-lg);
   line-height: 1.6;
@@ -24,5 +14,9 @@
 }
 
 .heading {
-  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: var(--page-section-gap-small);
 }

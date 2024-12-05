@@ -10,9 +10,26 @@
 }
 
 .code {
-  margin-bottom: 2rem;
+  margin-block: 2em;
 }
 
 .eyebrow {
   margin-bottom: 0.5rem;
+}
+
+.tag {
+  font-size: var(--font-size-xs);
+  margin-bottom: 1em;
+}
+
+.table {
+  grid-template-columns: auto 1fr;
+
+  tr {
+    grid-column: span 2;
+  }
+}
+
+.notice {
+  margin-block: 2em;
 }

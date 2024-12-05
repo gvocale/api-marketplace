@@ -1,14 +1,13 @@
-import { Container } from "../Container";
+import { Heading } from "../Heading";
 import { Paragraph } from "../Paragraph";
 import { TextLink } from "../TextLink";
-import styles from "./index.module.scss";
 
 export function TrackPayment() {
   return (
-    <Container variant="narrow">
-      <h3 className={styles.h3} id="track-your-payment">
+    <div>
+      <Heading as="h3" id="track-your-payment" size="xl">
         Track Your Payment
-      </h3>
+      </Heading>
       <Paragraph>
         Next up,{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/tracking-page">
@@ -20,6 +19,6 @@ export function TrackPayment() {
         </TextLink>
         .
       </Paragraph>
-    </Container>
+    </div>
   );
 }

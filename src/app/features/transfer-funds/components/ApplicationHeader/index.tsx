@@ -1,24 +1,23 @@
 import { Anchors } from "@/app/features/types";
 import { Code } from "../Code";
-import { Container } from "../Container";
 import { Eyebrow } from "../Eyebrow";
+import { InlineCode } from "../InlineCode";
 import { Notice } from "../Notice";
 import { Paragraph } from "../Paragraph";
-import styles from "./index.module.scss";
 import { Table } from "../Table";
-import { InlineCode } from "../InlineCode";
+import styles from "./index.module.scss";
 
 export function ApplicationHeader() {
   const CODE = `{ 2: O1030224141031IRVTUS3NAXXX00005580671410310224N }`;
 
   return (
-    <Container variant="narrow">
+    <div>
       <Eyebrow className={styles.eyebrow}>Second Block</Eyebrow>
       <h4 className={styles.h4} id={Anchors.APPLICATION_HEADER}>
         Application Header
       </h4>
       <Code code={CODE} language="bash" className={styles.code} />
-      <Table>
+      <Table className={styles.table}>
         <tbody>
           <tr>
             <td>
@@ -82,7 +81,7 @@ export function ApplicationHeader() {
           </tr>
         </tbody>
       </Table>
-      <Notice>
+      <Notice className={styles.notice}>
         Contains the sender’s and receiver’s bank information, including bank
         identifiers and branch information.
       </Notice>
@@ -104,6 +103,6 @@ export function ApplicationHeader() {
         Sender BIC (the Payment API will still perform account validations based
         on the Nexen API Processing Id, based on the Client Profile setup).
       </Paragraph>
-    </Container>
+    </div>
   );
 }

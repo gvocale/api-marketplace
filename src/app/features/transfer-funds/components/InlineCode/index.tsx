@@ -4,7 +4,7 @@ export function InlineCode({
   children,
   className,
 }: {
-  children: string;
+  children: React.ReactNode;
   className?: string;
 }) {
   return (

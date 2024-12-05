@@ -1,22 +1,22 @@
 import { Code } from "../Code";
-import { Container } from "../Container";
 import { Eyebrow } from "../Eyebrow";
 import { InlineCode } from "../InlineCode";
 import { Notice } from "../Notice";
 import { Paragraph } from "../Paragraph";
+import { Table } from "../Table";
 import styles from "./index.module.scss";
 
 export function BasicHeader() {
   const CODE = `{{1:F01IRVTUS3NAXXX0000182491}:`;
 
   return (
-    <Container variant="narrow">
+    <div>
       <Eyebrow className={styles.eyebrow}>First Block</Eyebrow>
       <h4 className={styles.h4} id="basic-header">
         Basic Header
       </h4>
       <Code code={CODE} language="bash" className={styles.code} />
-      <table className={styles.table}>
+      <Table className={styles.table}>
         <tbody>
           <tr>
             <th>
@@ -49,7 +49,7 @@ export function BasicHeader() {
             <td>Sequence Number</td>
           </tr>
         </tbody>
-      </table>
+      </Table>
       <Notice>Contains the message type.</Notice>
       <Paragraph>
         The Basic Header Block includes the Receiver (Instructed Agent) BIC. All
@@ -66,6 +66,6 @@ export function BasicHeader() {
         associated with your debit account. The debit account (Tag{" "}
         <InlineCode>53B</InlineCode>) is mandatory for API transactions.
       </Paragraph>
-    </Container>
+    </div>
   );
 }

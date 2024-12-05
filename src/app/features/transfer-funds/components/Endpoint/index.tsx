@@ -1,8 +1,7 @@
 import { Code } from "../Code";
-import { Container } from "../Container";
+import { Heading } from "../Heading";
 import { Paragraph } from "../Paragraph";
 import { TextLink } from "../TextLink";
-import styles from "./index.module.scss";
 
 export function Endpoint() {
   const curlCommand = `curl -X POST https://apigateway.bnymellon.com/payments/v1/payments
@@ -14,10 +13,10 @@ export function Endpoint() {
   }'`;
 
   return (
-    <Container variant="narrow">
-      <h3 className={styles.h3} id="endpoint">
+    <div>
+      <Heading as="h3" id="endpoint" size="xl">
         Endpoint
-      </h3>
+      </Heading>
       <Paragraph>
         First, use this endpoint and set your headers to submit a{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/swiftMt103-page:~:text=to%20submit%20a-,Funds%20Transfer,-in%20the%20Swift">
@@ -26,6 +25,6 @@ export function Endpoint() {
         in the Swift MT 103 format.
       </Paragraph>
       <Code code={curlCommand} language="bash" />
-    </Container>
+    </div>
   );
 }

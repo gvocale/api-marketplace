@@ -1,8 +1,7 @@
 import { Code } from "../Code";
-import { Container } from "../Container";
+import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Paragraph } from "../Paragraph";
-import styles from "./index.module.scss";
 
 export function FormatMessageField() {
   const JSON_1 = `{
@@ -29,13 +28,13 @@ export function FormatMessageField() {
 }`;
 
   return (
-    <Container variant="narrow">
-      <h3 className={styles.h3} id="format-the-message-field">
+    <div>
+      <Heading as="h3" id="format-the-message-field" size="xl">
         Format The Message Field
-      </h3>
-      <h4 className={styles.h4} id="overview">
+      </Heading>
+      <Heading as="h4" id="overview" size="lg">
         Overview
-      </h4>
+      </Heading>
       <Paragraph>
         Next, format the <InlineCode>message</InlineCode> field per Swift MT 103
         formatting guidelines. The MT 103 message is made up of four blocks.
@@ -50,6 +49,6 @@ export function FormatMessageField() {
         fund the transaction.
       </Paragraph>
       <Code code={JSON_1} language="bash" />
-    </Container>
+    </div>
   );
 }

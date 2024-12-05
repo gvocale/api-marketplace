@@ -1,17 +1,12 @@
 .inlineCode {
-  font-family: var(--font-space-mono);
-  color: var(--color-black);
   background-color: var(--color-grayscale-100);
-  border-radius: var(--radius-base);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
-  padding-inline: 0.375em;
-  padding-block: 0.25em;
-  padding: 0.12em 0.25em;
-  background: #f7f7f7;
-  border: 1px solid #ededed;
-  border-radius: 0.375rem;
+  color: var(--color-primary-600);
   display: inline-block;
+  font-family: var(--font-sans-mono);
   line-height: 1.2;
   margin: 0;
-  color: var(--color-primary-400);
+  padding-block: 0.125em;
+  padding-inline: 0.25em;
 }

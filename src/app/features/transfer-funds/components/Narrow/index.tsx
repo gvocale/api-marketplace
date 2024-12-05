@@ -7,5 +7,5 @@ export function Narrow({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={`${styles.narrow} ${className}`}>{children}</div>;
+  return <div className={`${styles.narrow} ${className ?? ""}`}>{children}</div>;
 }
