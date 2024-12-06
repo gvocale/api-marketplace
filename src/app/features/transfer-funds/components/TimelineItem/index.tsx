@@ -32,7 +32,12 @@ export function TimelineItem({
   return (
     <li className={`${styles.root}`} id={id} ref={ref}>
       <InView id={id} type="timeline">
-        <Link className={styles.card} href={`#${id}`} onFocus={handleFocus}>
+        <Link
+          className={styles.card}
+          href={`#${id}`}
+          onFocus={handleFocus}
+          tabIndex={isActive ? -1 : 0}
+        >
           <div className={styles.header}>
             <h3 className={styles.title}>{title}</h3>
             {tag && <Tag className={styles.tag}>{tag}</Tag>}

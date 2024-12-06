@@ -41,7 +41,7 @@ export function TransferFunds() {
       transition={{ type: "spring", stiffness: 200, damping: 25 }}
     >
       <article className={styles.page}>
-        <div className={styles.debug}>timelineInView: {inView}</div>
+        {/* <div className={styles.debug}>timelineInView: {inView}</div> */}
         <Header />
         <section>
           <InitiatePayment />
