@@ -51,6 +51,13 @@
     overflow-x: auto;
     scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
     scrollbar-width: thin;
+    border-bottom-left-radius: var(--radius-base);
+    border-bottom-right-radius: var(--radius-base);
+
+    &:focus-visible {
+      outline: 2px solid var(--color-outline);
+      outline-offset: -2px;
+    }
   }
 
   code {
@@ -68,14 +75,13 @@
     counter-increment: step;
     width: 3ch;
     text-align: right;
-    left: 0;
+    left: 2px;
     padding-left: 1ch;
     padding-right: 3ch;
     display: inline-block;
     text-align: right;
     color: var(--color-grayscale-600);
     position: sticky;
-    left: 0;
     background-color: var(--color-white);
   }
 }

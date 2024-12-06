@@ -1,4 +1,4 @@
-import { Id } from "@/app/features/types";
+import { SectionId } from "@/app/features/types";
 import { Code } from "../Code";
 import { Eyebrow } from "../Eyebrow";
 import { InlineCode } from "../InlineCode";
@@ -6,6 +6,7 @@ import { Notice } from "../Notice";
 import { Paragraph } from "../Paragraph";
 import { Table } from "../Table";
 import styles from "./index.module.scss";
+import { Heading } from "../Heading";
 
 export function ApplicationHeader() {
   const CODE = `{ 2: O1030224141031IRVTUS3NAXXX00005580671410310224N }`;
@@ -13,9 +14,14 @@ export function ApplicationHeader() {
   return (
     <div>
       <Eyebrow className={styles.eyebrow}>Second Block</Eyebrow>
-      <h4 className={styles.h4} id={Id.APPLICATION_HEADER}>
+      <Heading
+        as="h4"
+        id={SectionId.APPLICATION_HEADER}
+        className={styles.h4}
+        size="lg"
+      >
         Application Header
-      </h4>
+      </Heading>
       <Code code={CODE} language="bash" className={styles.code} />
       <Table className={styles.table}>
         <tbody>

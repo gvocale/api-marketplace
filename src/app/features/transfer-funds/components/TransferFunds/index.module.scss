@@ -1,4 +1,13 @@
+.root {
+  transform-origin: bottom center;
+  z-index: 1;
+  position: relative;
+}
+
 .page {
+  background-color: var(--color-white);
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   padding-bottom: var(--page-padding-y);
   display: flex;
   flex-direction: column;
@@ -34,19 +43,27 @@
 
 .debug {
   position: fixed;
-  bottom: 1rem;
+  bottom: 4rem;
+  font-size: var(--font-size-xs);
   left: 1rem;
-  background-color: red;
-  font-size: var(--font-size-small);
+  border-radius: var(--radius-base);
   z-index: 100;
-  width: 20rem;
-  height: 2rem;
+  width: max-content;
+  height: max-content;
+  padding: 1rem;
+  background-color: var(--color-primary-900);
+  color: var(--color-white);
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: left;
 }
 
 .h2 {
   margin-bottom: 1em;
+}
+
+.howItWorks {
+  margin-bottom: var(--grid-gap-sm);
 }

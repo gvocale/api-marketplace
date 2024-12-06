@@ -35,12 +35,14 @@
 }
 
 .logo {
-  --logo-size: 4rem;
+  --logo-size: 6rem;
+  object-fit: contain;
+  aspect-ratio: 16 / 9;
+  object-position: left center;
   width: var(--logo-size);
-  height: var(--logo-size);
-  border: 1px solid;
-  border-color: var(--color-border-20);
-  margin-bottom: calc(var(--logo-size) / 4);
+  height: auto;
+  margin-bottom: 1em;
+  align-self: flex-start;
 
   @media (min-width: 2400px) {
     --logo-size: 6rem;

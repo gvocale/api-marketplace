@@ -1,4 +1,4 @@
-import { Id } from "@/app/features/types";
+import { SectionId } from "@/app/features/types";
 import { Code } from "../Code";
 import { Eyebrow } from "../Eyebrow";
 import { Paragraph } from "../Paragraph";
@@ -10,7 +10,7 @@ export function UserHeader() {
   return (
     <div>
       <Eyebrow className={styles.eyebrow}>Third Block</Eyebrow>
-      <h4 className={styles.h4} id={Id.USER_HEADER}>
+      <h4 className={styles.h4} id={SectionId.USER_HEADER}>
         User Header
       </h4>
       <Code code={CODE} language="bash" className={styles.code} />

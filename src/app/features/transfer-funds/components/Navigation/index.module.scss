@@ -21,11 +21,11 @@
 
   &.isScrolled {
     color: var(--color-text-black);
-    box-shadow: none;
-    border-radius: var(--Numbers-border-radius-border-radius-round, 80px);
-    background: rgba(248, 248, 248, 0.75);
-    box-shadow: 0px 16px 24px -14px rgba(0, 0, 0, 0.12);
-    backdrop-filter: blur(25px);
+    background: rgba(1, 32, 54, 0.7);
+    color: var(--color-white);
+    box-shadow: 0px 1px 0px 0px rgba(7, 68, 80, 0.5) inset,
+      0px 15px 51.3px 0px rgba(91, 120, 139, 0.52);
+    backdrop-filter: blur(35px);
   }
 }
 

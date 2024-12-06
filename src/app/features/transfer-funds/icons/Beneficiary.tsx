@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export function Beneficiary() {
+export function Beneficiary({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 499 499"
@@ -8,6 +8,7 @@ export function Beneficiary() {
       xmlns="http://www.w3.org/2000/svg"
       width="499"
       height="499"
+      className={className}
     >
       <path
         fill="var(--color-stroke-1)"

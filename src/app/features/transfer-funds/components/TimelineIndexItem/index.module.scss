@@ -1,0 +1,79 @@
+.timelineIndexItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) min-content minmax(0, 1fr);
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 1rem;
+  scroll-margin-top: var(--scroll-margin-top);
+}
+
+.indicator {
+  display: inline-grid;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  transform-origin: center center;
+  border: 2px solid var(--color-primary-900);
+}
+
+.indicatorInner {
+  background-color: var(--color-primary-900);
+  border-radius: var(--radius-full);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-out-back);
+
+  .isActive &,
+  .timelineIndexItem:has(~ [data-active="true"]) & {
+    opacity: 1;
+  }
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  overflow: clip;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  line-height: 1.2;
+  font-weight: 450;
+  width: max-content;
+  justify-self: end;
+  transition: font-size 0.5s var(--ease-out-back),
+    font-weight 0.5s var(--ease-out-back), opacity 0.5s var(--ease-out-back);
+  font-weight: 600;
+  opacity: 0.5;
+  text-decoration: none;
+  color: currentColor;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+    transition-duration: 0s;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: 2px;
+  }
+
+  .isActive & {
+    font-size: var(--font-size-base);
+    opacity: 1;
+  }
+
+  .timelineIndexItem:has(~ [data-active="true"]) & {
+    opacity: 1;
+  }
+}
+
+.timelineIndexItem:nth-of-type(even) .label {
+  order: 2;
+  justify-self: start;
+}
+
+.timelineIndexItem:nth-of-type(even) .spacer {
+  order: -1;
+  justify-self: start;
+}

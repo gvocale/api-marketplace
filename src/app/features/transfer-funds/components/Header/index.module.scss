@@ -17,42 +17,53 @@
   height: 100%;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  grid-column: span 12;
-  gap: 4rem;
-  position: relative;
-}
-
 .h1 {
   font-size: var(--font-size-2xl);
   line-height: 1.2;
   letter-spacing: -0.02em;
   font-weight: 550;
+  text-align: center;
 
   @media (min-width: 1024px) {
+    font-size: var(--font-size-4xl);
+  }
+
+  @media (min-width: 1440px) {
     font-size: var(--font-size-5xl);
   }
 }
 
 .cards {
+  width: 100%;
+  display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
-  display: none;
+  padding-block: 1rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  padding-inline: var(--page-padding-inline);
+  margin-inline: auto;
+  justify-content: center;
+  position: relative;
 
   @media (min-width: 1024px) {
-    display: flex;
+    gap: 2rem;
   }
 }
 
 .dividerLine {
-  width: 4rem;
-  border-top: 2px dashed var(--color-white);
+  width: 2rem;
+  height: 4px;
   color: var(--color-white);
+  background-image: radial-gradient(circle, currentColor 2px, transparent 2px);
+  background-position: left bottom;
+  background-size: 12px 4px;
+  background-repeat: repeat-x;
+
+  @media (min-width: 1024px) {
+    width: 4rem;
+  }
 }
 
 .divider {
@@ -61,8 +72,21 @@
 }
 
 .dividerIcon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: -0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
   margin-right: -0.25rem;
+
+  @media (min-width: 1024px) {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+}
+
+.headingContainer {
+  position: relative;
+  margin-bottom: 2rem;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 4rem;
+  }
 }

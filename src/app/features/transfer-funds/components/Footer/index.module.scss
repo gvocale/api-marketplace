@@ -66,7 +66,7 @@
   animation-fill-mode: both;
   transform-origin: center;
   transform: scaleX(1);
-  background-color: var(--color-blue-700);
+  background-color: var(--color-teal-700);
 }
 
 @keyframes grow {
@@ -81,7 +81,7 @@
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
-  column-gap: var(--grid-gap);
+  column-gap: var(--grid-gap-base);
   row-gap: var(--page-section-gap-base);
 
   @media (min-width: 1024px) {
@@ -94,7 +94,7 @@
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: var(--grid-gap);
+  gap: var(--grid-gap-base);
   font-size: var(--font-size-xs);
 
   @media (min-width: 2400px) {
@@ -120,7 +120,7 @@
   font-weight: 500;
   line-height: 1.2;
   margin-bottom: 2.5em;
-  color: var(--color-blue-500);
+  color: var(--color-teal-500);
 }
 
 .sectionLinks {
@@ -135,4 +135,8 @@
   @media (min-width: 2400px) {
     font-size: var(--font-size-sm);
   }
+}
+
+.footerInView {
+  height: 1px;
 }

@@ -1,80 +1,52 @@
-import { Id } from "@/app/features/types";
-import { motion, useInView } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { TimelineId } from "@/app/features/types";
+import { motion } from "motion/react";
+import { useContext, useRef } from "react";
+import { InViewContext } from "../../context/in-view";
+import { InView } from "../InView";
 import { Paragraph } from "../Paragraph";
 import { Tag } from "../Tag";
 import styles from "./index.module.scss";
+import Link from "next/link";
 
 export function TimelineItem({
   icon,
   tag,
   title,
   description,
+  id,
 }: {
   icon: React.ReactNode;
-  itemId: Id;
-  tag: string;
+  id: TimelineId;
+  tag?: string;
   title: string;
   description: React.ReactNode;
 }) {
-  const [position, setPosition] = useState("");
+  const { inView } = useContext(InViewContext);
+  const isActive = inView === id;
   const ref = useRef<HTMLLIElement>(null);
-  const isInView = useInView(ref);
 
-  useEffect(() => {
-    const element = ref.current;
-
-    if (!element) return;
-
-    const observer = new IntersectionObserver(([entry]) => {
-      const { boundingClientRect } = entry;
-      const { top, bottom } = boundingClientRect;
-
-      if (bottom < 0) {
-        setPosition("above");
-      } else if (top > window.innerHeight) {
-        setPosition("below");
-      } else {
-        setPosition("inView");
-      }
-    });
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, [ref]);
+  function handleFocus() {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  }
 
   return (
-    <li className={`${styles.root}`} ref={ref} data-position={position}>
-      <div className={styles.container}>
-        <div className={styles.before}>
-          <div className={styles.circle} />
-        </div>
-        <motion.div
-          animate={{ transform: isInView ? "scale(1.1)" : "scale(1)" }}
-          className={styles.card}
-        >
+    <li className={`${styles.root}`} id={id} ref={ref}>
+      <InView id={id} type="timeline">
+        <Link className={styles.card} href={`#${id}`} onFocus={handleFocus}>
+          <div className={styles.header}>
+            <h3 className={styles.title}>{title}</h3>
+            {tag && <Tag className={styles.tag}>{tag}</Tag>}
+          </div>
           <motion.div
-            animate={{ opacity: isInView ? 1 : 0 }}
-            className={styles.iconContainer}
+            animate={{ height: isActive ? "auto" : 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            className={styles.content}
           >
+            <Paragraph>{description}</Paragraph>
             <div className={styles.icon}>{icon}</div>
           </motion.div>
-          <div className={styles.contentInner}>
-            <h3 className={styles.title}>{title}</h3>
-            <motion.div
-              animate={{ height: isInView ? "auto" : 0 }}
-              className={styles.mask}
-            >
-              <Tag>{tag}</Tag>
-              <Paragraph>{description}</Paragraph>
-            </motion.div>
-          </div>
-        </motion.div>
-        <div className={styles.after}>
-          <div className={styles.circle} />
-        </div>
-      </div>
+        </Link>
+      </InView>
     </li>
   );
 }

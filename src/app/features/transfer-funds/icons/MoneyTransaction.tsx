@@ -1,6 +1,7 @@
-export function MoneyTransaction() {
+export function MoneyTransaction({ className }: { className?: string }) {
   return (
     <svg
+      className={className}
       viewBox="0 0 499 499"
       preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,6 @@
 "use client";
-import { Id } from "@/app/features/types";
+
+import { SectionId } from "@/app/features/types";
 import { useState } from "react";
 import { Globe } from "../../icons/Globe";
 import { InboxIn } from "../../icons/InboxIn";
@@ -9,29 +10,29 @@ import { MessageCode } from "../../icons/MessageCode";
 import { Sidebar } from "../Sidebar";
 import { SidebarContent } from "../SidebarContent";
 import { SidebarGroup } from "../SidebarGroup";
-import { SidebarHeader } from "../SidebarHeader";
 import { SidebarMenu } from "../SidebarMenu";
 import { SidebarMenuButton } from "../SidebarMenuButton";
 import { SidebarMenuItem } from "../SidebarMenuItem";
 import { SidebarMenuSub } from "../SidebarMenuSub";
 import { SidebarMenuSubButton } from "../SidebarMenuSubButton";
 import { VerticalToggle } from "../VerticalToggle";
+import styles from "./index.module.scss";
 
 export function StepsSidebar() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
     <Sidebar>
-      <SidebarHeader>
-        <VerticalToggle />
-      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
+          <div className={styles.verticalToggle}>
+            <VerticalToggle />
+          </div>
           <SidebarMenu as="ol">
             <SidebarMenuItem>
               <SidebarMenuButton
-                id={Id.ENDPOINT}
-                href={`#${Id.ENDPOINT}`}
+                id={SectionId.ENDPOINT}
+                href={`#${SectionId.ENDPOINT}`}
                 icon={<Globe />}
               >
                 Endpoint
@@ -39,8 +40,8 @@ export function StepsSidebar() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton
-                id={Id.FORMAT_THE_REQUEST_BODY}
-                href={`#${Id.FORMAT_THE_REQUEST_BODY}`}
+                id={SectionId.FORMAT_THE_REQUEST_BODY}
+                href={`#${SectionId.FORMAT_THE_REQUEST_BODY}`}
                 icon={<MessageCode />}
               >
                 Format The Request Body
@@ -48,8 +49,8 @@ export function StepsSidebar() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton
-                id={Id.FORMAT_THE_MESSAGE_FIELD}
-                href={`#${Id.FORMAT_THE_MESSAGE_FIELD}`}
+                id={SectionId.FORMAT_THE_MESSAGE_FIELD}
+                href={`#${SectionId.FORMAT_THE_MESSAGE_FIELD}`}
                 icon={<InboxOut />}
                 hasSubmenu={true}
                 onClick={() => setIsOpen(!isOpen)}
@@ -58,34 +59,37 @@ export function StepsSidebar() {
                 Format The Message Field
               </SidebarMenuButton>
               <SidebarMenuSub as="ol" isOpen={isOpen}>
-                <SidebarMenuSubButton href={`#${Id.OVERVIEW}`} id={Id.OVERVIEW}>
+                <SidebarMenuSubButton
+                  href={`#${SectionId.OVERVIEW}`}
+                  id={SectionId.OVERVIEW}
+                >
                   Overview
                 </SidebarMenuSubButton>
 
                 <SidebarMenuSubButton
-                  href={`#${Id.BASIC_HEADER}`}
-                  id={Id.BASIC_HEADER}
+                  href={`#${SectionId.BASIC_HEADER}`}
+                  id={SectionId.BASIC_HEADER}
                 >
                   Basic Header
                 </SidebarMenuSubButton>
 
                 <SidebarMenuSubButton
-                  href={`#${Id.APPLICATION_HEADER}`}
-                  id={Id.APPLICATION_HEADER}
+                  href={`#${SectionId.APPLICATION_HEADER}`}
+                  id={SectionId.APPLICATION_HEADER}
                 >
                   Application Header
                 </SidebarMenuSubButton>
 
                 <SidebarMenuSubButton
-                  href={`#${Id.USER_HEADER}`}
-                  id={Id.USER_HEADER}
+                  href={`#${SectionId.USER_HEADER}`}
+                  id={SectionId.USER_HEADER}
                 >
                   User Header
                 </SidebarMenuSubButton>
 
                 <SidebarMenuSubButton
-                  href={`#${Id.TEXT_BLOCK}`}
-                  id={Id.TEXT_BLOCK}
+                  href={`#${SectionId.TEXT_BLOCK}`}
+                  id={SectionId.TEXT_BLOCK}
                 >
                   Text Block
                 </SidebarMenuSubButton>
@@ -93,8 +97,8 @@ export function StepsSidebar() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton
-                id={Id.RECEIVE_AN_API_RESPONSE}
-                href={`#${Id.RECEIVE_AN_API_RESPONSE}`}
+                id={SectionId.RECEIVE_AN_API_RESPONSE}
+                href={`#${SectionId.RECEIVE_AN_API_RESPONSE}`}
                 icon={<InboxIn />}
               >
                 Receive An API Response
@@ -102,8 +106,8 @@ export function StepsSidebar() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton
-                id={Id.TRACK_YOUR_PAYMENT}
-                href={`#${Id.TRACK_YOUR_PAYMENT}`}
+                id={SectionId.TRACK_YOUR_PAYMENT}
+                href={`#${SectionId.TRACK_YOUR_PAYMENT}`}
                 icon={<MagnifyingGlassDollar />}
               >
                 Track Your Payment

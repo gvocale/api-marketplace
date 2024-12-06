@@ -1,4 +1,4 @@
-import { Id } from "@/app/features/types";
+import { TimelineId } from "@/app/features/types";
 import { motion, useInView } from "motion/react";
 import { ReactNode, useContext, useEffect, useRef } from "react";
 import { InViewContext } from "../../context/in-view";
@@ -12,7 +12,7 @@ export interface StepProps {
   title: string;
   description: string;
   path?: string;
-  itemId: Id;
+  itemId: TimelineId;
 }
 
 export function Step({

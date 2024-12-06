@@ -9,6 +9,7 @@ type GlobeCardProps = {
   href: string;
   icon: React.ReactNode;
   isActive?: boolean;
+  gradient: string;
 };
 
 export function GlobeCard({
@@ -17,14 +18,18 @@ export function GlobeCard({
   href,
   icon,
   isActive,
+  gradient,
 }: GlobeCardProps) {
   return (
     <Link
       className={`${styles.globeCard} ${isActive ? styles.isActive : ""}`}
       href={href}
     >
+      <div className={styles.outline}></div>
       <div className={styles.iconContainer}>
-        <div className={styles.icon}>{icon}</div>
+        <div className={styles.icon} style={{ backgroundImage: gradient }}>
+          {icon}
+        </div>
         <h3 className={styles.title}>{title}</h3>
       </div>
       <p className={styles.description}>{description}</p>

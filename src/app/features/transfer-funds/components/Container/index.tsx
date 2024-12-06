@@ -7,7 +7,7 @@ export interface ContainerProps {
 
 export function Container({ children, className }: ContainerProps) {
   return (
-    <div className={`${styles.cotnainer} ${className ?? ""}`}>
+    <div className={`${styles.container} ${className ?? ""}`}>
       <div className={styles.inner}>{children}</div>
     </div>
   );

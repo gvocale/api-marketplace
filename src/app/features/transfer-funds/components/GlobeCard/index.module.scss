@@ -11,8 +11,11 @@
   padding-bottom: 1rem;
   width: 240px;
   cursor: pointer;
-  transition: transform 0.2s var(--ease-out-back);
+  transition: transform 0.5s var(--ease-out-back);
   text-decoration: none;
+  position: relative;
+  outline: none;
+  flex-shrink: 0;
 
   &.isActive {
     background-color: var(--color-white);
@@ -21,10 +24,30 @@
 
   &:hover,
   &:focus-visible {
-    outline: 2px solid var(--color-outline);
-    outline-offset: 3px;
     transform: scale(1.1);
+    transition-duration: 0.25s;
   }
+}
+
+.outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  background-color: transparent;
+  outline: 2px solid var(--color-outline);
+  outline-offset: 3px;
+  transition: opacity 0.5s var(--ease-out-back);
+}
+
+.globeCard:hover .outline,
+.globeCard:focus-visible .outline {
+  opacity: 1;
+  transition-duration: 0.25s;
 }
 
 .icon {
@@ -37,8 +60,7 @@
   flex-shrink: 0;
 
   .globeCard:not(.isActive) & {
-    background-color: var(--color-white);
-    color: var(--color-black);
+    color: var(--color-white);
   }
 }
 

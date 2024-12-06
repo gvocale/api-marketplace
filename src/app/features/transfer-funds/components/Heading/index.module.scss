@@ -10,8 +10,8 @@
 .lg {
   font-size: var(--font-size-sm);
 
-  @media (min-width: 2400px) {
-    font-size: var(--font-size-base);
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-md);
   }
 
   @media (min-width: 2400px) {
@@ -23,7 +23,7 @@
   font-size: var(--font-size-base);
 
   @media (min-width: 1024px) {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
   }
 
   @media (min-width: 2400px) {

@@ -1,17 +1,17 @@
 "use client";
 
-import { Id, FinancialMessagingStandard } from "@/app/features/types";
+import { FinancialMessagingStandard, SectionId } from "@/app/features/types";
 import { useContext } from "react";
 import { UserConfigContext } from "../../context/user-config";
 import { MESSAGING_STANDARD_OPTIONS } from "../../data/optons";
 import { Container } from "../Container";
+import { Grid } from "../Grid";
 import { Heading } from "../Heading";
+import { Narrow } from "../Narrow";
 import { Paragraph } from "../Paragraph";
 import { TextLink } from "../TextLink";
 import Toggle from "../Toggle";
 import styles from "./index.module.scss";
-import { Grid } from "../Grid";
-import { Narrow } from "../Narrow";
 
 export function InitiatePayment() {
   const { config, setConfig } = useContext(UserConfigContext);
@@ -23,7 +23,7 @@ export function InitiatePayment() {
         <Narrow>
           <Heading
             as="h2"
-            id={Id.INITIATE_A_PAYMENT}
+            id={SectionId.INITIATE_A_PAYMENT}
             size="2xl"
             className={styles.heading}
           >

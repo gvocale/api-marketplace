@@ -1,5 +1,7 @@
+import { SectionId } from "@/app/features/types";
 import { Code } from "../Code";
 import { Eyebrow } from "../Eyebrow";
+import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Notice } from "../Notice";
 import { Paragraph } from "../Paragraph";
@@ -12,9 +14,9 @@ export function BasicHeader() {
   return (
     <div>
       <Eyebrow className={styles.eyebrow}>First Block</Eyebrow>
-      <h4 className={styles.h4} id="basic-header">
+      <Heading as="h4" id={SectionId.BASIC_HEADER} size="lg">
         Basic Header
-      </h4>
+      </Heading>
       <Code code={CODE} language="bash" className={styles.code} />
       <Table className={styles.table}>
         <tbody>

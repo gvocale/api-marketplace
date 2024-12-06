@@ -1,4 +1,4 @@
-import { Id } from "@/app/features/types";
+import { SectionId } from "@/app/features/types";
 import { Client } from "../Client";
 import { Container } from "../Container";
 import styles from "./index.module.scss";
@@ -8,7 +8,12 @@ export function Clients() {
   return (
     <Container>
       <div className={styles.header}>
-        <Heading as="h2" id={Id.OUR_CLIENTS} className={styles.heading} size="2xl">
+        <Heading
+          as="h2"
+          id={SectionId.OUR_CLIENTS}
+          className={styles.heading}
+          size="2xl"
+        >
           Our Clients
         </Heading>
         <p className={styles.subhead}>
@@ -19,33 +24,20 @@ export function Clients() {
         <li>
           <Client
             logoImg={{
-              src: "/wells-fargo-logo.svg",
+              src: "/transfer-funds/images/vanguard-logo.svg",
               alt: "Wells Fargo",
               width: 302,
               height: 302,
             }}
-            quote="Words can be like X-rays, if you use them properly—they'll go through anything. You read and you're pierced."
-            name="Bridget Engle"
-            role="Head of Technology"
+            quote="“Partnering with BNY's asset management APIs has been transformative for our operations. Since integrating, we've improved tracking efficiency by 40%, delivering real-time insights that keep our investors informed instantly. It's a solution that's taken our service to a new level of responsiveness and reliability.”"
+            name="Alex Morgan"
+            role="Director of Technology Innovation, Vanguard"
           />
         </li>
         <li>
           <Client
             logoImg={{
-              src: "/wells-fargo-logo.svg",
-              alt: "Wells Fargo",
-              width: 302,
-              height: 302,
-            }}
-            quote="Words can be like X-rays, if you use them properly—they'll go through anything. You read and you're pierced."
-            name="Aldous Huxley"
-            role="CTO"
-          />
-        </li>
-        <li>
-          <Client
-            logoImg={{
-              src: "/wells-fargo-logo.svg",
+              src: "/transfer-funds/images/wells-fargo-logo.svg",
               alt: "Wells Fargo",
               width: 302,
               height: 302,
@@ -58,7 +50,20 @@ export function Clients() {
         <li>
           <Client
             logoImg={{
-              src: "/wells-fargo-logo.svg",
+              src: "/transfer-funds/images/wells-fargo-logo.svg",
+              alt: "Wells Fargo",
+              width: 302,
+              height: 302,
+            }}
+            quote="Words can be like X-rays, if you use them properly—they'll go through anything. You read and you're pierced."
+            name="Aldous Huxley"
+            role="CTO"
+          />
+        </li>
+        <li>
+          <Client
+            logoImg={{
+              src: "/transfer-funds/images/wells-fargo-logo.svg",
               alt: "Wells Fargo",
               width: 302,
               height: 302,

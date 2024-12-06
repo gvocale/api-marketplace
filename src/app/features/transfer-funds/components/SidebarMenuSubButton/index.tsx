@@ -1,5 +1,5 @@
 "use client";
-import { Id } from "@/app/features/types";
+import { SectionId } from "@/app/features/types";
 import Link, { LinkProps } from "next/link";
 import { ReactNode, useContext } from "react";
 import { InViewContext } from "../../context/in-view";
@@ -12,7 +12,7 @@ export function SidebarMenuSubButton({
 }: {
   children: ReactNode;
   href: LinkProps["href"];
-  id: Id;
+  id: SectionId;
 }) {
   const { inView } = useContext(InViewContext);
   const isActive = id === inView;

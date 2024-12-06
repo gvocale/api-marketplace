@@ -27,8 +27,11 @@
     background-color: var(--color-grayscale-100);
   }
 
+  &:active {
+    background-color: var(--color-grayscale-200);
+  }
+
   &.isActive {
-    cursor: unset;
     color: var(--color-text-accent);
   }
 

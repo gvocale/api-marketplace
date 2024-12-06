@@ -1,6 +1,7 @@
 .root {
   --circle-size: 1rem;
   position: relative;
+  scroll-margin-top: var(--scroll-margin-top);
 }
 
 .container {
@@ -14,38 +15,11 @@
   }
 }
 
-.after {
-  margin-top: calc(var(--circle-size) / -2);
-
-  .root:last-of-type & {
-    display: none;
-  }
-}
-
-.before {
-  margin-bottom: calc(var(--circle-size) / -2);
-  z-index: 1;
-
-  .root:first-of-type & {
-    display: none;
-  }
-}
-
-.circle {
-  display: block;
-  width: var(--circle-size);
-  height: var(--circle-size);
-  border-radius: var(--radius-full);
-  background-color: var(--color-blue-700);
-  flex-shrink: 0;
-  border: 2px solid var(--color-blue-100);
-}
-
 .icon {
   width: 12rem;
   height: 12rem;
   --color-blob: var(--color-primary-200);
-  --color-stroke-1: var(--color-white);
+  --color-stroke-1: var(--color-black);
 
   svg {
     width: 100%;
@@ -54,9 +28,11 @@
 }
 
 .title {
-  font-size: var(--font-size-base);
-  font-weight: 500;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
   white-space: nowrap;
+  margin-bottom: 1em;
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-lg);
@@ -72,23 +48,55 @@
 }
 
 .card {
-  background-image: var(--gradient-1);
-  color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding-top: 1rem;
+  background-color: var(--color-teal-100);
   padding-inline: 2rem;
-  padding-bottom: 2rem;
+  padding-block: 2rem;
+  padding-top: 3rem;
+  border-radius: var(--radius-lg);
   width: 100%;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  background: #003e53;
+  text-decoration: none;
+  display: block;
+  color: currentColor;
 }
 
-.mask {
+a.card {
+  &:hover {
+    background-color: var(--color-teal-200);
+  }
+
+  &:active {
+    background-color: var(--color-teal-300);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: 2px;
+  }
+}
+
+.root:last-of-type .card {
+  border-bottom-right-radius: var(--radius-xl);
+}
+
+.content {
   overflow: clip;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 12rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1em;
+  justify-content: flex-start;
+  gap: var(--grid-gap-sm);
+  transform-origin: top;
+}
+
+.tag {
+  display: inline;
+  position: relative;
+  top: -4px;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
 }

@@ -1,4 +1,4 @@
-import { Id } from "@/app/features/types";
+import { SectionId } from "@/app/features/types";
 import Link, { LinkProps } from "next/link";
 import { ReactNode, useContext } from "react";
 import { InViewContext } from "../../context/in-view";
@@ -19,7 +19,7 @@ export function SidebarMenuButton({
   icon?: React.ReactNode;
   hasSubmenu?: boolean;
   isOpen?: boolean;
-  id?: Id;
+  id?: SectionId;
   onClick?: () => void;
 }) {
   const { inView } = useContext(InViewContext);

@@ -1,17 +1,9 @@
 .page {
   min-height: 100dvh;
   font-family: var(--font-inter);
-  background-color: var(--color-blue-900);
+  background-color: var(--color-teal-900);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.main {
-  background-color: var(--color-white);
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-  position: relative;
-  z-index: 1;
 }
 
 .inView {

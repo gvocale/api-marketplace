@@ -10,6 +10,6 @@
   align-items: center;
   flex-shrink: 0;
   color: currentColor;
-  background-color: var(--color-grayscale-200);
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
   font-size: var(--font-size-2xs);
 }

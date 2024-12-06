@@ -1,6 +1,13 @@
-export function IntermediaryBank() {
+export function IntermediaryBank({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 499 499" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
+    <svg
+      viewBox="0 0 499 499"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      width="500"
+      height="500"
+      className={className}
+    >
       <path
         fill="var(--color-stroke-1)"
         d="M83.054 125.614c-.506 2.077-4.061 3.306-5.419 4.986l.165.158c-2.926 2.39-6.295 4.415-9.47 6.467-1.178-.286-2.661.782-3.887 1.024q9.233-6.424 18.611-12.635M122.508 255.654c1.132.21 2.129.561 3.177 1.024 3.64 1.605 30.432 14.939 32.043 16.767.382.433.452.692.405 1.25l-.555.407c-.633.101-1.093.148-1.715-.09-2.975-1.139-5.968-2.96-8.824-4.412q-9.645-4.877-19.224-9.88-2.06-1.002-4.107-2.028c-1.216 2.761-2.16 5.63-3.226 8.451-1.533 4.06-3.162 8.101-4.747 12.143-1.085 2.766-2.077 5.732-3.533 8.329-.575 1.025-1.344 2.255-2.426 2.792l-.363-.184c-.028-.103-.06-.206-.084-.31-.269-1.168.207-2.717.56-3.847 1.584-5.082 4.09-10.112 6.087-15.061 2.064-5.117 3.535-10.675 6.532-15.35"
@@ -67,7 +74,11 @@ export function IntermediaryBank() {
           y2="297.113"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stopColor="var(--color-stroke-1)" stopOpacity="0.988"></stop>
+          <stop
+            offset="0"
+            stopColor="var(--color-stroke-1)"
+            stopOpacity="0.988"
+          ></stop>
           <stop offset="1"></stop>
         </linearGradient>
       </defs>

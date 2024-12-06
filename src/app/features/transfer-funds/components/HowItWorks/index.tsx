@@ -1,30 +1,29 @@
 "use client";
 
-import { Id, FinancialMessagingStandard } from "@/app/features/types";
+import { FinancialMessagingStandard, SectionId } from "@/app/features/types";
 import { useContext } from "react";
 import { UserConfigContext } from "../../context/user-config";
-import { TextLink } from "../TextLink";
-import { Timeline } from "../Timeline";
-import styles from "./index.module.scss";
 import { Container } from "../Container";
-import { Narrow } from "../Narrow";
 import { Grid } from "../Grid";
-import { Paragraph } from "../Paragraph";
 import { Heading } from "../Heading";
+import { Narrow } from "../Narrow";
+import { Paragraph } from "../Paragraph";
+import { TextLink } from "../TextLink";
+import styles from "./index.module.scss";
 
-export function HowItWorks() {
+export function HowItWorks({ className }: { className?: string }) {
   const { config } = useContext(UserConfigContext);
   const { messagingStandard } = config;
 
   return (
-    <div className={styles.root}>
-      <Container>
-        <Grid className={styles.background}>
+    <Container>
+      <div className={`${styles.background} ${className ?? ""}`}>
+        <Grid>
           <Narrow className={styles.narrow}>
             <div>
               <Heading
                 as="h2"
-                id={Id.HOW_IT_WORKS}
+                id={SectionId.HOW_IT_WORKS}
                 size="2xl"
                 className={styles.heading}
               >
@@ -83,11 +82,9 @@ export function HowItWorks() {
                 </div>
               )}
             </div>
-
-            <Timeline />
           </Narrow>
         </Grid>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }

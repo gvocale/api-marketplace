@@ -1,7 +1,7 @@
 "use client";
 
 import { FinancialMessagingStandard } from "@/app/features/types";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { UserConfigContext } from "../../context/user-config";
 import { MESSAGING_STANDARD_OPTIONS } from "../../data/optons";
 import { DropdownMenuContent } from "../DropdownMenuContent";
@@ -39,12 +39,38 @@ export function VerticalToggle() {
     }
   }, [isOpen]);
 
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      function handleClickOutside(event: MouseEvent) {
+        const target = event.target as HTMLElement;
+        if (
+          !buttonRef.current?.contains(target) &&
+          !contentRef.current?.contains(target)
+        ) {
+          setIsOpen(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [isOpen]);
+
   return (
     <>
-      <DropdownMenuTrigger onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
+      <DropdownMenuTrigger
+        onClick={() => setIsOpen(!isOpen)}
+        isOpen={isOpen}
+        ref={buttonRef}
+      >
         {options.find((option) => option.value === messagingStandard)?.label}
       </DropdownMenuTrigger>
-      <DropdownMenuContent isOpen={isOpen}>
+      <DropdownMenuContent isOpen={isOpen} ref={contentRef}>
         <ul>
           {options.map((option) => (
             <li key={option.value} className={styles.listItem}>
