@@ -1,9 +1,8 @@
+import { DecorationItem, ShikiTransformer } from "shiki";
 import { Code } from "../Code";
 import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Paragraph } from "../Paragraph";
-import { Table } from "../Table";
-import { Tag } from "../Tag";
 import styles from "./index.module.scss";
 
 export function FormatRequestBody() {
@@ -27,6 +26,116 @@ export function FormatRequestBody() {
   }
 }`;
 
+  const decorations1: DecorationItem[] = [
+    {
+      start: { line: 2, character: 4 },
+      end: { line: 2, character: 15 },
+      properties: {
+        "data-tooltip-title": "Unique identifer for the request",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 3, character: 4 },
+      end: { line: 3, character: 20 },
+      properties: {
+        "data-tooltip-title": "For avoidance of duplicate payment submittal",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 4, character: 4 },
+      end: { line: 4, character: 24 },
+      properties: {
+        "data-tooltip-title": "Digital signature algorithm",
+        tabindex: 0,
+        id: "application-header-1",
+        "data-mandatory": true,
+      },
+    },
+    {
+      start: { line: 5, character: 4 },
+      end: { line: 5, character: 15 },
+      properties: {
+        "data-tooltip-title": "Digital signature to sign the payload",
+        tabindex: 0,
+        id: "application-header-1",
+        "data-mandatory": true,
+      },
+    },
+  ];
+
+  const decorations2: DecorationItem[] = [
+    {
+      start: { line: 2, character: 4 },
+      end: { line: 2, character: 20 },
+      properties: {
+        "data-tooltip-title": "Payment product used to initiate the payment",
+        tabindex: 0,
+        id: "application-header-1",
+        "data-mandatory": true,
+      },
+    },
+    {
+      start: { line: 3, character: 4 },
+      end: { line: 3, character: 20 },
+      properties: {
+        "data-tooltip-title": "Type of payment being initiated.",
+        tabindex: 0,
+        id: "application-header-1",
+        "data-mandatory": true,
+      },
+    },
+    {
+      start: { line: 4, character: 4 },
+      end: { line: 4, character: 23 },
+      properties: {
+        "data-tooltip-title": "Client-assigned reference ID to links payment to your system.",
+        tabindex: 0,
+        id: "application-header-1",        
+      },
+    },
+    {
+      start: { line: 5, character: 4 },
+      end: { line: 5, character: 23 },
+      properties: {
+        "data-tooltip-title":
+          "Memo field for your reference",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 6, character: 4 },
+      end: { line: 6, character: 19 },
+      properties: {
+        "data-tooltip-title": "Format of the message being sent.",
+        tabindex: 0,
+        id: "application-header-1",
+        "data-mandatory": true,
+      },
+    },
+    {
+      start: { line: 7, character: 4 },
+      end: { line: 7, character: 13 },
+      properties: {
+        "data-tooltip-title": "The Swift MT 103 formatted payment instruction, converted into a JSON string.",
+        tabindex: 0,
+        id: "application-header-1",
+        "data-mandatory": true,
+      },
+    },
+  ];
+
+  const transformer: ShikiTransformer = {
+    span(node, line, col) {
+      node.properties["data-line"] = line;
+      node.properties["data-col"] = col;
+    },
+  };
+
   return (
     <div>
       <Heading as="h3" id="format-the-request-body" size="xl">
@@ -38,9 +147,10 @@ export function FormatRequestBody() {
       </Paragraph>
       <Paragraph>
         The metadata represents the identifier and security controls for the
-        request. Fields marked with an asterisk (*) are tag.
+        request.
+        {/* Fields marked with an asterisk (*) are mandatory. */}
       </Paragraph>
-      <Table className={styles.table}>
+      {/* <Table className={styles.table}>
         <tbody>
           <tr>
             <th>
@@ -73,10 +183,23 @@ export function FormatRequestBody() {
             </td>
           </tr>
         </tbody>
-      </Table>
-      <Code code={JSON_1} language="json" className={styles.code} />
+      </Table> */}
+      <Code
+        code={JSON_1}
+        lang="json"
+        className={styles.code}
+        decorations={decorations1}
+        transformers={[transformer]}
+      />
       <Paragraph>The request body represents the payment details.</Paragraph>
-      <Table className={styles.table}>
+      <Code
+        code={JSON_2}
+        lang="json"
+        className={styles.code}
+        decorations={decorations2}
+        transformers={[transformer]}
+      />
+      {/* <Table className={styles.table}>
         <tbody>
           <tr>
             <th>
@@ -142,9 +265,7 @@ export function FormatRequestBody() {
             </td>
           </tr>
         </tbody>
-      </Table>
-      <Paragraph>Example:</Paragraph>
-      <Code code={JSON_2} language="json" />
+      </Table> */}
     </div>
   );
 }

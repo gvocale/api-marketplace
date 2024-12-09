@@ -24,7 +24,7 @@ export function Endpoint() {
         </TextLink>{" "}
         in the Swift MT 103 format.
       </Paragraph>
-      <Code code={curlCommand} language="bash" />
+      <Code code={curlCommand} lang="bash" />
     </div>
   );
 }

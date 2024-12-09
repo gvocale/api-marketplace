@@ -32,7 +32,6 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   white-space: nowrap;
-  margin-bottom: 1em;
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-lg);
@@ -57,14 +56,19 @@
   text-decoration: none;
   display: block;
   color: currentColor;
+  display: flex;
+
+  &.isActive {
+    cursor: unset;
+  }
 }
 
 a.card {
-  &:hover {
+  &:not(.isActive):hover {
     background-color: var(--color-teal-200);
   }
 
-  &:active {
+  &:not(.isActive):active {
     background-color: var(--color-teal-300);
   }
 
@@ -78,25 +82,14 @@ a.card {
   border-bottom-right-radius: var(--radius-xl);
 }
 
-.content {
+.iconContainer {
   overflow: clip;
   display: grid;
-  grid-template-columns: 1fr 12rem;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--grid-gap-sm);
-  transform-origin: top;
 }
 
-.tag {
-  display: inline;
-  position: relative;
-  top: -4px;
-}
-
-.header {
+.text {
   display: flex;
+  flex-direction: column;
   align-items: baseline;
   gap: 0.5rem;
 }

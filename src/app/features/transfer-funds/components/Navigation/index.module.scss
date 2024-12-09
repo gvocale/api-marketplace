@@ -37,7 +37,8 @@
 }
 
 .logoContainer {
-  padding: var(--padding-y) var(--padding-x);
+  padding-block: var(--padding-y);
+  padding-left: var(--padding-x);
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   display: grid;
@@ -59,7 +60,7 @@
 
   &:focus-visible {
     outline: 1px solid var(--color-white);
-    outline-offset: 2px;
+    outline-offset: -2px;
   }
 }
 

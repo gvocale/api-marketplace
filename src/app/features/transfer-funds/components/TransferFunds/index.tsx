@@ -7,7 +7,6 @@ import { InViewContext } from "../../context/in-view";
 import { ApplicationHeader } from "../ApplicationHeader";
 import { BasicHeader } from "../BasicHeader";
 import { CallToAction } from "../CallToAction";
-import { Clients } from "../Clients";
 import { Container } from "../Container";
 import { Endpoint } from "../Endpoint";
 import { FormatMessageField } from "../FormatMessageField";
@@ -50,10 +49,6 @@ export function TransferFunds() {
         <section>
           <HowItWorks className={styles.howItWorks} />
           <Timeline />
-        </section>
-
-        <section>
-          <Clients />
         </section>
 
         <section>

@@ -6,26 +6,35 @@ import { CopyButton } from "../CopyButton";
 import styles from "./index.module.scss";
 import { Terminal } from "../../icons/Terminal";
 import { Code as CodeIcon } from "../../icons/Code";
-import { BundledLanguage } from "shiki";
+import { BundledLanguage, ShikiTransformer, DecorationItem } from "shiki";
 
 export interface CodeProps {
   className?: string;
   code: string;
-  language: BundledLanguage;
+  transformers?: ShikiTransformer[];
+  decorations?: DecorationItem[];
+  lang: BundledLanguage;
   lineStart?: number;
 }
 
-export function Code({ code, language, lineStart = 1, className }: CodeProps) {
+export function Code({
+  code,
+  lang,
+  lineStart = 1,
+  className,
+  transformers,
+  decorations,
+}: CodeProps) {
   const [nodes, setNodes] = useState<JSX.Element>();
 
   useLayoutEffect(() => {
     if (code) {
-      void highlight(code, language).then(setNodes);
+      void highlight({ code, lang, transformers, decorations }).then(setNodes);
     }
-  }, [code, language]);
+  }, [code, lang, transformers, decorations]);
 
-  function prettifyLanguage(language: string) {
-    switch (language) {
+  function prettifyLanguage(lang: string) {
+    switch (lang) {
       case "ts":
         return "TypeScript";
       case "bash":
@@ -38,7 +47,7 @@ export function Code({ code, language, lineStart = 1, className }: CodeProps) {
         return (
           <>
             <CodeIcon className={styles.icon} />
-            {language}
+            {lang}
           </>
         );
     }
@@ -47,7 +56,7 @@ export function Code({ code, language, lineStart = 1, className }: CodeProps) {
   return (
     <div className={`${styles.container} ${className ?? ""}`}>
       <div className={styles.toolbar}>
-        <span className={styles.language}>{prettifyLanguage(language)}</span>
+        <span className={styles.language}>{prettifyLanguage(lang)}</span>
         <CopyButton code={code} />
       </div>
       <div

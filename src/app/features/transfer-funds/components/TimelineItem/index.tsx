@@ -1,12 +1,12 @@
 import { TimelineId } from "@/app/features/types";
 import { motion } from "motion/react";
+import Link from "next/link";
 import { useContext, useRef } from "react";
 import { InViewContext } from "../../context/in-view";
 import { InView } from "../InView";
 import { Paragraph } from "../Paragraph";
 import { Tag } from "../Tag";
 import styles from "./index.module.scss";
-import Link from "next/link";
 
 export function TimelineItem({
   icon,
@@ -32,26 +32,58 @@ export function TimelineItem({
   return (
     <li className={`${styles.root}`} id={id} ref={ref}>
       <InView id={id} type="timeline">
-        <Link
-          className={styles.card}
+        <ConditionalLink
+          className={`${styles.card} ${isActive ? styles.isActive : ""}`}
           href={`#${id}`}
+          isActive={isActive}
           onFocus={handleFocus}
           tabIndex={isActive ? -1 : 0}
         >
-          <div className={styles.header}>
+          <div className={styles.text}>
             <h3 className={styles.title}>{title}</h3>
             {tag && <Tag className={styles.tag}>{tag}</Tag>}
+            <Paragraph>{description}</Paragraph>
           </div>
           <motion.div
-            animate={{ height: isActive ? "auto" : 0 }}
+            animate={{ opacity: isActive ? 1 : 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 25 }}
-            className={styles.content}
+            className={styles.iconContainer}
           >
-            <Paragraph>{description}</Paragraph>
             <div className={styles.icon}>{icon}</div>
           </motion.div>
-        </Link>
+        </ConditionalLink>
       </InView>
     </li>
   );
+}
+
+function ConditionalLink({
+  children,
+  href,
+  className,
+  isActive,
+  onFocus,
+  tabIndex,
+}: {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+  isActive: boolean;
+  onFocus: () => void;
+  tabIndex: number;
+}) {
+  if (isActive) {
+    return <div className={className}>{children}</div>;
+  } else {
+    return (
+      <Link
+        href={href}
+        className={className}
+        onFocus={onFocus}
+        tabIndex={tabIndex}
+      >
+        {children}
+      </Link>
+    );
+  }
 }

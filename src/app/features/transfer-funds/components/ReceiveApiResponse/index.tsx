@@ -1,8 +1,8 @@
+import { DecorationItem, ShikiTransformer } from "shiki";
 import { Code } from "../Code";
 import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Paragraph } from "../Paragraph";
-import { Table } from "../Table";
 import { TextLink } from "../TextLink";
 import styles from "./index.module.scss";
 
@@ -34,6 +34,93 @@ export function ReceiveApiResponse() {
   }
 }`;
 
+  const decorations1: DecorationItem[] = [
+    {
+      start: { line: 2, character: 4 },
+      end: { line: 2, character: 13 },
+      properties: {
+        "data-tooltip-title": "Indicates whether the API call was successful",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 3, character: 4 },
+      end: { line: 3, character: 15 },
+      properties: {
+        "data-tooltip-title":
+          "Request identifier that was sent in the API request",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 4, character: 4 },
+      end: { line: 4, character: 11 },
+      properties: {
+        "data-tooltip-title": "Number of records returned in the response",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 7, character: 4 },
+      end: { line: 7, character: 12 },
+      properties: {
+        "data-tooltip-title":
+          "Unique system-generated reference ID for the payment initiation request",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 8, character: 4 },
+      end: { line: 8, character: 23 },
+      properties: {
+        "data-tooltip-title":
+          "Internal reference ID of the client that links the payment to their system",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 9, character: 4 },
+      end: { line: 9, character: 18 },
+      properties: {
+        "data-tooltip-title":
+          "Date and time the payment request was received by the system",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 10, character: 4 },
+      end: { line: 10, character: 23 },
+      properties: {
+        "data-tooltip-title": "Memo field for client reference",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+    {
+      start: { line: 11, character: 4 },
+      end: { line: 11, character: 12 },
+      properties: {
+        "data-tooltip-title":
+          "Payment status; “Received” is the only valid response for a successful request. Otherwise, an error will be returned.",
+        tabindex: 0,
+        id: "application-header-1",
+      },
+    },
+  ];
+
+  const transformer: ShikiTransformer = {
+    span(node, line, col) {
+      node.properties["data-line"] = line;
+      node.properties["data-col"] = col;
+    },
+  };
+
   return (
     <div>
       <Heading as="h3" id="receive-an-api-response" size="xl">
@@ -43,7 +130,7 @@ export function ReceiveApiResponse() {
         The Response Body contains two elements:{" "}
         <InlineCode>metadata</InlineCode> and <InlineCode>request</InlineCode>.
       </Paragraph>
-      <Table className={styles.table}>
+      {/* <Table className={styles.table}>
         <tbody>
           <tr>
             <th>
@@ -105,17 +192,24 @@ export function ReceiveApiResponse() {
             </td>
           </tr>
         </tbody>
-      </Table>
-      <Code code={JSON_1} language="json" className={styles.code} />
+      </Table> */}
+      <Code
+        code={JSON_1}
+        lang="json"
+        className={styles.code}
+        decorations={decorations1}
+        transformers={[transformer]}
+      />
       <Paragraph>
-        If you receive an error, the &apos;success&apos; field in the response
-        will be returned as false. An example of a{" "}
+        If you receive an error, the <InlineCode>success</InlineCode> field in
+        the response will be returned as <InlineCode>false</InlineCode>. An
+        example of a{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/swiftMt103-page:~:text=example%20of%20a-,General%20API%20Error,-is%20found%20below">
           General API Error
         </TextLink>{" "}
         is found below.
       </Paragraph>
-      <Code code={JSON_2} language="json" className={styles.code} />
+      <Code code={JSON_2} lang="json" className={styles.code} />
       <Paragraph>
         You may also receive an{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/swiftMt103-page:~:text=You%20may%20also%20receive%20an%20API%20Gateway%20error%20which%20are%20caused%20by%20authorization%20problems%20with%20the%20request%20at%20the%20BNY%20API%20Gateway.">

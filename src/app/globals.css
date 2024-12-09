@@ -41,18 +41,19 @@
   --color-darknight-950: color(display-p3 0.01 0.1 0.15);
 
   --color-primary-100: #e3f1f1;
-  --color-primary-200: hsl(171deg 59.29% 84%);
-  --color-primary-300: ;
+  --color-primary-200: hsl(171deg 59.29% 87%);
+  --color-primary-300: hsl(171deg 59.29% 80%);
   --color-primary-400: #1da792;
   --color-primary-500: #008080;
   --color-primary-600: #006363;
   --color-primary-800: #034255;
   --color-primary-900: #003e53;
 
-  --color-teal-100: #e3edfd;
-  --color-teal-200: #d1e1f9;  
+  --color-teal-100: #e6f3f6;
+  --color-teal-200: #d1e1f9;
   --color-teal-300: #c0d5f5;
   --color-teal-500: hsl(190, 45%, 47%); /* Logo Color */
+  --color-teal-600: #304a5b;
   --color-teal-700: #0d324c;
   --color-teal-900: #001f35;
 
@@ -61,19 +62,9 @@
 
   --color-yellow-100: #fdf8e1;
   --color-yellow-200: #fdf4b8;
-
   --color-yellow-500: #f7e135;
   --color-yellow-600: #e4d02e;
   --color-yellow-700: #d1bf27;
-
-  --color-light-blue-100: color(display-p3 0.87 1 1);
-  --color-light-blue-200: color(display-p3 0.78 0.98 0.98);
-
-  --color-scrollbar-thumb: var(--color-grayscale-500);
-  --color-scrollbar-track: var(--color-grayscale-100);
-  --color-track: var(--color-grayscale-100);
-
-  --card-background-color: var(--color-grayscale-100);
 
   --button-background-color: var(--color-yellow-500);
   --button-ghost-background-hover-color: var(--color-grayscale-100);
@@ -96,10 +87,12 @@
     --radius-xl: 4rem; /* 64px */
   }
 
+  --color-scrollbar-thumb: var(--color-grayscale-500);
+  --color-scrollbar-track: var(--color-grayscale-100);
+  --color-track: var(--color-grayscale-100);
+  --color-selection: var(--color-primary-300);
   --color-black: var(--color-darknight-900);
-
   --color-border: var(--color-grayscale-300);
-
   --color-text-black: var(--color-darknight-900);
   --color-text-white: var(--color-white);
   --color-text-white-muted: color-mix(
@@ -110,18 +103,8 @@
   --color-text-muted: var(--color-grayscale-700);
   --color-text-link: var(--color-primary-600);
   --color-text-accent: var(--color-primary-600);
-
   --color-accent: var(--color-primary-500);
-
-  --color-accent-dark-mode: var(--color-darknight-500);
-
   --color-outline: var(--color-primary-500);
-
-  --gradient-accent-dark-mode: linear-gradient(
-    to bottom,
-    var(--color-accent-dark-mode),
-    color(display-p3 0.22 0.52 0.53)
-  );
 
   --scroll-margin-top: 25dvh;
 
@@ -167,5 +150,5 @@ html {
 }
 
 *::selection {
-  background-color: var(--color-primary-200);
+  background-color: var(--color-selection);
 }

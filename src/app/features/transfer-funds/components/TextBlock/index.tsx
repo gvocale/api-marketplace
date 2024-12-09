@@ -8,6 +8,8 @@ import { Paragraph } from "../Paragraph";
 import { Table } from "../Table";
 import { Tag } from "../Tag";
 import styles from "./index.module.scss";
+import { DecorationItem } from "shiki";
+import { ShikiTransformer } from "shiki";
 
 export function TextBlock() {
   const CODE = `{ 4:
@@ -27,13 +29,46 @@ export function TextBlock() {
       71A:  OUR -
   }`;
 
+  const transformer: ShikiTransformer = {
+    span(node, line, col) {
+      node.properties["data-line"] = line;
+      node.properties["data-col"] = col;
+    },
+  };
+
+  const decorations: DecorationItem[] = [
+    {
+      start: { line: 1, character: 6 },
+      end: { line: 1, character: 9 },
+      properties: {
+        "data-tooltip-title": "Sender's Reference",
+        "data-mandatory": true,
+        tabindex: 0,
+      },
+    },
+    {
+      start: { line: 1, character: 28 },
+      end: { line: 1, character: 31 },
+      properties: {
+        "data-tooltip-title": "Bank Operation Code",
+        tabindex: 0,
+      },
+    },
+  ];
+
   return (
     <div>
       <Eyebrow className={styles.eyebrow}>Fourth Block</Eyebrow>
       <h4 className={styles.h4} id={SectionId.TEXT_BLOCK}>
         Text Block
       </h4>
-      <Code code={CODE} language="bash" className={styles.code} />
+      <Code
+        code={CODE}
+        lang="bash"
+        className={styles.code}
+        decorations={decorations}
+        transformers={[transformer]}
+      />
       <Paragraph>
         See the table below for more details on these fields.
       </Paragraph>

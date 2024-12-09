@@ -117,10 +117,10 @@
   padding: 0.75rem;
   width: var(--button-small-height);
   height: var(--button-small-height);
-  background-color: #e6f3f6;
+  background-color: var(--color-teal-100);
 
   .globeCard:not(.isActive) & {
-    background-color: #304a5b;
+    background-color: var(--color-teal-600);
   }
 
   svg {

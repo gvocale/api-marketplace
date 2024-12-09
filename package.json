@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@shikijs/rehype": "^1.24.0",
+    "@shikijs/transformers": "^1.24.1",
+    "@shikijs/twoslash": "^1.24.1",
     "hast-util-to-jsx-runtime": "^2.3.2",
     "motion": "^11.12.0",
     "next": "15.0.3",

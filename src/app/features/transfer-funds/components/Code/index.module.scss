@@ -36,7 +36,7 @@
 
 .code {
   font-size: var(--font-size-xs);
-  line-height: 1.5;
+  line-height: 1.6;
 
   @media (min-width: 1024px) {
     font-size: var(--font-size-sm);
@@ -44,6 +44,73 @@
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-base);
+  }
+
+  span {
+    &[data-tooltip-title] {
+      transition: margin-inline 0.2s var(--ease-out-back),
+        transform 0.2s var(--ease-out-back);
+      display: inline-flex;
+      margin-inline: 0.25em;
+      transform-origin: center;
+      position: relative;
+      background-color: var(--color-primary-100);
+      color: var(--color-primary-900);
+      border-radius: var(--radius-sm);
+      margin-block: 0.1em;
+      padding-inline: 0.125em;
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--color-primary-200);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-outline);
+        outline-offset: 2px;
+      }
+
+      &:before {
+        content: "";
+        position: fixed;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        border-top: 6px solid var(--color-teal-600);
+        border-bottom: 0;
+        transform: translate(-50%, calc(-50% - 0.75rem));
+        opacity: 0;
+      }
+
+      &:after {
+        background-color: var(--color-white);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        color: var(--color-black);
+        content: attr(data-tooltip-title);
+        font-family: var(--font-inter);
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+        opacity: 0;
+        padding: 0.5em 1em;
+        position: fixed;
+        width: max-content;
+        z-index: 2;
+        transform: translate(-50%, calc(-50% - 2rem));
+        border-radius: var(--radius-sm);
+        background-color: var(--color-teal-600);
+        color: var(--color-white);
+        position: fixed;
+      }
+
+      &:hover:before,
+      &:hover:after,
+      &:focus-visible:before,
+      &:focus-visible:after {
+        opacity: 1;
+      }
+    }
   }
 
   pre {

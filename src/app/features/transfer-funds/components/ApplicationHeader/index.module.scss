@@ -14,7 +14,7 @@
 }
 
 .notice {
-  margin-block: 2em;
+  margin-block: 1.5em;
 }
 .eyebrow {
   margin-bottom: 0.5rem;
@@ -26,4 +26,13 @@
   tr {
     grid-column: span 2;
   }
+}
+
+.note {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  margin-right: 0.5em;
+  display: block;
+  letter-spacing: 0.02em;
 }
