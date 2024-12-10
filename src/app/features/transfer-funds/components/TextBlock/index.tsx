@@ -390,8 +390,8 @@ export function TextBlock() {
         <Tag className={styles.tag}>Optional</Tag>
 
         <Heading as="h4" size="md">
-          <InlineCode>52A/D</InlineCode> Ordering Institution (Payer&apos;s
-          Bank)
+          Ordering Institution (Payer&apos;s Bank)&nbsp;
+          <InlineCode>52A/D</InlineCode>
         </Heading>
         <Paragraph size="sm">
           This optional field identifies the ordering financial institution when
@@ -420,9 +420,9 @@ export function TextBlock() {
           Sender&apos;s Correspondent (Bank)
         </Heading>
         <Paragraph size="sm">
-          This MANDATORY field identifies the account or branch of the Sender or
-          another financial institution through which the Sender will reimburse
-          the Receiver.
+          This <strong style={{ fontWeight: 600 }}>mandatory</strong> field
+          identifies the account or branch of the Sender or another financial
+          institution through which the Sender will reimburse the Receiver.
         </Paragraph>
       </CodeTooltip>
 
@@ -501,10 +501,10 @@ export function TextBlock() {
 
       {/* 57A/B/C/D */}
       <CodeTooltip id={TooltipId.TEXT_BLOCK_ACCOUNT_WITH_INSTITUTION}>
-        <InlineCode>57A/B/C/D</InlineCode>
         <Tag className={styles.tag}>Optional</Tag>
         <Heading as="h4" size="md">
-          Account with Institution
+          Account with Institution&nbsp;
+          <InlineCode>57A/B/C/D</InlineCode>
         </Heading>
         <Paragraph size="sm">
           This field identifies the financial institution of the ultimate
@@ -522,53 +522,52 @@ export function TextBlock() {
         </Paragraph>
         <Paragraph size="sm">
           <InlineCode>:57A:BANKUSFX</InlineCode>
-          <br /> BIC of beneficiary bank
-          <br /> (Option A - 1)
+          &nbsp;BIC of beneficiary bank&nbsp;
+          <span className={styles.option}>(Option A - 1)</span>
         </Paragraph>
 
         <Paragraph size="sm">
           <InlineCode>:57A:/1234567890</InlineCode>
           <br />
           <InlineCode>BANKUSFX</InlineCode>
-          <br /> Account and BIC of beneficiary bank
-          <br /> (Option A - 2)
+          <br /> Account and BIC of beneficiary bank&nbsp;
+          <span className={styles.option}>(Option A - 2)</span>
         </Paragraph>
         <Paragraph size="sm">
           <InlineCode>:57A://FW0123456789</InlineCode>
           <br />
           <InlineCode>BANKUSFX</InlineCode>
-          <br /> National Clearing Code and BIC of beneficiary bank
-          <br /> (Option A - 3)
+          <br /> National Clearing Code and BIC of beneficiary bank&nbsp;
+          <span className={styles.option}>(Option A - 3)</span>
         </Paragraph>
 
         <Paragraph size="sm">
           <InlineCode>:57A://FW0123456789</InlineCode>
           <br />
           <InlineCode>BANKUSFX</InlineCode>
-          <br /> National Clearing Code and BIC of beneficiary bank
-          <br /> (Option A - 3)
+          <br /> National Clearing Code and BIC of beneficiary bank&nbsp;
+          <span className={styles.option}>(Option A - 3)</span>
         </Paragraph>
 
         <Paragraph size="sm">
-          <InlineCode>:57B://FW0123456789&nbsp;</InlineCode>
-          <br /> New York Branch
+          <InlineCode>:57B://FW0123456789</InlineCode>&nbsp; New York Branch
+          National Clearing Code and location
         </Paragraph>
 
-        <Paragraph size="sm">National Clearing Code and location</Paragraph>
-
         <Paragraph size="sm">
-          <InlineCode>:57C://FW021000018</InlineCode>
-          <br /> New York Branch
+          <InlineCode>:57C://FW021000018</InlineCode>&nbsp; New York Branch
         </Paragraph>
 
         <Paragraph size="sm">
           <InlineCode>:57D:/9876543210</InlineCode>
-          <br /> Name and address (Option D - 1)
+          &nbsp;Name and address&nbsp;
+          <span className={styles.option}>(Option D - 1)</span>
         </Paragraph>
 
         <Paragraph size="sm">
           <InlineCode>:57D://FW0123456789</InlineCode>
-          <br /> National Clearing Code, Name and Address (Option D - 2)
+          &nbsp;National Clearing Code, Name and Address&nbsp;
+          <span className={styles.option}>(Option D - 2)</span>
         </Paragraph>
 
         <Notice className={styles.notice} size="sm">
@@ -585,9 +584,10 @@ export function TextBlock() {
       {/* 59A/F or 59 */}
       <CodeTooltip id={TooltipId.TEXT_BLOCK_BENEFICIARY_CUSTOMER}>
         <Tag className={styles.tag}>Mandatory</Tag>
-        <InlineCode>59A/F</InlineCode> or <InlineCode>59</InlineCode>
         <Heading as="h4" size="md">
-          Beneficiary Customer
+          Beneficiary Customer&nbsp;
+          <InlineCode>59A/F</InlineCode> or&nbsp;
+          <InlineCode>59</InlineCode>
         </Heading>
         <Paragraph size="sm">
           This field specifies the customer who will be paid.
@@ -623,9 +623,10 @@ export function TextBlock() {
       <CodeTooltip id={TooltipId.TEXT_BLOCK_REMITTANCE_INFORMATION}>
         <Tag className={styles.tag}>Optional</Tag>
         <Heading as="h4" size="md">
-          Remittance Information
+          Remittance Information&nbsp;
+          <InlineCode>70:/RFB/BET072</InlineCode>
         </Heading>
-        <InlineCode>:70:/RFB/BET072</InlineCode>
+
         <Paragraph size="sm">
           This field provides the details of the transaction or reference to
           another message containing such details, to be shared with the
@@ -637,27 +638,25 @@ export function TextBlock() {
       <CodeTooltip id={TooltipId.TEXT_BLOCK_CHARGES}>
         <Tag className={styles.tag}>Mandatory</Tag>
         <Heading as="h4" size="md">
-          Details of charges
+          Details of charges&nbsp;
+          <InlineCode>:71A:BEN</InlineCode>
         </Heading>
         <Paragraph size="sm">
           This field details who will incur the fees associated with this
           payment.
         </Paragraph>
         <Paragraph size="sm">
-          <InlineCode>BEN</InlineCode> – charges are borne by the beneficiary,
-          through a deduction of principal.
+          <InlineCode>BEN</InlineCode>&nbsp;charges are borne by the
+          beneficiary, through a deduction of principal.
         </Paragraph>
         <Paragraph size="sm">
-          <InlineCode>SHA</InlineCode> – originating bank charges are borne by
-          originator and beneficiary bank charges are borne by beneficiary.
-          beneficiary bank charges are borne by beneficiary.
+          <InlineCode>SHA</InlineCode>&nbsp;originating bank charges are borne
+          by originator and beneficiary bank charges are borne by beneficiary.
         </Paragraph>
         <Paragraph size="sm">
-          <InlineCode>OUR</InlineCode> – all charges are borne by originator
+          <InlineCode>OUR</InlineCode>&nbsp;all charges are borne by originator
         </Paragraph>
-        <Paragraph size="sm">
-          <InlineCode>:71A:BEN</InlineCode>
-        </Paragraph>
+
         <Notice className={styles.notice} size="sm">
           BNY offers a wide range of pricing services and options which can be
           further provided by your dedicated Relationship Officer.
@@ -667,11 +666,9 @@ export function TextBlock() {
       {/* 72 */}
       <CodeTooltip id={TooltipId.TEXT_BLOCK_SENDER_TO_RECEIVER_INFORMATION}>
         <Tag className={styles.tag}>Optional</Tag>
-        <Paragraph size="sm">
-          <InlineCode>:72:/FULLPAY/</InlineCode>
-        </Paragraph>
         <Heading as="h4" size="md">
-          Sender to Receiver Information
+          Sender to Receiver Information&nbsp;
+          <InlineCode>72:/FULLPAY/</InlineCode>
         </Heading>
         <Paragraph size="sm">
           This optional field provides additional information for the Receiver
@@ -692,8 +689,7 @@ export function TextBlock() {
           <InlineCode>/FULLPAY/</InlineCode>
         </Paragraph>
         <Paragraph size="sm">
-          <InlineCode>/RATE/</InlineCode>
-          for FX related payments
+          <InlineCode>/RATE/</InlineCode>&nbsp;for FX related payments
         </Paragraph>
 
         <Notice className={styles.notice} size="sm">
