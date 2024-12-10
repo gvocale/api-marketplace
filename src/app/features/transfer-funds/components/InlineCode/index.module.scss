@@ -1,12 +1,15 @@
 .inlineCode {
   border-radius: var(--radius-sm);
-  background-color: var(--color-primary-100);
-  color: var(--color-primary-900);
-  display: inline-block;
+  background-color: var(--color-grayscale-100);
+  border: 1px solid var(--color-grayscale-300);
+  display: inline;
   font-family: var(--font-sans-mono);
   font-size: 0.85em;
   line-height: 1.2;
   margin: 0;
   padding-block: 0.125em;
   padding-inline: 0.25em;
+  color: currentColor;
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+  font-style: normal;
 }

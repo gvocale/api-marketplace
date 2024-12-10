@@ -8,7 +8,7 @@ export function TrackPayment() {
       <Heading as="h3" id="track-your-payment" size="xl">
         Track Your Payment
       </Heading>
-      <Paragraph>
+      <Paragraph size="lg">
         Next up,{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/tracking-page">
           track your payment

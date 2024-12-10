@@ -17,7 +17,7 @@ export function Endpoint() {
       <Heading as="h3" id="endpoint" size="xl">
         Endpoint
       </Heading>
-      <Paragraph>
+      <Paragraph size="lg">
         First, use this endpoint and set your headers to submit a{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/swiftMt103-page:~:text=to%20submit%20a-,Funds%20Transfer,-in%20the%20Swift">
           Funds Transfer

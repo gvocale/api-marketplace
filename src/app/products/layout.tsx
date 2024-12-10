@@ -7,6 +7,7 @@ import { InViewProvider } from "../features/transfer-funds/context/in-view";
 import { IsScrolledProvider } from "../features/transfer-funds/context/is-scrolled";
 import { UserConfigProvider } from "../features/transfer-funds/context/user-config";
 import styles from "./layout.module.scss";
+import { TooltipProvider } from "../features/transfer-funds/context/tooltip-context";
 
 export default function ProductsLayout({
   children,
@@ -16,15 +17,17 @@ export default function ProductsLayout({
   return (
     <Suspense>
       <UserConfigProvider>
-        <IsScrolledProvider>
-          <InViewProvider>
-            <div className={styles.page}>
-              <Navigation />
-              <main>{children}</main>
-              <Footer />
-            </div>
-          </InViewProvider>
-        </IsScrolledProvider>
+        <TooltipProvider>
+          <IsScrolledProvider>
+            <InViewProvider>
+              <div className={styles.page}>
+                <Navigation />
+                <main>{children}</main>
+                <Footer />
+              </div>
+            </InViewProvider>
+          </IsScrolledProvider>
+        </TooltipProvider>
       </UserConfigProvider>
     </Suspense>
   );

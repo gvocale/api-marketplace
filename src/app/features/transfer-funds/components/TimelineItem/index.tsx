@@ -42,7 +42,7 @@ export function TimelineItem({
           <div className={styles.text}>
             <h3 className={styles.title}>{title}</h3>
             {tag && <Tag className={styles.tag}>{tag}</Tag>}
-            <Paragraph>{description}</Paragraph>
+            <Paragraph size="lg">{description}</Paragraph>
           </div>
           <motion.div
             animate={{ opacity: isActive ? 1 : 0 }}

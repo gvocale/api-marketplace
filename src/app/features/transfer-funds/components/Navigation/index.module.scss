@@ -20,7 +20,7 @@
   z-index: var(--z-index-header);
 
   &.isScrolled {
-    color: var(--color-text-black);
+    color: var(--color-text);
     background: rgba(1, 32, 54, 0.7);
     color: var(--color-white);
     box-shadow: 0px 1px 0px 0px rgba(7, 68, 80, 0.5) inset,

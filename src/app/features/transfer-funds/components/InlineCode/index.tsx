@@ -8,6 +8,6 @@ export function InlineCode({
   className?: string;
 }) {
   return (
-    <code className={`${styles.inlineCode} ${className}`}>{children}</code>
+    <code className={`${styles.inlineCode} ${className ?? ""}`}>{children}</code>
   );
 }

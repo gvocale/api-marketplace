@@ -1,12 +1,19 @@
 "use client";
 
-import { CSSProperties, useLayoutEffect, useState } from "react";
-import { highlight } from "./shared";
+import {
+  CSSProperties,
+  FocusEvent,
+  useContext,
+  useLayoutEffect,
+  useState,
+} from "react";
+import { BundledLanguage, DecorationItem, ShikiTransformer } from "shiki";
+import { TooltipContext } from "../../context/tooltip-context";
+import { Code as CodeIcon } from "../../icons/Code";
+import { Terminal } from "../../icons/Terminal";
 import { CopyButton } from "../CopyButton";
 import styles from "./index.module.scss";
-import { Terminal } from "../../icons/Terminal";
-import { Code as CodeIcon } from "../../icons/Code";
-import { BundledLanguage, ShikiTransformer, DecorationItem } from "shiki";
+import { highlight } from "./shared";
 
 export interface CodeProps {
   className?: string;
@@ -26,6 +33,28 @@ export function Code({
   decorations,
 }: CodeProps) {
   const [nodes, setNodes] = useState<JSX.Element>();
+  const [isHovered, setIsHovered] = useState(false);
+  const { setTooltipId } = useContext(TooltipContext);
+
+  useLayoutEffect(() => {
+    function handleMouseMove(event: MouseEvent) {
+      const hoveredElement = event.target as HTMLElement;
+
+      if (hoveredElement?.getAttribute("data-tooltip-id")) {
+        setTooltipId(hoveredElement?.getAttribute("data-tooltip-id"));
+      }
+    }
+
+    if (isHovered) {
+      addEventListener("mousemove", handleMouseMove);
+
+      return () => {
+        removeEventListener("mousemove", handleMouseMove);
+      };
+    } else {
+      removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [isHovered, setTooltipId]);
 
   useLayoutEffect(() => {
     if (code) {
@@ -53,6 +82,15 @@ export function Code({
     }
   }
 
+  function onFocus(event: FocusEvent<HTMLDivElement>) {
+    console.log("focus", event);
+    if (document.activeElement?.getAttribute("data-tooltip-id")) {
+      setTooltipId(document.activeElement?.getAttribute("data-tooltip-id"));
+    } else {
+      setTooltipId(null);
+    }
+  }
+
   return (
     <div className={`${styles.container} ${className ?? ""}`}>
       <div className={styles.toolbar}>
@@ -62,6 +100,9 @@ export function Code({
       <div
         className={styles.code}
         style={{ "--start": lineStart } as CSSProperties}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={onFocus}
       >
         {nodes}
       </div>

@@ -1,13 +1,25 @@
 .heading {
   line-height: 1.2;
-  letter-spacing: -0.02em;
   font-weight: 600;
   text-wrap: balance;
   scroll-margin-top: var(--scroll-margin-top);
   scroll-behavior: smooth;
 }
 
+.md {
+  font-size: var(--font-size-xs);
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-sm);
+  }
+
+  @media (min-width: 2400px) {
+    font-size: var(--font-size-base);
+  }
+}
+
 .lg {
+  letter-spacing: -0.02em;
   font-size: var(--font-size-sm);
 
   @media (min-width: 1024px) {
@@ -20,6 +32,7 @@
 }
 
 .xl {
+  letter-spacing: -0.02em;
   font-size: var(--font-size-base);
 
   @media (min-width: 1024px) {
@@ -32,6 +45,7 @@
 }
 
 .xxl {
+  letter-spacing: -0.02em;
   font-size: var(--font-size-lg);
 
   @media (min-width: 1024px) {

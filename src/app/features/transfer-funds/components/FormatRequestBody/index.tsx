@@ -1,8 +1,11 @@
-import { DecorationItem, ShikiTransformer } from "shiki";
+import { TooltipId } from "@/app/features/types";
+import { DecorationItem } from "shiki";
 import { Code } from "../Code";
+import { CodeTooltip } from "../CodeTooltip";
 import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Paragraph } from "../Paragraph";
+import { Tag } from "../Tag";
 import styles from "./index.module.scss";
 
 export function FormatRequestBody() {
@@ -31,38 +34,50 @@ export function FormatRequestBody() {
       start: { line: 2, character: 4 },
       end: { line: 2, character: 15 },
       properties: {
-        "data-tooltip-title": "Unique identifer for the request",
         tabindex: 0,
-        id: "application-header-1",
+        dataTooltipId: TooltipId.REQUEST_ID,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.REQUEST_ID}`,
+        },
       },
     },
     {
       start: { line: 3, character: 4 },
       end: { line: 3, character: 20 },
       properties: {
-        "data-tooltip-title": "For avoidance of duplicate payment submittal",
         tabindex: 0,
-        id: "application-header-1",
+        dataTooltipId: TooltipId.IDEMPOTENCY_KEY,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.IDEMPOTENCY_KEY}`,
+        },
       },
     },
     {
       start: { line: 4, character: 4 },
       end: { line: 4, character: 24 },
       properties: {
-        "data-tooltip-title": "Digital signature algorithm",
         tabindex: 0,
-        id: "application-header-1",
-        "data-mandatory": true,
+        dataTooltipId: TooltipId.SIGNATURE_ALGORITHM,
+        dataMandatory: true,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.SIGNATURE_ALGORITHM}`,
+        },
       },
     },
     {
       start: { line: 5, character: 4 },
       end: { line: 5, character: 15 },
       properties: {
-        "data-tooltip-title": "Digital signature to sign the payload",
         tabindex: 0,
-        id: "application-header-1",
-        "data-mandatory": true,
+        dataTooltipId: TooltipId.SIGNATURE,
+        dataMandatory: true,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.SIGNATURE}`,
+        },
       },
     },
   ];
@@ -72,200 +87,178 @@ export function FormatRequestBody() {
       start: { line: 2, character: 4 },
       end: { line: 2, character: 20 },
       properties: {
-        "data-tooltip-title": "Payment product used to initiate the payment",
         tabindex: 0,
-        id: "application-header-1",
-        "data-mandatory": true,
+        dataTooltipId: TooltipId.PAYMENT_PRODUCT,
+        dataMandatory: true,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.PAYMENT_PRODUCT}`,
+        },
       },
     },
     {
       start: { line: 3, character: 4 },
       end: { line: 3, character: 20 },
       properties: {
-        "data-tooltip-title": "Type of payment being initiated.",
         tabindex: 0,
-        id: "application-header-1",
-        "data-mandatory": true,
+        dataTooltipId: TooltipId.PAYMENT_MESSAGE,
+        dataMandatory: true,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.PAYMENT_MESSAGE}`,
+        },
       },
     },
     {
       start: { line: 4, character: 4 },
       end: { line: 4, character: 23 },
       properties: {
-        "data-tooltip-title": "Client-assigned reference ID to links payment to your system.",
         tabindex: 0,
-        id: "application-header-1",        
+        dataTooltipId: TooltipId.CLIENT_REFERENCE_ID,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.CLIENT_REFERENCE_ID}`,
+        },
       },
     },
     {
       start: { line: 5, character: 4 },
       end: { line: 5, character: 23 },
       properties: {
-        "data-tooltip-title":
-          "Memo field for your reference",
         tabindex: 0,
-        id: "application-header-1",
+        dataTooltipId: TooltipId.CLIENT_DESCRIPTION,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.CLIENT_DESCRIPTION}`,
+        },
       },
     },
     {
       start: { line: 6, character: 4 },
       end: { line: 6, character: 19 },
       properties: {
-        "data-tooltip-title": "Format of the message being sent.",
         tabindex: 0,
-        id: "application-header-1",
-        "data-mandatory": true,
+        dataTooltipId: TooltipId.MESSAGE_FORMAT,
+        dataMandatory: true,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.MESSAGE_FORMAT}`,
+        },
       },
     },
     {
       start: { line: 7, character: 4 },
       end: { line: 7, character: 13 },
       properties: {
-        "data-tooltip-title": "The Swift MT 103 formatted payment instruction, converted into a JSON string.",
         tabindex: 0,
-        id: "application-header-1",
-        "data-mandatory": true,
+        dataTooltipId: TooltipId.MESSAGE,
+        dataMandatory: true,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.MESSAGE}`,
+        },
       },
     },
   ];
-
-  const transformer: ShikiTransformer = {
-    span(node, line, col) {
-      node.properties["data-line"] = line;
-      node.properties["data-col"] = col;
-    },
-  };
 
   return (
     <div>
       <Heading as="h3" id="format-the-request-body" size="xl">
         Format The Request Body
       </Heading>
-      <Paragraph>
+      <Paragraph size="lg">
         This API request body contains two required elements:{" "}
         <InlineCode>metadata</InlineCode> and <InlineCode>request</InlineCode>.
       </Paragraph>
-      <Paragraph>
+      <Paragraph size="lg">
         The metadata represents the identifier and security controls for the
         request.
         {/* Fields marked with an asterisk (*) are mandatory. */}
       </Paragraph>
-      {/* <Table className={styles.table}>
-        <tbody>
-          <tr>
-            <th>
-              <InlineCode>requestId</InlineCode>
-            </th>
-            <td>Unique identifer for the request</td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>idempotencyKey</InlineCode>
-            </th>
-            <td>For avoidance of duplicate payment submittal</td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>signatureAlgorithm</InlineCode>
-            </th>
-            <td>
-              <Tag className={styles.tag}>Mandatory</Tag>
-              <Paragraph>Digital signature algorithm</Paragraph>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>signature</InlineCode>
-            </th>
-            <td>
-              <Tag className={styles.tag}>Mandatory</Tag>
-              <Paragraph>Digital signature to sign the payload.</Paragraph>
-            </td>
-          </tr>
-        </tbody>
-      </Table> */}
+
       <Code
         code={JSON_1}
         lang="json"
         className={styles.code}
         decorations={decorations1}
-        transformers={[transformer]}
       />
-      <Paragraph>The request body represents the payment details.</Paragraph>
+
+      {/* requestId  */}
+      <CodeTooltip id={TooltipId.REQUEST_ID}>
+        <Paragraph size="sm">Unique identifer for the request</Paragraph>
+      </CodeTooltip>
+
+      {/* idempotencyKey */}
+      <CodeTooltip id={TooltipId.IDEMPOTENCY_KEY}>
+        <Paragraph size="sm">
+          For avoidance of duplicate payment submittal
+        </Paragraph>
+      </CodeTooltip>
+
+      {/* signatureAlgorithm */}
+      <CodeTooltip id={TooltipId.SIGNATURE_ALGORITHM}>
+        <Tag className={styles.tag}>Mandatory</Tag>
+        <Paragraph size="sm">Digital signature algorithm</Paragraph>
+      </CodeTooltip>
+
+      {/* signature */}
+      <CodeTooltip id={TooltipId.SIGNATURE}>
+        <Tag className={styles.tag}>Mandatory</Tag>
+        <Paragraph size="sm">Digital signature to sign the payload.</Paragraph>
+      </CodeTooltip>
+
+      <Paragraph size="lg">
+        The request body represents the payment details.
+      </Paragraph>
+
       <Code
         code={JSON_2}
         lang="json"
         className={styles.code}
         decorations={decorations2}
-        transformers={[transformer]}
       />
-      {/* <Table className={styles.table}>
-        <tbody>
-          <tr>
-            <th>
-              <InlineCode>paymentProduct</InlineCode>
-            </th>
-            <td>
-              <Tag className={styles.tag}>Mandatory</Tag>
-              <Paragraph>
-                Payment product used to initiate the payment. In this case, WIRE
-              </Paragraph>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>paymentMessage</InlineCode>
-            </th>
-            <td>
-              <Tag className={styles.tag}>Mandatory</Tag>
-              <Paragraph>
-                Type of payment being initiated. In this case, CREDIT_TRANSFER
-              </Paragraph>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>messageFormat</InlineCode>
-            </th>
-            <td>
-              <Tag className={styles.tag}>Mandatory</Tag>
-              <Paragraph>
-                Format of the message being sent. In this case, Swift MT 103
-              </Paragraph>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>clientReferenceID</InlineCode>
-            </th>
-            <td>
-              <Paragraph>
-                Client-assigned reference ID to links payment to your system
-              </Paragraph>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>clientDescription</InlineCode>
-            </th>
-            <td>
-              <Paragraph>Memo field for your reference</Paragraph>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>message</InlineCode>
-            </th>
-            <td>
-              <Tag className={styles.tag}>Mandatory</Tag>
-              <Paragraph>
-                The Swift MT 103 formatted payment instruction, converted into a
-                JSON string.
-              </Paragraph>
-            </td>
-          </tr>
-        </tbody>
-      </Table> */}
+
+      {/* paymentProduct */}
+      <CodeTooltip id={TooltipId.PAYMENT_PRODUCT}>
+        <Tag className={styles.tag}>Mandatory</Tag>
+        <Paragraph size="sm">
+          Payment product used to initiate the payment
+        </Paragraph>
+      </CodeTooltip>
+
+      {/* paymentMessage */}
+      <CodeTooltip id={TooltipId.PAYMENT_MESSAGE}>
+        <Tag className={styles.tag}>Mandatory</Tag>
+        <Paragraph size="sm">Type of payment being initiated</Paragraph>
+      </CodeTooltip>
+
+      {/* clientReferenceID */}
+      <CodeTooltip id={TooltipId.CLIENT_REFERENCE_ID}>
+        <Tag className={styles.tag}>Mandatory</Tag>
+        <Paragraph size="sm">
+          Client-assigned reference ID to links payment to your system
+        </Paragraph>
+      </CodeTooltip>
+
+      {/* clientDescription */}
+      <CodeTooltip id={TooltipId.CLIENT_DESCRIPTION}>
+        <Paragraph size="sm">Memo field for your reference</Paragraph>
+      </CodeTooltip>
+
+      {/* messageFormat */}
+      <CodeTooltip id={TooltipId.MESSAGE_FORMAT}>
+        <Tag className={styles.tag}>Mandatory</Tag>
+        <Paragraph size="sm">Format of the message being sent</Paragraph>
+      </CodeTooltip>
+
+      {/* message */}
+      <CodeTooltip id={TooltipId.MESSAGE}>
+        <Tag className={styles.tag}>Mandatory</Tag>
+        <Paragraph size="sm">
+          The Swift MT 103 formatted payment instruction, converted into a JSON
+          string.
+        </Paragraph>
+      </CodeTooltip>
     </div>
   );
 }

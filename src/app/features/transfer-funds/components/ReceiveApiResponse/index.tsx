@@ -1,5 +1,7 @@
-import { DecorationItem, ShikiTransformer } from "shiki";
+import { TooltipId } from "@/app/features/types";
+import { DecorationItem } from "shiki";
 import { Code } from "../Code";
+import { CodeTooltip } from "../CodeTooltip";
 import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
 import { Paragraph } from "../Paragraph";
@@ -34,173 +36,164 @@ export function ReceiveApiResponse() {
   }
 }`;
 
-  const decorations1: DecorationItem[] = [
+  const decorations: DecorationItem[] = [
     {
       start: { line: 2, character: 4 },
       end: { line: 2, character: 13 },
       properties: {
-        "data-tooltip-title": "Indicates whether the API call was successful",
+        dataTooltipId: TooltipId.API_RESPONSE_SUCCESS,
         tabindex: 0,
-        id: "application-header-1",
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.API_RESPONSE_SUCCESS}`,
+        },
       },
     },
     {
       start: { line: 3, character: 4 },
       end: { line: 3, character: 15 },
       properties: {
-        "data-tooltip-title":
-          "Request identifier that was sent in the API request",
+        dataTooltipId: TooltipId.API_RESPONSE_REQUEST_ID,
         tabindex: 0,
-        id: "application-header-1",
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.API_RESPONSE_REQUEST_ID}`,
+        },
       },
     },
     {
       start: { line: 4, character: 4 },
       end: { line: 4, character: 11 },
       properties: {
-        "data-tooltip-title": "Number of records returned in the response",
+        dataTooltipId: TooltipId.API_RESPONSE_COUNT,
         tabindex: 0,
-        id: "application-header-1",
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.API_RESPONSE_COUNT}`,
+        },
       },
     },
     {
       start: { line: 7, character: 4 },
       end: { line: 7, character: 12 },
       properties: {
-        "data-tooltip-title":
-          "Unique system-generated reference ID for the payment initiation request",
+        dataTooltipId: TooltipId.API_RESPONSE_XREF_ID,
         tabindex: 0,
-        id: "application-header-1",
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.API_RESPONSE_XREF_ID}`,
+        },
       },
     },
     {
       start: { line: 8, character: 4 },
       end: { line: 8, character: 23 },
       properties: {
-        "data-tooltip-title":
-          "Internal reference ID of the client that links the payment to their system",
+        dataTooltipId: TooltipId.API_RESPONSE_CLIENT_REFERENCE_ID,
         tabindex: 0,
-        id: "application-header-1",
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.API_RESPONSE_CLIENT_REFERENCE_ID}`,
+        },
       },
     },
     {
       start: { line: 9, character: 4 },
       end: { line: 9, character: 18 },
       properties: {
-        "data-tooltip-title":
-          "Date and time the payment request was received by the system",
+        dataTooltipId: TooltipId.API_RESPONSE_TIME_RECEIVED,
         tabindex: 0,
-        id: "application-header-1",
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.API_RESPONSE_TIME_RECEIVED}`,
+        },
       },
     },
     {
       start: { line: 10, character: 4 },
       end: { line: 10, character: 23 },
       properties: {
-        "data-tooltip-title": "Memo field for client reference",
+        dataTooltipId: TooltipId.API_RESPONSE_CLIENT_DESCRIPTION,
         tabindex: 0,
-        id: "application-header-1",
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.API_RESPONSE_CLIENT_DESCRIPTION}`,
+        },
       },
     },
     {
       start: { line: 11, character: 4 },
       end: { line: 11, character: 12 },
       properties: {
-        "data-tooltip-title":
-          "Payment status; “Received” is the only valid response for a successful request. Otherwise, an error will be returned.",
+        dataTooltipId: TooltipId.API_RESPONSE_STATUS,
         tabindex: 0,
-        id: "application-header-1",
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.API_RESPONSE_STATUS}`,
+        },
       },
     },
   ];
-
-  const transformer: ShikiTransformer = {
-    span(node, line, col) {
-      node.properties["data-line"] = line;
-      node.properties["data-col"] = col;
-    },
-  };
 
   return (
     <div>
       <Heading as="h3" id="receive-an-api-response" size="xl">
         Receive An API Response
       </Heading>
-      <Paragraph>
+      <Paragraph size="lg">
         The Response Body contains two elements:{" "}
         <InlineCode>metadata</InlineCode> and <InlineCode>request</InlineCode>.
       </Paragraph>
-      {/* <Table className={styles.table}>
-        <tbody>
-          <tr>
-            <th>
-              <InlineCode>success</InlineCode>
-            </th>
-            <td>Indicates whether the API call was successful</td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>requestId</InlineCode>
-            </th>
-            <td>Request identifier that was sent in the API request</td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>count</InlineCode>
-            </th>
-            <td>Number of records returned in the response</td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>xrefID</InlineCode>
-            </th>
-            <td>
-              Unique system-generated reference ID for the payment initiation
-              request
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>clientReferenceId</InlineCode>
-            </th>
-            <td>
-              Internal reference ID of the client that links the payment to
-              their system
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>timeReceived</InlineCode>
-            </th>
-            <td>
-              Date and time the payment request was received by the system
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>clientDescription</InlineCode>
-            </th>
-            <td>Memo field for client reference</td>
-          </tr>
-          <tr>
-            <th>
-              <InlineCode>status</InlineCode>
-            </th>
-            <td>
-              Payment status; &ldquo;Received&rdquo; is the only valid response
-              for a successful request. Otherwise, an error will be returned.
-            </td>
-          </tr>
-        </tbody>
-      </Table> */}
+
+      {/* success */}
+      <CodeTooltip id={TooltipId.API_RESPONSE_SUCCESS}>
+        Indicates whether the API call was successful
+      </CodeTooltip>
+
+      {/* requestId */}
+      <CodeTooltip id={TooltipId.API_RESPONSE_REQUEST_ID}>
+        Request identifier that was sent in the API request
+      </CodeTooltip>
+
+      {/* count */}
+      <CodeTooltip id={TooltipId.API_RESPONSE_COUNT}>
+        Number of records returned in the response
+      </CodeTooltip>
+
+      {/* xrefId */}
+      <CodeTooltip id={TooltipId.API_RESPONSE_XREF_ID}>
+        Unique system-generated reference ID for the payment initiation request
+      </CodeTooltip>
+
+      {/* clientReferenceId */}
+      <CodeTooltip id={TooltipId.API_RESPONSE_CLIENT_REFERENCE_ID}>
+        Internal reference ID of the client that links the payment to their
+        system
+      </CodeTooltip>
+
+      {/* timeReceived */}
+      <CodeTooltip id={TooltipId.API_RESPONSE_TIME_RECEIVED}>
+        Date and time the payment request was received by the system
+      </CodeTooltip>
+
+      {/* clientDescription */}
+      <CodeTooltip id={TooltipId.API_RESPONSE_CLIENT_DESCRIPTION}>
+        Memo field for client reference
+      </CodeTooltip>
+
+      {/* status */}
+      <CodeTooltip id={TooltipId.API_RESPONSE_STATUS}>
+        Payment status; &ldquo;Received&rdquo; is the only valid response for a
+        successful request. Otherwise, an error will be returned.
+      </CodeTooltip>
+
       <Code
         code={JSON_1}
         lang="json"
         className={styles.code}
-        decorations={decorations1}
-        transformers={[transformer]}
+        decorations={decorations}
       />
-      <Paragraph>
+      <Paragraph size="lg">
         If you receive an error, the <InlineCode>success</InlineCode> field in
         the response will be returned as <InlineCode>false</InlineCode>. An
         example of a{" "}
@@ -210,7 +203,7 @@ export function ReceiveApiResponse() {
         is found below.
       </Paragraph>
       <Code code={JSON_2} lang="json" className={styles.code} />
-      <Paragraph>
+      <Paragraph size="lg">
         You may also receive an{" "}
         <TextLink href="https://marketplace.bnymellon.com/treasury/api-central/#/swiftMt103-page:~:text=You%20may%20also%20receive%20an%20API%20Gateway%20error%20which%20are%20caused%20by%20authorization%20problems%20with%20the%20request%20at%20the%20BNY%20API%20Gateway.">
           API Gateway error

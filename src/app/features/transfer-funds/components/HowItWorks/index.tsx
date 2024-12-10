@@ -32,7 +32,7 @@ export function HowItWorks({ className }: { className?: string }) {
 
               {messagingStandard === FinancialMessagingStandard.SWIFT && (
                 <div>
-                  <Paragraph>
+                  <Paragraph size="lg">
                     The Swift MT 103 is an international standard for message
                     formatting that facilitates secure and efficient
                     cross-border wire transfers between banks for
@@ -42,7 +42,7 @@ export function HowItWorks({ className }: { className?: string }) {
                     a Swift MT 103 message) to the next financial institution in
                     the payment flow.
                   </Paragraph>
-                  <Paragraph>
+                  <Paragraph size="lg">
                     See the{" "}
                     <TextLink href="https://www2.swift.com/knowledgecentre/publications/usgf_20180720/3.0?topic=finmt103.htm">
                       Swift website
@@ -54,7 +54,7 @@ export function HowItWorks({ className }: { className?: string }) {
 
               {messagingStandard === FinancialMessagingStandard.PACS && (
                 <div>
-                  <Paragraph>
+                  <Paragraph size="lg">
                     The pacs.008.001.0X (pacs.008) message - the{" "}
                     <TextLink href="https://www.bnymellon.com/us/en/iso-20022.html">
                       ISO 20022
@@ -72,7 +72,7 @@ export function HowItWorks({ className }: { className?: string }) {
                     message either the debtor, the creditor or both must be a
                     non-financial institution.
                   </Paragraph>
-                  <Paragraph>
+                  <Paragraph size="lg">
                     The message travels through the payment chain, ensuring that
                     all intermediary banks and the final receiving bank have the
                     necessary information to process the payment accurately. The

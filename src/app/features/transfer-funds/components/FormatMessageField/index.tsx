@@ -1,11 +1,13 @@
-import { SectionId } from "@/app/features/types";
+import { SectionId, TooltipId } from "@/app/features/types";
+import { DecorationItem } from "shiki";
 import { Code } from "../Code";
 import { Heading } from "../Heading";
 import { InlineCode } from "../InlineCode";
+import { InView } from "../InView";
 import { Paragraph } from "../Paragraph";
 import styles from "./index.module.scss";
-import { InView } from "../InView";
-import { DecorationItem, ShikiTransformer } from "shiki";
+import { CodeTooltip } from "../CodeTooltip";
+
 export function FormatMessageField() {
   const JSON_1 = `{
   { 1: F01IRVTUS3NAXXX4321123456 }
@@ -35,18 +37,24 @@ export function FormatMessageField() {
       start: { line: 8, character: 12 },
       end: { line: 8, character: 20 },
       properties: {
-        "data-tooltip-title": "CIBC Bank is instructing BNY to send USD 12,000",
         tabindex: 0,
-        id: "application-header-1",
+        dataTooltipId: TooltipId.AMOUNT,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.AMOUNT}`,
+        },
       },
     },
     {
       start: { line: 10, character: 12 },
       end: { line: 10, character: 23 },
       properties: {
-        "data-tooltip-title": "The sender's name",
         tabindex: 0,
-        id: "application-header-1",
+        dataTooltipId: TooltipId.SENDER_NAME,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.SENDER_NAME}`,
+        },
       },
     },
     {
@@ -55,7 +63,11 @@ export function FormatMessageField() {
       properties: {
         "data-tooltip-title": "The sender's account number",
         tabindex: 0,
-        id: "application-header-1",
+        dataTooltipId: TooltipId.SENDER_ACCOUNT_NUMBER,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.SENDER_ACCOUNT_NUMBER}`,
+        },
       },
     },
     {
@@ -64,17 +76,14 @@ export function FormatMessageField() {
       properties: {
         "data-tooltip-title": "The receiver's name",
         tabindex: 0,
-        id: "application-header-1",
+        dataTooltipId: TooltipId.RECEIVER_NAME,
+        style: {
+          // @ts-expect-error --anchor-name is not a valid CSS property
+          "--anchor-name": `--${TooltipId.RECEIVER_NAME}`,
+        },
       },
     },
   ];
-
-  const transformer: ShikiTransformer = {
-    span(node, line, col) {
-      node.properties["data-line"] = line;
-      node.properties["data-col"] = col;
-    },
-  };
 
   return (
     <div>
@@ -90,14 +99,14 @@ export function FormatMessageField() {
         <Heading as="h4" id={SectionId.OVERVIEW} size="lg">
           Overview
         </Heading>
-        <Paragraph>
+        <Paragraph size="lg">
           Next, format the <InlineCode>message</InlineCode> field per Swift MT
           103 formatting guidelines. The MT 103 message is made up of four
           blocks. Note that the format of the MT 103 must meet the Swift
           specification but that some of the information in the message is not
           used by the API.
         </Paragraph>
-        <Paragraph>
+        <Paragraph size="lg">
           In the example below, CIBC Bank is instructing BNY to send USD 12,000
           on behalf of its client, John Debtor to Jane Creditor, who is a client
           of BNY&apos;s Belgium branch, with a Value Date of July 24th 2024.
@@ -105,12 +114,35 @@ export function FormatMessageField() {
           <InlineCode>53B</InlineCode>, which BNY will use to fund the
           transaction.
         </Paragraph>
-        <Code
-          code={JSON_1}
-          lang="bash"
-          decorations={decorations}
-          transformers={[transformer]}
-        />
+
+        <Code code={JSON_1} lang="bash" decorations={decorations} />
+
+        {/* amount */}
+        <CodeTooltip id={TooltipId.AMOUNT}>
+          <Paragraph size="sm">
+            CIBC Bank is instructing BNY to send USD 12,000
+          </Paragraph>
+        </CodeTooltip>
+
+        {/* senderName */}
+        <CodeTooltip id={TooltipId.SENDER_NAME}>
+          <Paragraph size="sm">The sender&apos;s name</Paragraph>
+        </CodeTooltip>
+
+        {/* senderAccountNumber */}
+        <CodeTooltip id={TooltipId.SENDER_ACCOUNT_NUMBER}>
+          <Paragraph size="sm">The sender&apos;s account number</Paragraph>
+        </CodeTooltip>
+
+        {/* receiverName */}
+        <CodeTooltip id={TooltipId.RECEIVER_NAME}>
+          <Paragraph size="sm">The receiver&apos;s name</Paragraph>
+        </CodeTooltip>
+
+        {/* receiverAccountNumber */}
+        <CodeTooltip id={TooltipId.RECEIVER_ACCOUNT_NUMBER}>
+          <Paragraph size="sm">The receiver&apos;s account number</Paragraph>
+        </CodeTooltip>
       </InView>
     </div>
   );

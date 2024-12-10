@@ -7,15 +7,15 @@ export function Heading({
   id,
   size,
 }: {
-  as: "h2" | "h3" | "h4";
+  as: "h2" | "h3" | "h4" | "h5";
   children: React.ReactNode;
   className?: string;
   id?: string;
-  size?: "xl" | "2xl" | "lg";
+  size?: "xl" | "2xl" | "lg" | "md";
 }) {
   const Tag = as;
 
-  let sizeClass: "xl" | "xxl" | "lg" | undefined;
+  let sizeClass: "xl" | "xxl" | "lg" | "md" | undefined;
 
   switch (size) {
     case "2xl":
