@@ -147,44 +147,60 @@ export function ReceiveApiResponse() {
 
       {/* success */}
       <CodeTooltip id={TooltipId.API_RESPONSE_SUCCESS}>
-        Indicates whether the API call was successful
+        <Paragraph size="sm">
+          Indicates whether the API call was successful
+        </Paragraph>
       </CodeTooltip>
 
       {/* requestId */}
       <CodeTooltip id={TooltipId.API_RESPONSE_REQUEST_ID}>
-        Request identifier that was sent in the API request
+        <Paragraph size="sm">
+          Request identifier that was sent in the API request
+        </Paragraph>
       </CodeTooltip>
 
       {/* count */}
       <CodeTooltip id={TooltipId.API_RESPONSE_COUNT}>
-        Number of records returned in the response
+        <Paragraph size="sm">
+          Number of records returned in the response
+        </Paragraph>
       </CodeTooltip>
 
       {/* xrefId */}
       <CodeTooltip id={TooltipId.API_RESPONSE_XREF_ID}>
-        Unique system-generated reference ID for the payment initiation request
+        <Paragraph size="sm">
+          Unique system-generated r eference ID for the payment initiation
+          request
+        </Paragraph>
       </CodeTooltip>
 
       {/* clientReferenceId */}
       <CodeTooltip id={TooltipId.API_RESPONSE_CLIENT_REFERENCE_ID}>
-        Internal reference ID of the client that links the payment to their
-        system
+        <Paragraph size="sm">
+          Internal reference ID of the client that links the payment to their
+          system
+        </Paragraph>
       </CodeTooltip>
 
       {/* timeReceived */}
       <CodeTooltip id={TooltipId.API_RESPONSE_TIME_RECEIVED}>
-        Date and time the payment request was received by the system
+        <Paragraph size="sm">
+          Date and time the payment request was received by the system
+        </Paragraph>
       </CodeTooltip>
 
       {/* clientDescription */}
       <CodeTooltip id={TooltipId.API_RESPONSE_CLIENT_DESCRIPTION}>
-        Memo field for client reference
+        <Paragraph size="sm">Memo field for client reference</Paragraph>
       </CodeTooltip>
 
       {/* status */}
       <CodeTooltip id={TooltipId.API_RESPONSE_STATUS}>
-        Payment status; &ldquo;Received&rdquo; is the only valid response for a
-        successful request. Otherwise, an error will be returned.
+        <Paragraph size="sm">
+          Payment status; <InlineCode>Received</InlineCode> is the only valid
+          response for a successful request. Otherwise, an error will be
+          returned.
+        </Paragraph>
       </CodeTooltip>
 
       <Code
