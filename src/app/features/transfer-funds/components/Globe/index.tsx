@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import * as THREE from "three";
 import {
   forwardRef,
   MutableRefObject,
@@ -7,16 +8,16 @@ import {
   useState,
 } from "react";
 import { GlobeMethods, GlobeProps } from "react-globe.gl";
-import * as interRegular from "./inter-regular.json";
+// import * as interRegular from "./inter-regular.json";
 // import * as d3 from "d3";
 import countriesGeoJson from "./countries.json";
-import { CAPITAL_CITIES } from "./data";
+// import { CAPITAL_CITIES } from "./data";
 
-interface GlobeLabelData {
-  lat: number;
-  lng: number;
-  name: string;
-}
+// interface GlobeLabelData {
+//   lat: number;
+//   lng: number;
+//   name: string;
+// }
 
 const GlobeTmpl = dynamic(() => import("react-globe.gl"), {
   ssr: false,
@@ -35,26 +36,26 @@ export function Globe() {
   const [globeWidth, setGlobeWidth] = useState(0);
   const [globeHeight, setGlobeHeight] = useState(0);
 
-  const props: GlobeProps = {
-    labelsData: CAPITAL_CITIES.map((city) => ({
-      name: `${city.currency} ${city.city}`,
-      lat: city.lat,
-      lng: city.lng,
-    })),
-    // @ts-expect-error GlobeProps is not typed
-    labelLat: (d: GlobeLabelData) => d.lat,
-    // @ts-expect-error GlobeProps is not typed
-    labelLng: (d: GlobeLabelData) => d.lng,
-    // @ts-expect-error GlobeProps is not typed
-    labelText: (d: GlobeLabelData) => d.name,
-    labelSize: 0.5,
-    labelDotRadius: 0.4,
-    labelColor: () => "rgba(255, 255, 255, 0.25)",
-    labelAltitude: 0.01,
-    labelTypeFace: interRegular,
-    // labelResolution: 10,
-    cameraPosition: { x: undefined, y: 10300, z: 200 },
-  };
+  // const props: GlobeProps = {
+  //   labelsData: CAPITAL_CITIES.map((city) => ({
+  //     name: `${city.currency} ${city.city}`,
+  //     lat: city.lat,
+  //     lng: city.lng,
+  //   })),
+  //   // @ts-expect-error GlobeProps is not typed
+  //   labelLat: (d: GlobeLabelData) => d.lat,
+  //   // @ts-expect-error GlobeProps is not typed
+  //   labelLng: (d: GlobeLabelData) => d.lng,
+  //   // @ts-expect-error GlobeProps is not typed
+  //   labelText: (d: GlobeLabelData) => d.name,
+  //   labelSize: 0.5,
+  //   labelDotRadius: 0.4,
+  //   labelColor: () => "rgba(255, 255, 255, 0.25)",
+  //   labelAltitude: 0.01,
+  //   labelTypeFace: interRegular,
+  //   // labelResolution: 10,
+  //   cameraPosition: { x: undefined, y: 10300, z: 200 },
+  // };
 
   useEffect(() => {
     if (!globeRef.current) return;
@@ -124,7 +125,7 @@ export function Globe() {
     <div style={{ width: "100%", height: "100%" }} ref={globeContainerRef}>
       <GlobeForwarded
         ref={globeRef}
-        {...props}
+        // {...props}
         // arcsData={routes}
         // arcLabel={(d) => `${d.airline}: ${d.srcIata} &#8594; ${d.dstIata}`}
         // arcStartLat={(d) => +d.srcAirport.lat}
@@ -147,10 +148,11 @@ export function Globe() {
         // pointsMerge={true}
         onGlobeReady={() => setGlobeReady(true)}
         // globeImageUrl="/transfer-funds/images/earth-blue-marble.jpg"
-        globeImageUrl="/transfer-funds/images/earth-dark.jpg"
+        // globeImageUrl="/transfer-funds/images/earth-dark.jpg"
         // globeImageUrl="/transfer-funds/images/earth-night.jpg"
-        bumpImageUrl="/transfer-funds/images/earth-topology.png"
+        // bumpImageUrl="/transfer-funds/images/earth-topology.png"
         // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+        globeMaterial={new THREE.MeshPhongMaterial({ color: "#111736" })}
         showAtmosphere={true}
         animateIn={true}
         // arcDashAnimateTime={180}
@@ -162,7 +164,7 @@ export function Globe() {
         hexPolygonResolution={3}
         hexPolygonMargin={0.3}
         // hexPolygonUseDots={true}
-        hexPolygonColor={() => "#3D487E"}
+        hexPolygonColor={() => "#a5add450"}
 
         // hexPolygonColor={() =>
         //   `#${Math.round(Math.random() * Math.pow(2, 24))
