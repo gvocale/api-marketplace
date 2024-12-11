@@ -16,7 +16,7 @@
 }
 
 .icon {
-  width: 12rem;
+  width: 16rem;
   height: 12rem;
   --color-blob: var(--color-blue-300);
   --color-stroke-1: var(--color-black);
@@ -57,6 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
 
   &.isActive {
     cursor: unset;

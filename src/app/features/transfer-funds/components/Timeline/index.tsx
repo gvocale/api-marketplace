@@ -3,20 +3,20 @@
 import { FinancialMessagingStandard, TimelineId } from "@/app/features/types";
 import { useContext } from "react";
 import { UserConfigContext } from "../../context/user-config";
-import { Beneficiary } from "../../icons/Beneficiary";
-import { BeneficiaryBank } from "../../icons/BeneficiaryBank";
-import { Currencies } from "../../icons/Currencies";
-import { Customer } from "../../icons/Customer";
-import { IntermediaryBank } from "../../icons/IntermediaryBank";
-import { MoneyTransaction } from "../../icons/MoneyTransaction";
-import { WebsiteEndpoint } from "../../icons/WebsiteEndpoint";
+import { CurrencyExchanged } from "../../svg-images/CurrencyExchanged";
+import { DetailsReceived } from "../../svg-images/DetailsReceived";
+import { InitiateTransfer } from "../../svg-images/InitiateTransfer";
+import { MessageCreated } from "../../svg-images/MessageCreated";
+import { RecipientAccountCredited } from "../../svg-images/RecipientAccountCredited";
+import { TransferConfirmed } from "../../svg-images/TransferConfirmed";
+import { TransmittedToBank } from "../../svg-images/TransmittedToBank";
 import { Container } from "../Container";
+import { Grid } from "../Grid";
 import { InlineCode } from "../InlineCode";
+import { TimelineIndexDivider } from "../TimelineIndexDivider";
 import { TimelineIndexItem } from "../TimelineIndexItem";
 import { TimelineItem } from "../TimelineItem";
 import styles from "./index.module.scss";
-import { TimelineIndexDivider } from "../TimelineIndexDivider";
-import { Grid } from "../Grid";
 
 export function Timeline() {
   const { config } = useContext(UserConfigContext);
@@ -29,13 +29,13 @@ export function Timeline() {
           <>
             <TimelineItem
               id={TimelineId.SWIFT_1_CUSTOMER}
-              icon={<Customer />}
+              icon={<InitiateTransfer />}
               title="Initiate Transfer"
               description="A customer initiates a wire transfer."
             />
 
             <TimelineItem
-              icon={<WebsiteEndpoint />}
+              icon={<DetailsReceived />}
               id={TimelineId.SWIFT_2_CLIENT_HOST_APPLICATION}
               title="Details Received"
               description={
@@ -48,7 +48,7 @@ export function Timeline() {
             />
 
             <TimelineItem
-              icon={<MoneyTransaction />}
+              icon={<MessageCreated />}
               id={TimelineId.SWIFT_3_ORDERING_CUSTOMER}
               title="Message Created"
               description={
@@ -60,7 +60,7 @@ export function Timeline() {
             />
 
             <TimelineItem
-              icon={<IntermediaryBank />}
+              icon={<TransmittedToBank />}
               id={TimelineId.SWIFT_4_INTERMEDIARY_BANK_A}
               title="Transmitted to Bank"
               description="The message is transmitted through the Swift network to the recipient's bank."
@@ -68,20 +68,20 @@ export function Timeline() {
 
             <TimelineItem
               id={TimelineId.SWIFT_5_INTERMEDIARY_BANK_B}
-              icon={<Currencies />}
+              icon={<CurrencyExchanged />}
               title="Currency Exchanged"
               description="Multiple intermediary banks can be involved in case of currency exchange."
             />
 
             <TimelineItem
-              icon={<BeneficiaryBank />}
+              icon={<RecipientAccountCredited />}
               id={TimelineId.SWIFT_6_BENEFICIARY_BANK}
               title="Recipient Account Credited"
               description="The recipient's bank processes the message and credits the recipient's account."
             />
 
             <TimelineItem
-              icon={<Beneficiary />}
+              icon={<TransferConfirmed />}
               id={TimelineId.SWIFT_7_BENEFICIARY}
               title="Transfer Confirmed"
               description="Confirmation of the transfer is sent back to the sender, completing the transaction."
@@ -92,7 +92,7 @@ export function Timeline() {
         return (
           <>
             <TimelineItem
-              icon={<Customer />}
+              icon={<InitiateTransfer />}
               id={TimelineId.PACS_1_CUSTOMER}
               tag="Initiation"
               title="Debtor"
@@ -100,7 +100,7 @@ export function Timeline() {
             />
 
             <TimelineItem
-              icon={<WebsiteEndpoint />}
+              icon={<DetailsReceived />}
               id={TimelineId.PACS_2_CLIENT_HOST_APPLICATION}
               title="Client Host Application"
               description={
@@ -113,7 +113,7 @@ export function Timeline() {
             />
 
             <TimelineItem
-              icon={<MoneyTransaction />}
+              icon={<MessageCreated />}
               id={TimelineId.PACS_3_DEBTOR_AGENT}
               title="Debtor Agent"
               tag="Message Creation"
@@ -121,7 +121,7 @@ export function Timeline() {
             />
 
             <TimelineItem
-              icon={<IntermediaryBank />}
+              icon={<TransmittedToBank />}
               id={TimelineId.PACS_4_INTERMEDIARY_AGENT}
               tag="Transmission"
               title="Intermediary Agent 1"
@@ -129,7 +129,7 @@ export function Timeline() {
             />
 
             <TimelineItem
-              icon={<IntermediaryBank />}
+              icon={<CurrencyExchanged />}
               id={TimelineId.PACS_5_CREDITOR_AGENT}
               title="Creditor Agent"
               tag="Processing"
@@ -137,7 +137,7 @@ export function Timeline() {
             />
 
             <TimelineItem
-              icon={<BeneficiaryBank />}
+              icon={<RecipientAccountCredited />}
               id={TimelineId.PACS_6_CREDITOR}
               tag="Confirmation"
               title="Creditor"
