@@ -17,7 +17,6 @@ import { Heading } from "../Heading";
 import { HowItWorks } from "../HowItWorks";
 import { InitiatePayment } from "../InitiatePayment";
 import { InView } from "../InView";
-import { Narrow } from "../Narrow";
 import { ReceiveApiResponse } from "../ReceiveApiResponse";
 import { StepsSidebar } from "../StepsSidebar";
 import { TextBlock } from "../TextBlock";
@@ -54,7 +53,7 @@ export function TransferFunds() {
           </section>
 
           <section>
-            <HowItWorks className={styles.howItWorks} />
+            <HowItWorks />
             <Timeline />
           </section>
 
@@ -66,7 +65,7 @@ export function TransferFunds() {
                     <StepsSidebar />
                   </div>
                 </aside>
-                <Narrow className={styles.narrow}>
+                <div className={styles.content}>
                   <div>
                     <InView
                       id={SectionId.STEPS_TO_INITIATE_A_WIRE_PAYMENT}
@@ -117,7 +116,7 @@ export function TransferFunds() {
                   <InView id={SectionId.TRACK_YOUR_PAYMENT} type="regular">
                     <TrackPayment />
                   </InView>
-                </Narrow>
+                </div>
               </Grid>
             </Container>
           </section>

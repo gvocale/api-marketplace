@@ -1,35 +1,34 @@
+import { ArrowRight } from "../../svg-images/ArrowRight";
 import { ProgressItem } from "../ProgressItem";
 import styles from "./index.module.scss";
 
-export function Progress({
-  size,
-  className,
-}: {
-  size: "sm" | "lg";
-  className?: string;
-}) {
+export function Progress({ className }: { className?: string }) {
   return (
     <ol className={`${styles.progress} ${className}`}>
       <li>
         <ProgressItem
           href="/products/transfer-funds/initiate-a-payment"
-          size={size}
+          isActive={true}
         >
           Initiate a payment
         </ProgressItem>
       </li>
+      <ArrowRight />
       <li>
         <ProgressItem
           href="/products/transfer-funds/track-a-payment"
-          size={size}
+          isActive={false}
         >
           Track a payment
         </ProgressItem>
       </li>
+
+      <ArrowRight />
+
       <li>
         <ProgressItem
           href="/products/transfer-funds/reconcile-a-payment"
-          size={size}
+          isActive={false}
         >
           Reconcile a payment
         </ProgressItem>

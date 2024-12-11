@@ -5,6 +5,7 @@ import { Divider } from "../Divider";
 import { Container } from "../Container";
 import { InView } from "../InView";
 import { SectionId } from "@/app/features/types";
+import { BNYMarketplaceLogo } from "../../svg-images/BNYMarketplaceLogo";
 
 export function Footer() {
   return (
@@ -14,13 +15,7 @@ export function Footer() {
           <div className={styles.footerInner}>
             <div className={styles.content}>
               <div className={styles.logoContainer}>
-                <Image
-                  src="/bny-marketplace-logo.svg"
-                  alt="Logo"
-                  width={230}
-                  height={21}
-                  className={styles.logo}
-                />
+                <BNYMarketplaceLogo className={styles.logo} />
               </div>
               <div>
                 <h3 className={styles.sectionTitle}>Solutions</h3>

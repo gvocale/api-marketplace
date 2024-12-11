@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { ArrowDown } from "../../icons/ArrowDown";
-import { ArrowRight } from "../../icons/ArrowRight";
 import styles from "./index.module.scss";
 
 type GlobeCardProps = {
@@ -9,7 +7,6 @@ type GlobeCardProps = {
   href: string;
   icon: React.ReactNode;
   isActive?: boolean;
-  gradient: string;
 };
 
 export function GlobeCard({
@@ -18,7 +15,6 @@ export function GlobeCard({
   href,
   icon,
   isActive,
-  gradient,
 }: GlobeCardProps) {
   return (
     <Link
@@ -26,14 +22,12 @@ export function GlobeCard({
       href={href}
     >
       <div className={styles.outline}></div>
-      <div className={styles.iconContainer}>
-        <div className={styles.icon} style={{ backgroundImage: gradient }}>
-          {icon}
-        </div>
+      <div className={styles.icon}>{icon}</div>
+      <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
       </div>
-      <p className={styles.description}>{description}</p>
-      <div className={styles.buttonIconMask}>
+      {/* <div className={styles.buttonIconMask}>
         <div className={styles.buttonIconContainer}>
           <div className={styles.buttonIcon}>
             {isActive ? <ArrowDown /> : <ArrowRight />}
@@ -42,7 +36,7 @@ export function GlobeCard({
             {isActive ? <ArrowDown /> : <ArrowRight />}
           </div>
         </div>
-      </div>
+      </div> */}
     </Link>
   );
 }

@@ -1,0 +1,55 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-index-navigation);
+  transform: translateY(-100%);
+  transition: transform 0.25s var(--ease-out-back);
+  background-color: var(--color-grayscale-200);
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4fr minmax(0, 1fr);
+  justify-content: space-between;
+  align-items: center;
+
+  &.isScrolled {
+    transform: translateY(0);
+  }
+}
+
+.logoLink {
+  display: inline-flex;
+  border-radius: var(--radius-full);
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  height: var(--button-small-height);
+  margin-block: var(--padding-y);
+  margin-left: var(--padding-x);
+  align-items: center;
+  position: relative;
+  top: -1px;
+  height: 1.25rem;
+  width: auto;
+  color: var(--color-text);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline);
+    outline-offset: 2px;
+  }
+}
+
+.logo {
+  width: auto;
+  height: 1.125rem;
+
+  @media (min-width: 2400px) {
+    height: 1.25rem;
+  }
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+}

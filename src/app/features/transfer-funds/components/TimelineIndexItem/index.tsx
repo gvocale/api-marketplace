@@ -21,23 +21,22 @@ export function TimelineIndexItem({
     <li
       className={`${styles.timelineIndexItem} ${
         isActive ? styles.isActive : ""
-      } ${className}`}
+      } ${className ?? ""}`}
       data-active={isActive}
     >
-      <Link className={styles.label} href={`#${id}`}>
-        {children}
-      </Link>
       <motion.span
         animate={{
-          height: isActive ? "1.5rem" : "0.75rem",
-          width: isActive ? "1.5rem" : "0.75rem",
+          height: isActive ? "2.5rem" : "1.25rem",
+          width: isActive ? "2.5rem" : "1.25rem",
         }}
         className={styles.indicator}
         transition={{ type: "spring", stiffness: 200, damping: 25 }}
       >
         <div className={styles.indicatorInner} />
       </motion.span>
-      <span className={styles.spacer} />
+      <Link className={styles.label} href={`#${id}`}>
+        {children}
+      </Link>
     </li>
   );
 }

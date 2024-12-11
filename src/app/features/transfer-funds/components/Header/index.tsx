@@ -36,7 +36,6 @@ export function Header() {
             icon={<ArrowRightToArc />}
             isActive={true}
             href={`#${SectionId.INITIATE_A_PAYMENT}`}
-            gradient={`var(--gradient-1)`}
           />
           <div className={styles.divider}>
             <div className={styles.dividerLine} />
@@ -47,7 +46,6 @@ export function Header() {
             description="Monitor payments at every stage of the process"
             icon={<ArrowRightFromArc />}
             href="/products/transfer-funds/track-a-payment"
-            gradient={`var(--gradient-2)`}
           />
           <div className={styles.divider}>
             <div className={styles.dividerLine} />
@@ -58,7 +56,6 @@ export function Header() {
             description="Manage money thingy thungy thingy"
             icon={<MagnifyingGlassDollar />}
             href="/products/transfer-funds/reconcile-a-payment"
-            gradient={`var(--gradient-2)`}
           />
         </div>
       </div>

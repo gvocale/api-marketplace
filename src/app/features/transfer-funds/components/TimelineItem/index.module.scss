@@ -18,7 +18,7 @@
 .icon {
   width: 12rem;
   height: 12rem;
-  --color-blob: var(--color-primary-200);
+  --color-blob: var(--color-blue-300);
   --color-stroke-1: var(--color-black);
 
   svg {
@@ -47,16 +47,16 @@
 }
 
 .card {
-  background-color: var(--color-teal-100);
-  padding-inline: 2rem;
-  padding-block: 2rem;
-  padding-top: 3rem;
+  background-color: var(--color-grayscale-100);
+  padding: 3rem;
   border-radius: var(--radius-lg);
   width: 100%;
   text-decoration: none;
   display: block;
   color: currentColor;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   &.isActive {
     cursor: unset;
@@ -65,21 +65,17 @@
 
 a.card {
   &:not(.isActive):hover {
-    background-color: var(--color-teal-200);
+    background-color: var(--color-blue-200);
   }
 
   &:not(.isActive):active {
-    background-color: var(--color-teal-300);
+    background-color: var(--color-blue-300);
   }
 
   &:focus-visible {
     outline: 2px solid var(--color-outline);
     outline-offset: 2px;
   }
-}
-
-.root:last-of-type .card {
-  border-bottom-right-radius: var(--radius-xl);
 }
 
 .iconContainer {
@@ -92,4 +88,5 @@ a.card {
   flex-direction: column;
   align-items: baseline;
   gap: 0.5rem;
+  justify-content: center;
 }

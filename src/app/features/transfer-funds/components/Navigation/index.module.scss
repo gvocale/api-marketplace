@@ -2,51 +2,25 @@
   --padding-x: 1rem;
   --padding-y: 1rem;
   align-items: center;
-  backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-full);
   color: var(--color-white);
   display: flex;
-  max-width: minmax(
-    calc(100dvw - (var(--page-padding-inline) * 2)),
-    var(--max-width)
-  );
+  justify-content: space-between;
+  width: calc(100% - var(--page-padding-inline) * 2);
+  max-width: var(--max-width);
   position: fixed;
   left: 50%;
   top: var(--navbar-top);
-  transform: translateX(-50%);
-  transition: background-color 0.125s var(--ease-out-quart),
-    box-shadow 0.125s var(--ease-out-quart);
-  z-index: var(--z-index-header);
+  transform: translateX(-50%) translateY(0);
+  transition: transform 0.125s var(--ease-out-quart);
+  z-index: var(--z-index-navigation);
+  background-color: var(--color-grayscale-900);
+  backdrop-filter: blur(20px);
+  background: rgba(1, 32, 54, 0.65);
+  box-shadow: 0px 16px 24px -14px rgba(0, 0, 0, 0.12);
 
   &.isScrolled {
-    color: var(--color-text);
-    background: rgba(1, 32, 54, 0.7);
-    color: var(--color-white);
-    box-shadow: 0px 1px 0px 0px rgba(7, 68, 80, 0.5) inset,
-      0px 15px 51.3px 0px rgba(91, 120, 139, 0.52);
-    backdrop-filter: blur(35px);
-  }
-}
-
-.logoMask {
-  display: grid;
-  height: 100%;
-  align-items: center;
-  overflow: clip;
-}
-
-.logoContainer {
-  padding-block: var(--padding-y);
-  padding-left: var(--padding-x);
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  display: grid;
-  align-items: center;
-  transition: transform 0.5s var(--ease-out-back);
-
-  .isScrolled & {
-    transform: translateY(-100%);
+    transform: translateX(-50%) translateY(calc(-100% - var(--navbar-top)));
   }
 }
 
@@ -56,7 +30,14 @@
   padding-block: 0.5rem;
   padding-inline: 0.75rem;
   height: var(--button-small-height);
+  margin-block: var(--padding-y);
+  margin-left: var(--padding-x);
   align-items: center;
+  position: relative;
+  top: -1px;
+  height: 1.25rem;
+  width: auto;
+  color: var(--color-white);
 
   &:focus-visible {
     outline: 1px solid var(--color-white);
@@ -65,10 +46,12 @@
 }
 
 .logo {
-  height: 1.25rem;
   width: auto;
-  position: relative;
-  top: -1px;
+  height: 1.125rem;
+
+  @media (min-width: 2400px) {
+    height: 1.25rem;
+  }
 }
 
 .links {
@@ -80,6 +63,7 @@
   line-height: 1.2;
   font-size: var(--font-size-base);
   letter-spacing: -0.02em;
+  margin-inline: 3rem;
 }
 
 .authLinks {
@@ -98,104 +82,12 @@
   }
 }
 
-.productLinks {
+.secondaryLinks {
   display: flex;
-  align-items: baseline;
-  list-style: none;
-  font-weight: 500;
-  line-height: 1.2;
-  font-size: var(--font-size-base);
-  letter-spacing: -0.02em;
-}
-
-.mask {
-  height: 100%;
-  overflow: clip;
-  align-items: baseline;
-  justify-content: start;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
   margin-left: auto;
-  margin-right: auto;
-  display: none;
-
-  @media (min-width: 1024px) {
-    display: grid;
-  }
-}
-
-.primaryNav {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-block: var(--padding-y);
-  transition: transform 0.5s var(--ease-out-back);
-
-  .isScrolled & {
-    transform: translateY(-100%);
-  }
-}
-
-.progress {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-self: flex-start;
-  transform: translateY(100%);
-  transition: transform 0.5s var(--ease-out-back);
-  align-items: center;
-
-  .isScrolled & {
-    transform: translateY(0%);
-  }
-}
-
-.pageName {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  padding-block: var(--padding-y);
-  padding-inline: var(--padding-x);
-  font-size: var(--font-size-base);
-  line-height: 1.2;
-  font-weight: 550;
-  transform: translateY(100%);
-  transition: transform 0.5s var(--ease-out-back);
-  padding-inline: 2rem;
-
-  .isScrolled & {
-    transform: translateY(0%);
-  }
-}
-
-.toggleMask {
-  height: 100%;
-  display: grid;
-  align-self: flex-start;
-  overflow: clip;
-  padding-inline: 1px;
-}
-
-.toggleContainer {
-  height: 100%;
-  display: flex;
-  transform: translateY(100%);
-  transition: transform 0.5s var(--ease-out-back);
-  align-items: center;
-
-  .isScrolled & {
-    transform: translateY(0%);
-  }
-}
-
-.contents {
-  display: contents;
-}
-
-.divider {
-  width: 2rem;
 }
 
 .searchButton {
@@ -209,6 +101,7 @@
   width: var(--button-small-height);
   border-radius: var(--radius-full);
   align-self: center;
+  justify-self: flex-end;
 
   &:focus-visible {
     outline: 1px solid var(--color-white);

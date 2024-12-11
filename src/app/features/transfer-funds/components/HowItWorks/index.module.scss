@@ -1,14 +1,13 @@
-.background {
-  color: var(--color-black);
-  border-top-left-radius: var(--radius-xl);
-  border-top-right-radius: var(--radius-xl);
-  border-bottom-left-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
-  background: var(--color-teal-100);
-  padding-block: var(--page-section-gap-base);
+.heading {
+  text-align: left;
+  margin-bottom: 1em;
 }
 
-.heading {
-  text-align: center;
-  margin-bottom: 1em;
+.content {
+  grid-column: span 12;
+  padding-block: var(--page-section-gap-base);
+
+  @media (min-width: 768px) {
+    grid-column: 1/8;
+  }
 }

@@ -7,6 +7,11 @@
   color: var(--color-white);
   position: relative;
   overflow: clip;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--page-padding-y);
 }
 
 .globe {
@@ -31,14 +36,18 @@
   @media (min-width: 1440px) {
     font-size: var(--font-size-5xl);
   }
+
+  @media (min-width: 2400px) {
+    font-size: var(--font-size-6xl);
+  }
 }
 
 .cards {
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: stretch;
+  gap: 0.25rem;
   padding-block: 1rem;
   overflow-x: auto;
   flex-wrap: nowrap;
@@ -48,14 +57,14 @@
   position: relative;
 
   @media (min-width: 1024px) {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 }
 
 .dividerLine {
   width: 2rem;
   height: 4px;
-  color: var(--color-white);
+  color: var(--color-primary-300);
   background-image: radial-gradient(circle, currentColor 2px, transparent 2px);
   background-position: left bottom;
   background-size: 12px 4px;
@@ -75,6 +84,7 @@
   width: 1.25rem;
   height: 1.25rem;
   margin-right: -0.25rem;
+  color: var(--color-primary-300);
 
   @media (min-width: 1024px) {
     margin-left: -0.5rem;

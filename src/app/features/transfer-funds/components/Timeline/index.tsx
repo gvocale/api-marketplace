@@ -15,6 +15,8 @@ import { InlineCode } from "../InlineCode";
 import { TimelineIndexItem } from "../TimelineIndexItem";
 import { TimelineItem } from "../TimelineItem";
 import styles from "./index.module.scss";
+import { TimelineIndexDivider } from "../TimelineIndexDivider";
+import { Grid } from "../Grid";
 
 export function Timeline() {
   const { config } = useContext(UserConfigContext);
@@ -24,19 +26,18 @@ export function Timeline() {
     switch (messagingStandard) {
       case FinancialMessagingStandard.SWIFT:
         return (
-          <ul className={styles.timeline}>
+          <>
             <TimelineItem
               id={TimelineId.SWIFT_1_CUSTOMER}
               icon={<Customer />}
-              tag="Initiation"
-              title="Ordering Customer"
+              title="Initiate Transfer"
               description="A customer initiates a wire transfer."
             />
 
             <TimelineItem
               icon={<WebsiteEndpoint />}
               id={TimelineId.SWIFT_2_CLIENT_HOST_APPLICATION}
-              title="Client Host Application"
+              title="Details Received"
               description={
                 <>
                   Our <InlineCode>/payments</InlineCode> API endpoint, receives
@@ -49,46 +50,47 @@ export function Timeline() {
             <TimelineItem
               icon={<MoneyTransaction />}
               id={TimelineId.SWIFT_3_ORDERING_CUSTOMER}
-              tag="Message Creation"
-              title="Ordering Institution"
-              description="The MT 103 message is created, containing all necessary details for the transfer."
+              title="Message Created"
+              description={
+                <>
+                  The <InlineCode>MT 103</InlineCode> message is created,
+                  containing all necessary details for the transfer.
+                </>
+              }
             />
 
             <TimelineItem
               icon={<IntermediaryBank />}
               id={TimelineId.SWIFT_4_INTERMEDIARY_BANK_A}
-              tag="Transmission"
-              title="Intermediary Bank A"
+              title="Transmitted to Bank"
               description="The message is transmitted through the Swift network to the recipient's bank."
             />
 
             <TimelineItem
               id={TimelineId.SWIFT_5_INTERMEDIARY_BANK_B}
               icon={<Currencies />}
-              title="Intermediary Bank B"
+              title="Currency Exchanged"
               description="Multiple intermediary banks can be involved in case of currency exchange."
             />
 
             <TimelineItem
               icon={<BeneficiaryBank />}
               id={TimelineId.SWIFT_6_BENEFICIARY_BANK}
-              tag="Processing"
-              title="Beneficiary Bank"
+              title="Recipient Account Credited"
               description="The recipient's bank processes the message and credits the recipient's account."
             />
 
             <TimelineItem
               icon={<Beneficiary />}
               id={TimelineId.SWIFT_7_BENEFICIARY}
-              tag="Confirmation"
-              title="Beneficiary"
+              title="Transfer Confirmed"
               description="Confirmation of the transfer is sent back to the sender, completing the transaction."
             />
-          </ul>
+          </>
         );
       case FinancialMessagingStandard.PACS:
         return (
-          <ul className={styles.timeline}>
+          <>
             <TimelineItem
               icon={<Customer />}
               id={TimelineId.PACS_1_CUSTOMER}
@@ -141,7 +143,7 @@ export function Timeline() {
               title="Creditor"
               description="After processing, a confirmation message is sent back to the initiating bank, confirming that the payment has been successfully completed."
             />
-          </ul>
+          </>
         );
     }
   }
@@ -151,120 +153,59 @@ export function Timeline() {
       case FinancialMessagingStandard.SWIFT:
         return (
           <>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.SWIFT_1_CUSTOMER}
-            >
-              Customer
+            <TimelineIndexItem id={TimelineId.SWIFT_1_CUSTOMER}>
+              Initiate Transfer
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.SWIFT_2_CLIENT_HOST_APPLICATION}
-            >
-              Client Host Application
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.SWIFT_2_CLIENT_HOST_APPLICATION}>
+              Details Received
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.SWIFT_3_ORDERING_CUSTOMER}
-            >
-              Ordering Institution
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.SWIFT_3_ORDERING_CUSTOMER}>
+              Message Created
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.SWIFT_4_INTERMEDIARY_BANK_A}
-            >
-              Intermediary Bank A
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.SWIFT_4_INTERMEDIARY_BANK_A}>
+              Transmitted to Bank
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.SWIFT_5_INTERMEDIARY_BANK_B}
-            >
-              Intermediary Bank B
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.SWIFT_5_INTERMEDIARY_BANK_B}>
+              Currency Exchanged
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.SWIFT_6_BENEFICIARY_BANK}
-            >
-              Beneficiary Bank
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.SWIFT_6_BENEFICIARY_BANK}>
+              Recipient Account Credited
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.SWIFT_7_BENEFICIARY}
-            >
-              Beneficiary
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.SWIFT_7_BENEFICIARY}>
+              Transfer Confirmed
             </TimelineIndexItem>
           </>
         );
       case FinancialMessagingStandard.PACS:
         return (
           <>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.PACS_1_CUSTOMER}
-            >
+            <TimelineIndexItem id={TimelineId.PACS_1_CUSTOMER}>
               Debtor
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.PACS_2_CLIENT_HOST_APPLICATION}
-            >
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.PACS_2_CLIENT_HOST_APPLICATION}>
               Client Host Application
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.PACS_3_DEBTOR_AGENT}
-            >
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.PACS_3_DEBTOR_AGENT}>
               Debtor Agent
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.PACS_4_INTERMEDIARY_AGENT}
-            >
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.PACS_4_INTERMEDIARY_AGENT}>
               Intermediary Agent 1
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.PACS_5_CREDITOR_AGENT}
-            >
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.PACS_5_CREDITOR_AGENT}>
               Creditor Agent
             </TimelineIndexItem>
-            <div className={styles.lineContainer}>
-              <div className={styles.line} />
-            </div>
-            <TimelineIndexItem
-              className={styles.indexItem}
-              id={TimelineId.PACS_6_CREDITOR}
-            >
+            <TimelineIndexDivider />
+            <TimelineIndexItem id={TimelineId.PACS_6_CREDITOR}>
               Creditor
             </TimelineIndexItem>
           </>
@@ -274,12 +215,12 @@ export function Timeline() {
 
   return (
     <Container>
-      <div className={styles.root}>
+      <Grid>
         <div className={styles.indexContainer}>
           <ol className={styles.index}>{renderTimelineIndex()}</ol>
         </div>
-        <div className={styles.timelineContainer}>{renderTimeline()}</div>
-      </div>
+        <ol className={styles.timeline}>{renderTimeline()}</ol>
+      </Grid>
     </Container>
   );
 }

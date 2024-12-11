@@ -1,0 +1,30 @@
+.timelineIndexDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+}
+
+.lineContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 2px;
+  align-self: center;
+  background-color: var(--color-grayscale-400);
+}
+
+.line {
+  height: 100%;
+  background-color: var(--color-blue-500);
+  width: 100%;
+  transform: scaleY(0);
+  transition: transform 0.2s var(--ease-out-back);
+  transform-origin: top center;
+
+  .timelineIndexDivider:has(~ [data-active="true"]) & {
+    transform: scaleY(1);
+  }
+}

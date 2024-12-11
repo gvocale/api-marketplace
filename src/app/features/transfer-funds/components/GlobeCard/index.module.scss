@@ -1,31 +1,32 @@
 .globeCard {
   display: flex;
   width: fit-content;
-  padding: 1.5rem;
+  padding: 2rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  background-color: #001d32;
+  background-color: color-mix(in hsl, var(--color-purple-700), transparent 75%);
+  backdrop-filter: blur(20px);
   color: var(--color-white);
   border-radius: var(--radius-lg);
-  padding-bottom: 1rem;
-  width: 240px;
+  width: 18rem;
   cursor: pointer;
   transition: transform 0.5s var(--ease-out-back);
   text-decoration: none;
   position: relative;
   outline: none;
   flex-shrink: 0;
+  border: 1px solid color-mix(in hsl, var(--color-white), transparent 85%);
+  color: var(--color-white);
 
   &.isActive {
-    background-color: var(--color-white);
-    color: var(--color-black);
+    background-color: color-mix(in hsl, var(--color-white), transparent 75%);
   }
 
   &:hover,
   &:focus-visible {
-    transform: scale(1.1);
-    transition-duration: 0.25s;
+    transform: scale(1.075);
+    transition-duration: 0.2s;
   }
 }
 
@@ -40,21 +41,20 @@
   border-radius: inherit;
   background-color: transparent;
   outline: 2px solid var(--color-outline);
-  outline-offset: 3px;
   transition: opacity 0.5s var(--ease-out-back);
 }
 
 .globeCard:hover .outline,
 .globeCard:focus-visible .outline {
   opacity: 1;
-  transition-duration: 0.25s;
+  transition-duration: 0.2s;
 }
 
 .icon {
   color: var(--color-white);
-  background-color: var(--color-black);
-  height: 2rem;
-  width: 2rem;
+  background-image: var(--gradient-1);
+  height: 2.5rem;
+  width: 2.5rem;
   border-radius: var(--radius-full);
   padding: 0.5rem;
   flex-shrink: 0;
@@ -68,12 +68,12 @@
   font-size: var(--font-size-base);
   font-weight: 550;
   text-wrap: pretty;
-}
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 
-.iconContainer {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-lg);
+  }
 }
 
 .description {
@@ -81,6 +81,10 @@
   text-wrap: pretty;
   line-height: 1.5;
   font-weight: 500;
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-sm);
+  }
 }
 
 .iconButton {
@@ -117,11 +121,7 @@
   padding: 0.75rem;
   width: var(--button-small-height);
   height: var(--button-small-height);
-  background-color: var(--color-teal-100);
-
-  .globeCard:not(.isActive) & {
-    background-color: var(--color-teal-600);
-  }
+  background-color: color-mix(in hsl, var(--color-white), transparent 75%);
 
   svg {
     width: 1rem;
@@ -160,11 +160,11 @@
 .globeCard.isActive:hover .buttonIconContainer,
 .globeCard.isActive:focus-visible .buttonIconContainer {
   transform: translateY(var(--button-large-height));
-  transition-duration: 0.25s;
+  transition-duration: 0.2s;
 }
 
 .globeCard:not(.isActive):hover .buttonIconContainer,
 .globeCard:not(.isActive):focus-visible .buttonIconContainer {
   transform: translateX(var(--button-large-height));
-  transition-duration: 0.25s;
+  transition-duration: 0.2s;
 }
