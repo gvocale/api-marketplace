@@ -14,7 +14,10 @@ export function Navigation() {
   const { isScrolled } = useContext(IsScrolledContext);
 
   return (
-    <nav className={`${styles.nav} ${isScrolled ? styles.isScrolled : ""}`}>
+    <nav
+      className={`${styles.nav} ${isScrolled ? styles.isScrolled : ""}`}
+      inert={isScrolled}
+    >
       <Link href="/" className={styles.logoLink}>
         <BNYMarketplaceLogo className={styles.logo} />
       </Link>

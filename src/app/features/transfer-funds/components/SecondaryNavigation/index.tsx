@@ -1,15 +1,18 @@
-import { useContext } from "react";
-import styles from "./index.module.scss";
 import Link from "next/link";
-import { BNYMarketplaceLogo } from "../../svg-images/BNYMarketplaceLogo";
+import { useContext } from "react";
 import { IsScrolledContext } from "../../context/is-scrolled";
+import { BNYMarketplaceLogo } from "../../svg-images/BNYMarketplaceLogo";
 import { Progress } from "../Progress";
+import styles from "./index.module.scss";
 
 export function SecondaryNavigation() {
   const { isScrolled } = useContext(IsScrolledContext);
 
   return (
-    <nav className={`${styles.nav} ${isScrolled ? styles.isScrolled : ""}`}>
+    <nav
+      className={`${styles.nav} ${isScrolled ? styles.isScrolled : ""}`}
+      inert={!isScrolled}
+    >
       <Link href="/" className={styles.logoLink}>
         <BNYMarketplaceLogo className={styles.logo} />
       </Link>
