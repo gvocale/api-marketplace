@@ -10,7 +10,7 @@ export function ConnectingLine({
   size = "large",
 }: ConnectingLineProps) {
   return (
-    <div className={`${styles.root} ${styles[size]} ${className}`}>
+    <div className={`${styles.root} ${styles[size]} ${className ?? ""}`}>
       <div className={`${styles.circle} ${styles.before}`}></div>
       <div className={styles.divider}>
         <div className={styles.triangle}></div>

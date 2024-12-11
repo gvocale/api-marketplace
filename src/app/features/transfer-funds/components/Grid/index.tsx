@@ -7,5 +7,5 @@ export function Grid({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={`${styles.grid} ${className}`}>{children}</div>;
+  return <div className={`${styles.grid} ${className ?? ""}`}>{children}</div>;
 }

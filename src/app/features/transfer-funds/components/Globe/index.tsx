@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { GlobeMethods, GlobeProps } from "react-globe.gl";
+import * as interRegular from "./inter-regular.json";
 
 interface GlobeLabelData {
   lat: number;
@@ -31,7 +32,7 @@ export function Globe() {
   const [globeWidth, setGlobeWidth] = useState(0);
   const [globeHeight, setGlobeHeight] = useState(0);
 
-  const props = {
+  const props: GlobeProps = {
     labelsData: [
       { name: "$ USD", lat: 40.7128, lng: -74.006 }, // New York
       { name: "€ EUR", lat: 51.5074, lng: -0.1278 }, // London
@@ -42,13 +43,17 @@ export function Globe() {
       { name: "$ AUD", lat: -33.8688, lng: 151.2093 }, // Sydney
       { name: "$ HKD", lat: 22.3193, lng: 114.1694 }, // Hong Kong
     ],
+    // @ts-expect-error GlobeProps is not typed
     labelLat: (d: GlobeLabelData) => d.lat,
+    // @ts-expect-error GlobeProps is not typed
     labelLng: (d: GlobeLabelData) => d.lng,
+    // @ts-expect-error GlobeProps is not typed
     labelText: (d: GlobeLabelData) => d.name,
     labelSize: 0.8,
     labelDotRadius: 0.4,
     labelColor: () => "rgba(255, 255, 255, 0.25)",
     labelAltitude: 0.01,
+    labelTypeFace: interRegular,
     // labelResolution: 10,
     cameraPosition: { x: undefined, y: 10300, z: undefined },
   };
@@ -89,7 +94,6 @@ export function Globe() {
 
   return (
     <div style={{ width: "100%", height: "100%" }} ref={globeContainerRef}>
-      {/* @ts-expect-error GlobeProps is not typed */}
       <GlobeForwarded
         ref={globeRef}
         {...props}

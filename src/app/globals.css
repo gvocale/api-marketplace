@@ -111,7 +111,11 @@
   --color-accent: var(--color-primary-500);
   --color-outline: var(--color-primary-500);
 
-  --scroll-margin-top: 25dvh;
+  --scroll-margin-top: 20dvh;
+
+  @media (min-width: 2400px) {
+    --scroll-margin-top: 25dvh;
+  }
 
   --button-large-height: 3.5rem;
   --button-small-height: 2.75rem;
@@ -120,7 +124,7 @@
   --grid-gap-base: 2rem;
   --grid-gap-sm: 1rem;
 
-  @media (min-width: 1500px) {
+  @media (min-width: 2400px) {
     --grid-gap-base: 3rem;
   }
 

@@ -10,10 +10,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 4rem;
+  height: 2rem;
   width: 2px;
   align-self: center;
   background-color: var(--color-grayscale-400);
+
+  @media (min-width: 2400px) {
+    height: 4rem;
+  }
 }
 
 .line {

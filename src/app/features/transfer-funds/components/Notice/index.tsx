@@ -8,7 +8,7 @@ export interface NoticeProps {
 
 export function Notice({ children, className, size = "sm" }: NoticeProps) {
   return (
-    <div className={`${styles.notice} ${styles[size]} ${className}`}>
+    <div className={`${styles.notice} ${styles[size]} ${className ?? ""}`}>
       {children}
     </div>
   );

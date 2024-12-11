@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 
 export function Progress({ className }: { className?: string }) {
   return (
-    <ol className={`${styles.progress} ${className}`}>
+    <ol className={`${styles.progress} ${className ?? ""}`}>
       <li>
         <ProgressItem
           href="/products/transfer-funds/initiate-a-payment"

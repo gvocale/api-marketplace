@@ -63,7 +63,8 @@
   }
 }
 
-a.card {
+.card[href] {
+  cursor: pointer;
   &:not(.isActive):hover {
     background-color: var(--color-blue-200);
   }
@@ -89,4 +90,9 @@ a.card {
   align-items: baseline;
   gap: 0.5rem;
   justify-content: center;
+}
+
+.descriptionBox {
+  overflow: clip;
+  transform-origin: top;
 }

@@ -12,7 +12,7 @@
   left: 50%;
   top: var(--navbar-top);
   transform: translateX(-50%) translateY(0);
-  transition: transform 0.125s var(--ease-out-quart);
+  transition: transform 0.2s var(--ease-out-quart);
   z-index: var(--z-index-navigation);
   background-color: var(--color-grayscale-900);
   backdrop-filter: blur(20px);

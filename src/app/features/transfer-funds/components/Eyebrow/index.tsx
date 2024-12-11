@@ -7,5 +7,5 @@ export function Eyebrow({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={`${styles.eyebrow} ${className}`}>{children}</div>;
+  return <div className={`${styles.eyebrow} ${className ?? ""}`}>{children}</div>;
 }

@@ -12,6 +12,7 @@
   line-height: 1.2;
   padding-inline: 1rem;
   text-decoration: none;
+  white-space: nowrap;
 
   @media (min-width: 2400px) {
     font-size: var(--font-size-base);
