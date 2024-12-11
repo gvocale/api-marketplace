@@ -1,15 +1,15 @@
+import { SectionId } from "@/app/features/types";
 import { useInView } from "motion/react";
 import { useContext, useEffect, useRef } from "react";
 import { IsScrolledContext } from "../../context/is-scrolled";
-import { Container } from "../Container";
-import { Globe } from "../Globe";
-import { GlobeCard } from "../GlobeCard";
-import styles from "./index.module.scss";
-import { SectionId } from "@/app/features/types";
 import { AngleRight } from "../../icons/AngleRight";
 import { ArrowRightFromArc } from "../../icons/ArrowRightFromArc";
 import { ArrowRightToArc } from "../../icons/ArrowRightToArc";
 import { MagnifyingGlassDollar } from "../../icons/MagnifyingGlassDollar";
+import { Container } from "../Container";
+import { Globe } from "../Globe";
+import { GlobeCard } from "../GlobeCard";
+import styles from "./index.module.scss";
 
 export function Header() {
   const ref = useRef(null);
@@ -24,6 +24,7 @@ export function Header() {
     <header className={styles.header} ref={ref}>
       <div className={styles.globe}>
         <Globe />
+        {/* <GlobeMinimalistic /> */}
       </div>
       <div>
         <Container className={styles.headingContainer}>

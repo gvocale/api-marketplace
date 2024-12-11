@@ -7,9 +7,9 @@ import {
   useState,
 } from "react";
 import { GlobeMethods, GlobeProps } from "react-globe.gl";
-import * as THREE from "three";
 import * as interRegular from "./inter-regular.json";
 // import * as d3 from "d3";
+import countriesGeoJson from "./countries.json";
 import { CAPITAL_CITIES } from "./data";
 
 interface GlobeLabelData {
@@ -26,10 +26,6 @@ const GlobeForwarded = forwardRef<GlobeMethods, GlobeProps>((props, ref) => (
 ));
 
 GlobeForwarded.displayName = "GlobeForwarded";
-
-const CLOUDS_IMG_URL = "/transfer-funds/images/clouds.png";
-const CLOUDS_ALT = 0.001;
-const CLOUDS_ROTATION_SPEED = -0.001; // deg/frame
 
 export function Globe() {
   const globeRef = useRef<GlobeMethods | null>(null);
@@ -51,13 +47,13 @@ export function Globe() {
     labelLng: (d: GlobeLabelData) => d.lng,
     // @ts-expect-error GlobeProps is not typed
     labelText: (d: GlobeLabelData) => d.name,
-    labelSize: 0.8,
+    labelSize: 0.5,
     labelDotRadius: 0.4,
     labelColor: () => "rgba(255, 255, 255, 0.25)",
     labelAltitude: 0.01,
     labelTypeFace: interRegular,
     // labelResolution: 10,
-    cameraPosition: { x: undefined, y: 10300, z: undefined },
+    cameraPosition: { x: undefined, y: 10300, z: 200 },
   };
 
   useEffect(() => {
@@ -67,7 +63,7 @@ export function Globe() {
       {
         lat: 40.7128,
         lng: -74.006,
-        altitude: 1,
+        altitude: 2,
       },
       startTime
     );
@@ -75,27 +71,31 @@ export function Globe() {
     globeRef.current.controls().autoRotate = true;
     globeRef.current.controls().autoRotateSpeed = 1;
 
-    new THREE.TextureLoader().load(CLOUDS_IMG_URL, (cloudsTexture) => {
-      if (!globeRef.current) return;
-      const clouds = new THREE.Mesh(
-        new THREE.SphereGeometry(
-          globeRef.current.getGlobeRadius() * (1 + CLOUDS_ALT),
-          75,
-          75
-        ),
-        new THREE.MeshPhongMaterial({
-          map: cloudsTexture,
-          transparent: true,
-          opacity: 0.25,
-        })
-      );
-      globeRef.current.scene().add(clouds);
+    // const CLOUDS_IMG_URL = "/transfer-funds/images/clouds.png";
+    // const CLOUDS_ALT = 0.001;
+    // const CLOUDS_ROTATION_SPEED = -0.001; // deg/frame
 
-      (function rotateClouds() {
-        clouds.rotation.y += (CLOUDS_ROTATION_SPEED * Math.PI) / 180;
-        requestAnimationFrame(rotateClouds);
-      })();
-    });
+    // new THREE.TextureLoader().load(CLOUDS_IMG_URL, (cloudsTexture) => {
+    //   if (!globeRef.current) return;
+    //   const clouds = new THREE.Mesh(
+    //     new THREE.SphereGeometry(
+    //       globeRef.current.getGlobeRadius() * (1 + CLOUDS_ALT),
+    //       75,
+    //       75
+    //     ),
+    //     new THREE.MeshPhongMaterial({
+    //       map: cloudsTexture,
+    //       transparent: true,
+    //       opacity: 0.25,
+    //     })
+    //   );
+    //   globeRef.current.scene().add(clouds);
+
+    //   (function rotateClouds() {
+    //     clouds.rotation.y += (CLOUDS_ROTATION_SPEED * Math.PI) / 180;
+    //     requestAnimationFrame(rotateClouds);
+    //   })();
+    // });
   }, [globeReady, globeRef]);
 
   useEffect(() => {
@@ -131,26 +131,26 @@ export function Globe() {
         // arcStartLng={(d) => +d.srcAirport.lng}
         // arcEndLat={(d) => +d.dstAirport.lat}
         // arcEndLng={(d) => +d.dstAirport.lng}
-        arcDashLength={0.4}
-        arcDashGap={0.2}
-        arcDashAnimateTime={1500}
-        arcsTransitionDuration={0}
+        // arcDashLength={0.4}
+        // arcDashGap={0.2}
+        // arcDashAnimateTime={1500}
+        // arcsTransitionDuration={0}
         // arcColor={(d) => {
         //   const op = !hoverArc ? OPACITY : d === hoverArc ? 0.9 : OPACITY / 4;
         //   return [`rgba(0, 255, 0, ${op})`, `rgba(255, 0, 0, ${op})`];
         // }}
         // onArcHover={setHoverArc}
         // pointsData={airports}
-        pointColor={() => "orange"}
-        pointAltitude={0}
-        pointRadius={0.04}
-        pointsMerge={true}
+        // pointColor={() => "orange"}
+        // pointAltitude={0}
+        // pointRadius={0.04}
+        // pointsMerge={true}
         onGlobeReady={() => setGlobeReady(true)}
         // globeImageUrl="/transfer-funds/images/earth-blue-marble.jpg"
-        // globeImageUrl="/transfer-funds/images/earth-dark.jpg"
-        globeImageUrl="/transfer-funds/images/earth-night.jpg"
+        globeImageUrl="/transfer-funds/images/earth-dark.jpg"
+        // globeImageUrl="/transfer-funds/images/earth-night.jpg"
         bumpImageUrl="/transfer-funds/images/earth-topology.png"
-        backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+        // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
         showAtmosphere={true}
         animateIn={true}
         // arcDashAnimateTime={180}
@@ -158,6 +158,17 @@ export function Globe() {
         // arcDashGap={250}
         width={globeWidth}
         height={globeHeight}
+        hexPolygonsData={countriesGeoJson.features}
+        hexPolygonResolution={3}
+        hexPolygonMargin={0.3}
+        // hexPolygonUseDots={true}
+        hexPolygonColor={() => "#3D487E"}
+
+        // hexPolygonColor={() =>
+        //   `#${Math.round(Math.random() * Math.pow(2, 24))
+        //     .toString(16)
+        //     .padStart(6, "0")}`
+        // }
       />
     </div>
   );
