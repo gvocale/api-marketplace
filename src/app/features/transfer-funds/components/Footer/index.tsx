@@ -1,11 +1,10 @@
-import Image from "next/image";
-import { TextLink } from "../TextLink";
-import styles from "./index.module.scss";
-import { Divider } from "../Divider";
-import { Container } from "../Container";
-import { InView } from "../InView";
 import { SectionId } from "@/app/features/types";
 import { BNYMarketplaceLogo } from "../../svg-images/BNYMarketplaceLogo";
+import { Container } from "../Container";
+import { Divider } from "../Divider";
+import { InView } from "../InView";
+import { TextLink } from "../TextLink";
+import styles from "./index.module.scss";
 
 export function Footer() {
   return (
